@@ -1,0 +1,6 @@
+(define (problem triangle-tire-1)
+	(:domain triangle-tire)
+	(:objects l11 l12 l13 l21 l22 l31 - location)
+	(:init (not-flattire) (q1 l31 l12) (road l11 l12) (road l11 l21) (road l12 l13) (road l13 l22) (road l21 l12) (road l21 l22) (road l21 l31) (road l31 l22) (spare-in l21) (spare-in l22) (spare-in l31) (turnDomain) (vehicleat l11))
+(:goal (and (q4 l31 l12) (turnDomain)))
+)
