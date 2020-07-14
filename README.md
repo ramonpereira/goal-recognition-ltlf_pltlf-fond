@@ -1,5 +1,7 @@
-# GR_LTLfPLTLf_FOND_Planning
-Goal Recognition in FOND Planning Domain Models with LTLf and PLTL Goals
+# Goal Recognition in FOND Planning Domain Models with LTLf and PLTL Goals
+
+In this project, we develop goal recognition approaches that are capable to recognize LTLf and PLTL goals in fully observable non-deterministic domain models.
+Our approaches use off-the-shelf FOND planners.
 
 ## Prerequisites
 
