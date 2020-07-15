@@ -1,5 +1,3 @@
-
-
 ################################################################
 ##
 ##  Note: It is assumed that the policy file
@@ -13,9 +11,6 @@
 ##
 ###########################################################
 
-
-
-
 POLICY = None
 FSAP = None
 
@@ -23,10 +18,10 @@ def load(pol, fmap):
     global POLICY
     global FSAP
 
-    print "\nLoading PRP policy..."
+    print("\nLoading PRP policy...")
 
     with open(pol, 'r') as f:
-        file_lines = filter(lambda x: x != '', [line.rstrip("\n") for line in f.readlines()])
+        file_lines = list(filter(lambda x: x != '', [line.rstrip("\n") for line in f.readlines()]))
 
     POLICY = []
     FSAP = {}

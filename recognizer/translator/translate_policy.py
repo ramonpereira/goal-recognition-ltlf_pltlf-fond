@@ -105,10 +105,12 @@ def translate(policy, output_policy):
     num_vars = int(var_lines[index])
     index += 1
 
+    set_fluents = set()
     for i in range(num_vars):
         (name, vals, index) = parse_var(var_lines, index)
         for j in range(len(vals)):
             mapping["%s:%s" % (name, j)] = vals[j]
+            set_fluents.add(vals[j])
 
     # print "Mapping:\n"
     # print '\n'.join(["  %s\t<-> \t %s" % (k,mapping[k]) for k in sorted(mapping.keys())])
@@ -120,3 +122,5 @@ def translate(policy, output_policy):
     translated_policy_file = open(output_policy, "w")
     translated_policy_file.write(translated_policy)
     translated_policy_file.close()
+
+    return set_fluents

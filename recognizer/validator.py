@@ -50,8 +50,9 @@ init_state = None
 goal_state = None
 unhandled = []
 nodes = {}
+states_to_actions = dict()
 
-def validate_and_generate_graph(dfile, pfile, sol, val):
+def validate_and_generate_graph(dfile, pfile, sol, val, set_fluents):
     """ Validate the policy and generate graph structure. """
 
     module_validator = importlib.import_module("validators.%s" % val)
@@ -63,27 +64,37 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
     unfluents = {}
 
     index = 1
+    # for f in set_fluents:
     for f in problem.fluents:
+        # if 'not' in f:
+        #     continue
+        # f = f.replace(',', '')
         fluents[str(f).lower()] = index
         fluents["not(%s)" % str(f).lower()] = -1 * index
         unfluents[index] = str(f).lower()
         unfluents[-1 * index] = "not(%s)" % str(f).lower()
         index += 1
 
+    # print fluents
+    
     global actions
     actions = {}
+
     for op in problem.operators:
         if '_' == op.name[-1]:
             op_name = op.name[:-1].lower()
         else:
             op_name = op.name.lower()
         
+        if 'trans' in op_name:
+            continue
         actions[op_name] = [VALAction(_convert_conjunction(fluents, op.precondition),
                                       _convert_cond_effect(fluents, eff), op_name, unfluents)
                             for eff in flatten(op)]
 
         #print "\n%s\n%s" % (op.name, '\n'.join(map(str, actions[op.name])))
 
+    # print actions
     global init_state
     init_state = State(_convert_conjunction(fluents, problem.init))
     # print _state_string(unfluents, init_state)
@@ -105,7 +116,7 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
 
     module_validator.load(sol, fluents)
 
-    print "\nStarting the FOND simulation..."
+    # print "\nStarting the FOND simulation..."
 
     unhandled = []
 
@@ -122,6 +133,10 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
             unhandled.append(u)
         else:
             i = 0
+            if 'goal' in a:
+                continue
+            if 'trans' in a:
+                continue
             for outcome in actions[a]:
                 v = progress(u, outcome, unfluents)
                 # print "\nNew state:"
@@ -136,9 +151,7 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
                     G.add_node(nodes[v], label=node_index-1)
                     open_list.append(v)
 
-                # print nodes[u]
-                # print nodes[v]
-                # print (a, i)
+                states_to_actions[str(nodes[u]) + ' -> ' + str(nodes[v])] = a
                 G.add_edge(nodes[u], nodes[v], label="%s (%d)" % (a, i))
     return G
 
@@ -198,7 +211,7 @@ def progress(s, o, m):
                     adds.add(reff)
 
     if 0 != len(adds & dels):
-        print "Warning: Conflicting adds and deletes on action %s" % str(o)
+        print("Warning: Conflicting adds and deletes on action %s" % str(o))
 
     return State(((s.fluents - dels) | adds))
 
@@ -216,26 +229,55 @@ def generate_actions_mapping_and_unfluents():
             for s in unhandled:
                 f.write("\n%s\n" % _state_string(unfluents, s))
     
-    print "  Action mapping: action.map"
+    print("  Action mapping: action.map")
     if len(unhandled) > 0:
-        print "Unhandled states: unhandled.states"                
+        print("Unhandled states: unhandled.states")
 
 def generate_dot_graph(G):    
     # Analyze the final controller.
-    print "\n{ Policy Statistics }\n"
-    print "\t Nodes: %d" % G.number_of_nodes()
-    print "\t Edges: %d" % G.number_of_edges()
-    print "     Unhandled: %d" % len(unhandled)
-    print "\tStrong: %s" % str(0 == len(list(nx.simple_cycles(G))))
-    print " Strong Cyclic: %s" % str(G.number_of_nodes() == len(nx.single_source_shortest_path(G.reverse(), nodes[goal_state])))
-
-    # print([p for p in nx.all_shortest_paths(G, nodes[init_state], nodes[goal_state])])
-    # print([p for p in nx.all_simple_paths(G, nodes[init_state], nodes[goal_state])])
+    print("\n{ Policy Statistics }\n")
+    print("\t Nodes: %d" % G.number_of_nodes())
+    print("\t Edges: %d" % G.number_of_edges())
+    print("     Unhandled: %d" % len(unhandled))
+    print("\tStrong: %s" % str(0 == len(list(nx.simple_cycles(G)))))
+    print(" Strong Cyclic: %s" % str(G.number_of_nodes() == len(nx.single_source_shortest_path(G.reverse(), nodes[goal_state]))))
 
     write_dot(G, 'graph.dot')
 
-    print "\n     Plan output: graph.dot"
+    print("\n     Plan output: graph.dot")
     # _generate_actions_mapping_and_unfluents()
+
+
+def extract_all_shortest_plans(G):
+    shortest_paths = [p for p in nx.all_shortest_paths(G, nodes[init_state], nodes[goal_state])]
+    all_shortest_plans, _ = _extract_plans_from_paths(shortest_paths)
+
+    return all_shortest_plans
+
+def extract_all_plans(G):
+    paths = [p for p in nx.all_simple_paths(G, nodes[init_state], nodes[goal_state])]
+    all_plans, set_actions = _extract_plans_from_paths(paths)
+
+    return all_plans, set_actions
+
+def _extract_plans_from_paths(paths):
+    plans = []
+    actions = set()
+    paths_set = []
+    for p in paths:
+        if not p in paths_set:
+            paths_set.append(p)
+    
+    for p in paths_set:
+        plan = []
+        for i, a in enumerate(p):
+            if (i < len(p)-1):
+                s_to_action = str(p[i]) + ' -> ' + str(p[i+1])
+                plan.append(states_to_actions[s_to_action])
+                actions.add(states_to_actions[s_to_action])
+        plans.append(plan)
+
+    return plans, actions
 
 if __name__ == '__main__':
     """
