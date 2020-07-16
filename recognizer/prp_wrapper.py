@@ -1,7 +1,7 @@
 """
  Author: Ramon Fraga Pereira
  
- The aim of this wrapper is to call PRP planner and generate some data structures from the extracted policy.
+ The aim of this wrapper is to call PRP planner to plan and generate some data structures from the extracted policy.
  For example, a directed graph representing the policy, 
  and all valid paths (plans) to achieve the goal state (G) from the initial state (s0).
 """
@@ -15,6 +15,13 @@ import fond4ltlfpltlf.core
 from fond4ltlfpltlf.automa.symbol import Symbol
 
 def plan(domain_path, problem_path, verbose=True, ltl=False, graph=False, plans=False):
+    """ 
+        Planning for conjunctive goals and temporally extended goals (LTLf or PLTL).
+
+    """
+    """ Removing temporary files. """
+    os.system('rm -rf graph.dot *.out *.fsap plan_numbers_and_cost sas_plan elapsed.time output *.sas')
+
     original_domain = domain_path
     original_problem = problem_path
     VERBOSE = verbose

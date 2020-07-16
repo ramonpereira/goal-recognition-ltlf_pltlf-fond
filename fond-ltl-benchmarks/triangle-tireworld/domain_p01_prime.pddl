@@ -1,7 +1,7 @@
 (define (domain triangle-tire)
 	(:requirements :typing :strips :non-deterministic)
 	(:types location)
-	(:predicates (vehicleat ?loc - location) (sparein ?loc - location) (road ?from - location ?to - location) (notflattire) (turnDomain) (q2 ?loc68 - location) (q3 ?loc68 - location) (q1 ?loc68 - location))
+	(:predicates (vehicleat ?loc - location) (sparein ?loc - location) (road ?from - location ?to - location) (notflattire) (turnDomain) (q1 ?loc63 - location) (q3 ?loc63 - location) (q2 ?loc63 - location))
 	(:action move-car
 		:parameters (?from - location ?to - location)
 		:precondition (and (vehicleat ?from) (road ?from ?to) (notflattire) (turnDomain))
@@ -12,14 +12,14 @@
 		:precondition (and (sparein ?loc) (vehicleat ?loc) (turnDomain))
 		:effect (and (not (sparein ?loc)) (notflattire) (not (turnDomain)))
 	)
-	(:action trans-0
-		:parameters (?loc68 - location)
-		:precondition (and (or (and (q1 ?loc68) (not (vehicleat ?loc68))) (and (q2 ?loc68) (not (vehicleat ?loc68)))) (not (turnDomain)))
-		:effect (and (q2 ?loc68) (not (q3 ?loc68)) (not (q1 ?loc68)) (turnDomain))
-	)
 	(:action trans-1
-		:parameters (?loc68 - location)
-		:precondition (and (or (and (q1 ?loc68) (vehicleat ?loc68)) (and (q2 ?loc68) (vehicleat ?loc68)) (q3 ?loc68)) (not (turnDomain)))
-		:effect (and (q3 ?loc68) (not (q2 ?loc68)) (not (q1 ?loc68)) (turnDomain))
+		:parameters (?loc63 - location)
+		:precondition (and (or (and (q1 ?loc63) (vehicleat ?loc63)) (and (q2 ?loc63) (vehicleat ?loc63)) (q3 ?loc63)) (not (turnDomain)))
+		:effect (and (q3 ?loc63) (not (q1 ?loc63)) (not (q2 ?loc63)) (turnDomain))
+	)
+	(:action trans-2
+		:parameters (?loc63 - location)
+		:precondition (and (or (and (q1 ?loc63) (not (vehicleat ?loc63))) (and (q2 ?loc63) (not (vehicleat ?loc63)))) (not (turnDomain)))
+		:effect (and (q2 ?loc63) (not (q1 ?loc63)) (not (q3 ?loc63)) (turnDomain))
 	)
 )
