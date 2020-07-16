@@ -1,0 +1,24 @@
+# IDE Files
+.idea
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Other files
+recognizer/elapsed.time
+recognizer/graph.dot
+recognizer/output
+recognizer/output.sas
+recognizer/plan_numbers_and_cost
+recognizer/policy-translated.out
+recognizer/policy.fsap
+recognizer/policy.out
+recognizer/sas_plan
