@@ -27,7 +27,7 @@ def main(args):
         in_domain = open(domain).read()
         in_problem = open(problem).read()
         ltl_formula = open(problem.replace('.pddl', '.formula')).read()
-        print('$> LTLf/PLTL Formula: ')
+        print('\n$> LTLf/PLTL Formula: ')
         print(ltl_formula)
 
         domain_prime, problem_prime = fond4ltlfpltlf.core.execute(in_domain, in_problem, ltl_formula)
@@ -45,20 +45,19 @@ def main(args):
         prp_planner_command = '../planning/PRP/./prp ' + domain + ' ' + problem + ' --dump-policy 2 >/dev/null 2>&1'
         os.system(prp_planner_command)
 
-    # """ Translate the policy from SAS+ to instantiated standard facts. """
+    # # """ Translate the policy from SAS+ to instantiated standard facts. """
     set_fluents = set()
     set_fluents = translator.translate('policy.out', 'policy-translated.out')
 
     if ltl:
+        os.system('cp policy-translated.out policy-with-trans.out')
         translator_ltl.process_policy('policy-translated.out')
         """ TO-DO: Improve this part. """
         os.system('mv new-policy.out policy-translated.out')
 
 
-    # """ Validade the policy (from the initial state to the goal state) and generate the data structure. """
-    # print(original_domain)
-    # print(original_problem)
-    print(set_fluents)
+    """ Validade the policy (from the initial state to the goal state) and generate the data structure. """
+    
     G = validator.validate_and_generate_graph(original_domain, original_problem, 'policy-translated.out', 'prp', set_fluents)
     validator.generate_dot_graph(G)
 

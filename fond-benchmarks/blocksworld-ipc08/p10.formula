@@ -1,1 +1,1 @@
-F(emptyhand & on_b1_b2)
+F(emptyhand & on_b1_b2 & ontable_b2 & on_b3_b5 & ontable_b4 & ontable_b5 & clear_b1 & clear_b3 & clear_b4)

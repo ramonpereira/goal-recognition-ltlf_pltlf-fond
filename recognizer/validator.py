@@ -86,14 +86,13 @@ def validate_and_generate_graph(dfile, pfile, sol, val, set_fluents):
         else:
             op_name = op.name.lower()
         
-        if 'trans' in op_name:
-            continue
         actions[op_name] = [VALAction(_convert_conjunction(fluents, op.precondition),
                                       _convert_cond_effect(fluents, eff), op_name, unfluents)
                             for eff in flatten(op)]
 
-        #print "\n%s\n%s" % (op.name, '\n'.join(map(str, actions[op.name])))
+        # print("\n%s\n%s" % (op.name, '\n'.join(map(str, actions[op.name]))))
 
+    # return 
     # print actions
     global init_state
     init_state = State(_convert_conjunction(fluents, problem.init))
@@ -135,12 +134,10 @@ def validate_and_generate_graph(dfile, pfile, sol, val, set_fluents):
             i = 0
             if 'goal' in a:
                 continue
-            if 'trans' in a:
-                continue
             for outcome in actions[a]:
                 v = progress(u, outcome, unfluents)
-                # print "\nNew state:"
-                # print _state_string(unfluents, v)
+                # print("\nNew state:")
+                # print(_state_string(unfluents, v))
                 
                 i += 1
                 if v.is_goal(goal_fluents):
@@ -149,7 +146,7 @@ def validate_and_generate_graph(dfile, pfile, sol, val, set_fluents):
                     nodes[v] = node_index
                     node_index += 1
                     G.add_node(nodes[v], label=node_index-1)
-                    open_list.append(v)
+                    open_list.append(v)                    
 
                 states_to_actions[str(nodes[u]) + ' -> ' + str(nodes[v])] = a
                 G.add_edge(nodes[u], nodes[v], label="%s (%d)" % (a, i))
@@ -194,8 +191,8 @@ def progress(s, o, m):
         "Failed to progress %s:\nPrecondition: %s\nState:\n%s" % \
         (o.name, str(o.ppres), _state_string(m, s))
 
-    #print "\nProgressing the following operator:"
-    #print (o)
+    # print("\nProgressing the following operator:")
+    # print((o))
 
     adds = set()
     dels = set()

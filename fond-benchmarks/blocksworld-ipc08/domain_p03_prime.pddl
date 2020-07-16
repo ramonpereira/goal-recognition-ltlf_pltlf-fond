@@ -1,0 +1,50 @@
+(define (domain blocks-domain)
+	(:requirements :non-deterministic :equality :typing)
+	(:types block)
+	(:predicates (holding ?b - block) (emptyhand) (ontable ?b - block) (on ?b1 - block ?b2 - block) (clear ?b - block) (turnDomain) (q2 ?b16 - block ?b33 - block ?b93 - block ?b28 - block ?b198 - block) (q1 ?b16 - block ?b33 - block ?b93 - block ?b28 - block ?b198 - block) (q3 ?b16 - block ?b33 - block ?b93 - block ?b28 - block ?b198 - block))
+	(:action pick-up
+		:parameters (?b1 - block ?b2 - block)
+		:precondition (and (not (= ?b1 ?b2)) (emptyhand) (clear ?b1) (on ?b1 ?b2) (turnDomain))
+		:effect (and (oneof (and (holding ?b1) (clear ?b2) (not (emptyhand)) (not (clear ?b1)) (not (on ?b1 ?b2))) (and (clear ?b2) (ontable ?b1) (not (on ?b1 ?b2)))) (not (turnDomain)))
+	)
+	(:action pick-up-from-table
+		:parameters (?b - block)
+		:precondition (and (emptyhand) (clear ?b) (ontable ?b) (turnDomain))
+		:effect (and (oneof (and) (and (holding ?b) (not (emptyhand)) (not (ontable ?b)))) (not (turnDomain)))
+	)
+	(:action put-on-block
+		:parameters (?b1 - block ?b2 - block)
+		:precondition (and (holding ?b1) (clear ?b2) (turnDomain))
+		:effect (and (oneof (and (on ?b1 ?b2) (emptyhand) (clear ?b1) (not (holding ?b1)) (not (clear ?b2))) (and (ontable ?b1) (emptyhand) (clear ?b1) (not (holding ?b1)))) (not (turnDomain)))
+	)
+	(:action put-down
+		:parameters (?b - block)
+		:precondition (and (holding ?b) (turnDomain))
+		:effect (and (ontable ?b) (emptyhand) (clear ?b) (not (holding ?b)) (not (turnDomain)))
+	)
+	(:action pick-tower
+		:parameters (?b1 - block ?b2 - block ?b3 - block)
+		:precondition (and (emptyhand) (on ?b1 ?b2) (on ?b2 ?b3) (turnDomain))
+		:effect (and (oneof (and) (and (holding ?b2) (clear ?b3) (not (emptyhand)) (not (on ?b2 ?b3)))) (not (turnDomain)))
+	)
+	(:action put-tower-on-block
+		:parameters (?b1 - block ?b2 - block ?b3 - block)
+		:precondition (and (holding ?b2) (on ?b1 ?b2) (clear ?b3) (turnDomain))
+		:effect (and (oneof (and (on ?b2 ?b3) (emptyhand) (not (holding ?b2)) (not (clear ?b3))) (and (ontable ?b2) (emptyhand) (not (holding ?b2)))) (not (turnDomain)))
+	)
+	(:action put-tower-down
+		:parameters (?b1 - block ?b2 - block)
+		:precondition (and (holding ?b2) (on ?b1 ?b2) (turnDomain))
+		:effect (and (ontable ?b2) (emptyhand) (not (holding ?b2)) (not (turnDomain)))
+	)
+	(:action trans-0
+		:parameters (?b16 - block ?b33 - block ?b93 - block ?b28 - block ?b198 - block)
+		:precondition (and (or (and (q1 ?b16 ?b33 ?b93 ?b28 ?b198) (not (ontable ?b16))) (and (q1 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (not (clear ?b16))) (and (q1 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (not (ontable ?b33))) (and (q1 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (not (ontable ?b93))) (and (q1 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (ontable ?b93) (not (emptyhand))) (and (q1 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (ontable ?b93) (emptyhand) (not (clear ?b28))) (and (q1 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (ontable ?b93) (emptyhand) (clear ?b28) (not (on ?b198 ?b93))) (and (q1 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (ontable ?b93) (emptyhand) (clear ?b28) (on ?b198 ?b93) (not (on ?b28 ?b198))) (and (q1 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (ontable ?b93) (emptyhand) (clear ?b28) (on ?b198 ?b93) (on ?b28 ?b198) (not (clear ?b33))) (and (q2 ?b16 ?b33 ?b93 ?b28 ?b198) (not (ontable ?b16))) (and (q2 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (not (clear ?b16))) (and (q2 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (not (ontable ?b33))) (and (q2 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (not (ontable ?b93))) (and (q2 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (ontable ?b93) (not (emptyhand))) (and (q2 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (ontable ?b93) (emptyhand) (not (clear ?b28))) (and (q2 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (ontable ?b93) (emptyhand) (clear ?b28) (not (on ?b198 ?b93))) (and (q2 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (ontable ?b93) (emptyhand) (clear ?b28) (on ?b198 ?b93) (not (on ?b28 ?b198))) (and (q2 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (ontable ?b93) (emptyhand) (clear ?b28) (on ?b198 ?b93) (on ?b28 ?b198) (not (clear ?b33)))) (not (turnDomain)))
+		:effect (and (q2 ?b16 ?b33 ?b93 ?b28 ?b198) (not (q1 ?b16 ?b33 ?b93 ?b28 ?b198)) (not (q3 ?b16 ?b33 ?b93 ?b28 ?b198)) (turnDomain))
+	)
+	(:action trans-2
+		:parameters (?b16 - block ?b33 - block ?b93 - block ?b28 - block ?b198 - block)
+		:precondition (and (or (and (q1 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (ontable ?b93) (emptyhand) (clear ?b28) (on ?b198 ?b93) (on ?b28 ?b198) (clear ?b33)) (and (q2 ?b16 ?b33 ?b93 ?b28 ?b198) (ontable ?b16) (clear ?b16) (ontable ?b33) (ontable ?b93) (emptyhand) (clear ?b28) (on ?b198 ?b93) (on ?b28 ?b198) (clear ?b33)) (q3 ?b16 ?b33 ?b93 ?b28 ?b198)) (not (turnDomain)))
+		:effect (and (q3 ?b16 ?b33 ?b93 ?b28 ?b198) (not (q2 ?b16 ?b33 ?b93 ?b28 ?b198)) (not (q1 ?b16 ?b33 ?b93 ?b28 ?b198)) (turnDomain))
+	)
+)

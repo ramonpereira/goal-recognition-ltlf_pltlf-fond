@@ -1,0 +1,6 @@
+(define (problem zeno_7_2_2_17462)
+	(:domain zenotravel)
+	(:objects c0 c1 c2 c3 c4 c5 c6 - city p0 p1 - person a0 a1 - aircraft f0 f1 f2 f3 f4 - flevel)
+	(:init (ataircraft a0 c6) (ataircraft a1 c6) (atperson p0 c1) (atperson p1 c6) (fuellevel a0 f0) (fuellevel a1 f0) (next f0 f1) (next f1 f2) (next f2 f3) (next f3 f4) (notboarding p0) (notboarding p1) (notdebarking p0) (notdebarking p1) (notrefueling a0) (notrefueling a1) (q1 p0 c3 p1) (turnDomain))
+(:goal (and (q3 p0 c3 p1) (turnDomain)))
+)

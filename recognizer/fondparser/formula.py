@@ -232,6 +232,11 @@ class And(Formula):
         args = list(filter(lambda x: not isinstance(x, And), args)) + \
                [item for andarg in filter(lambda x: isinstance(x, And), args) for item in andarg.args]
 
+        # print('\nArgs: ' + str(args))
+        # print(filter(lambda x: not isinstance(x, And), args))
+        # a = [item for andarg in filter(lambda x: isinstance(x, And), args) for item in andarg.args]
+        # print(a)
+
         super(And, self).__init__("and", args)
 
     def __str__(self):

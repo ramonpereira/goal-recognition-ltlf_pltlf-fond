@@ -98,34 +98,34 @@ class GroundProblem(Problem):
         assert isinstance (p, GroundProblem), "Must compare two ground problems"
 
         if self.objects != p.objects:
-            # print "objects"
+            print("objects")
             return False
 
         if self.init != p.init:
             return False
 
         if self.goal != p.goal:
-            # print "goal"
+            print("goal")
             return False
 
         if not all ([sa == pa for sa, pa in \
                 zip (sorted (list (self.operators)), \
                 sorted (list (p.operators)))]):
-            # print "operators"
+            print("operators")
             return False
 
         if not all ([sp == pp for sp, pp in \
                 zip (sorted (list (self.fluents)), \
                 sorted (list (p.fluents)))]):
-            # print "fluents"
-            # print "*self*"
-            # print sorted( list( self.fluents))
-            # print "*p*"
-            # print sorted (list( p.fluents))
+            print("fluents")
+            print("*self*")
+            print(sorted( list( self.fluents)))
+            print("*p*")
+            print(sorted (list( p.fluents)))
             return False
 
         if self.types != p.types or self.parent_types != p.parent_types:
-            # print "types"
+            print("types")
             return False
         
         return True
@@ -394,7 +394,7 @@ class GroundProblem(Problem):
         return "Ground problem %s" % self.problem_name
 
     def dump(self):
-        """For verbose # printing
+        """For verbose printing
         Key results here are the operators and fluents. The rest are as before, I think"""
 
         d = {
@@ -404,7 +404,7 @@ class GroundProblem(Problem):
         }
 
         for k, v in d.iteritems():
-            # print "*** %s ***" % k
+            print("*** %s ***" % k)
             if k == "Operators":
                 for op in self.operators:
                     op.dump(lvl=1)  # inherited from superclass Action
@@ -464,8 +464,8 @@ class Operator(Action):
             lvl:    Tab level
         """
 
-        # for operators, sufficient just to # print the name, because pretty self-explanatory
-        # print "\t" * lvl + "Operator %s" % self.name
+        # for operators, sufficient just to print the name, because pretty self-explanatory
+        print("\t" * lvl + "Operator %s" % self.name)
         if len(self.parameters) > 0:
             print("\t" * (lvl + 1) + "Parameters: " + \
                 ", ".join([v_type + " " + v_name for v_name, v_type in self.parameters]))

@@ -21,7 +21,8 @@ def combine(eff_lists):
     if DEBUG:
         print("\nCombining:\n%s" % '\n'.join(map(str, eff_lists)))
         print("Result: %s\n" % [And(filter(lambda x: x != And([]), list(choice))) for choice in product(*eff_lists)])
-    return [And(filter(lambda x: x != And([]), list(choice))) for choice in product(*eff_lists)]
+    
+    return [And(list(filter(lambda x: x != And([]), list(choice)))) for choice in product(*eff_lists)]
 
 def _flatten(eff):
 
