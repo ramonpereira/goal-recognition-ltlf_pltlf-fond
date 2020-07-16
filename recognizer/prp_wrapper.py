@@ -133,6 +133,12 @@ if __name__ == '__main__':
     <DOMAIN> and <PROBLEM> are the original FOND domain and problem files.
 
     Example Usage: python prp_wrapper.py -d domain.pddl -p p01.pddl
+
+    The argument -ltl plans for temporally extended goals either formalized in LTLf or PLTL. 
+    To do so, in the same directory with the <PROBLEM> (e.g., pb01.pddl)
+    you must create a file containing the temporally exetended goal you want to be achieved.
+    This file must have the same name as the <PROBLEM> file, for instance pb01.formula,
+    in case the name of the <PROBLEM> file is pb01.pddl.
     """ 
     parser = argparse.ArgumentParser(description="Wrapper to use PRP Planner.")
     
