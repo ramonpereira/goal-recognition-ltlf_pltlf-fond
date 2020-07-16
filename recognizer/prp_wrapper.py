@@ -17,13 +17,15 @@ from fond4ltlfpltlf.automa.symbol import Symbol
 def main(args):
     original_domain = args.domain_path
     original_problem = args.problem_path
-    debug = args.debug
-    ltl = args.ltl
+    VERBOSE = args.verbose
+    LTL = args.ltl
+    GRAPH = args.graph
+    PLANS = args.plans
 
     domain = original_domain
     problem = original_problem
 
-    if ltl:
+    if LTL:
         in_domain = open(domain).read()
         in_problem = open(problem).read()
         ltl_formula = open(problem.replace('.pddl', '.formula')).read()
@@ -36,7 +38,7 @@ def main(args):
         domain = domain_prime_path
         problem = problem_prime_path
 
-    if debug:
+    if VERBOSE:
         """ Print the planner output. """
         prp_planner_command = '../planning/PRP/./prp ' + domain + ' ' + problem + ' --dump-policy 2'
         os.system(prp_planner_command)
@@ -49,43 +51,53 @@ def main(args):
     set_fluents = set()
     set_fluents = translator.translate('policy.out', 'policy-translated.out')
 
-    if ltl:
+    if LTL:
         os.system('cp policy-translated.out policy-with-trans.out')
         translator_ltl.process_policy('policy-translated.out')
         """ TO-DO: Improve this part. """
         os.system('mv new-policy.out policy-translated.out')
 
-
     """ Validade the policy (from the initial state to the goal state) and generate the data structure. """
-    
-    G = validator.validate_and_generate_graph(original_domain, original_problem, 'policy-translated.out', 'prp', set_fluents)
-    validator.generate_dot_graph(G)
+    G = None
+    if GRAPH:
+        print('\n$> Loading policy and generating the graph ...')
+        G = validator.validate_and_generate_graph(original_domain, original_problem, 'policy-translated.out', 'prp', set_fluents)
+        validator.generate_dot_graph(G)
 
+    if PLANS:
+        _extract_plans_from_graph(G)
+
+    print()
+
+def _extract_plans_from_graph(G):
+    print('\n$> Extracting all possible plans from the graph (policy) ... \n')
     # all_shortest_plans = validator.extract_all_shortest_plans(G)
-    # # print all_shortest_plans
     
-    # all_plans, set_actions = validator.extract_all_plans(G)
-    # for plan in all_plans:
-    #     print plan
+    all_plans, set_actions = validator.extract_all_plans(G)
+    index = 0
+    for plan in all_plans:
+        print('\t- Plan [' + str(index) + ']:' + str(plan))
+        index += 1
 
-    # actions_distance_to_goal = dict()
-    # for plan in all_plans:
-    #     for a in set_actions:
-    #         if a in plan:
-    #             if a in actions_distance_to_goal.keys():
-    #                 distances = actions_distance_to_goal[a]
-    #                 distances.append(len(plan)-1 - plan.index(a))
-    #                 actions_distance_to_goal[a] = distances
-    #             else:
-    #                 actions_distance_to_goal[a] = [len(plan)-1 - plan.index(a)]
+    actions_distance_to_goal = dict()
+    for plan in all_plans:
+        for a in set_actions:
+            if a in plan:
+                if a in actions_distance_to_goal.keys():
+                    distances = actions_distance_to_goal[a]
+                    distances.append(len(plan)-1 - plan.index(a))
+                    actions_distance_to_goal[a] = distances
+                else:
+                    actions_distance_to_goal[a] = [len(plan)-1 - plan.index(a)]
 
-    # actions_avg_distance_to_goal = dict()
-    # for k in actions_distance_to_goal.keys():
-    #     distances = actions_distance_to_goal[k]
-    #     sum_distances = sum(distances)
-    #     actions_avg_distance_to_goal[k] = float(sum_distances/len(distances))
+    actions_avg_distance_to_goal = dict()
+    for k in actions_distance_to_goal.keys():
+        distances = actions_distance_to_goal[k]
+        sum_distances = sum(distances)
+        actions_avg_distance_to_goal[k] = float(sum_distances/len(distances))
 
-    # print actions_avg_distance_to_goal
+    print('\n\t- Average distance of the actions in the policy to the goal state: ')
+    print('\t' + str(actions_avg_distance_to_goal))
 
 def _generate_domain_problem_files_ltl(domain_prime, problem_prime, domain, problem):
     pb = problem.split('/')
@@ -126,8 +138,10 @@ if __name__ == '__main__':
     
     parser.add_argument('-d', dest='domain_path', default='example/domain.pddl')
     parser.add_argument('-p', dest='problem_path', default='example/p01.pddl')
-    parser.add_argument('-debug', dest='debug', type=_str2bool, const=True, nargs='?', default=False)
+    parser.add_argument('-verbose', dest='verbose', type=_str2bool, const=True, nargs='?', default=True)
     parser.add_argument('-ltl', dest='ltl', type=_str2bool, const=True, nargs='?', default=False)
+    parser.add_argument('-graph', dest='graph', type=_str2bool, const=True, nargs='?', default=False)
+    parser.add_argument('-plans', dest='plans', type=_str2bool, const=True, nargs='?', default=False)
 
     args = parser.parse_args()
     main(args)

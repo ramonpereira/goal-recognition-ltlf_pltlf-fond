@@ -232,7 +232,7 @@ def generate_actions_mapping_and_unfluents():
 
 def generate_dot_graph(G):    
     # Analyze the final controller.
-    print("\n{ Policy Statistics }\n")
+    print("\n$> Policy Statistics from graph: \n")
     print("\t Nodes: %d" % G.number_of_nodes())
     print("\t Edges: %d" % G.number_of_edges())
     print("     Unhandled: %d" % len(unhandled))
@@ -241,7 +241,7 @@ def generate_dot_graph(G):
 
     write_dot(G, 'graph.dot')
 
-    print("\n     Plan output: graph.dot")
+    print("\n     Policy output as graph: graph.dot")
     # _generate_actions_mapping_and_unfluents()
 
 

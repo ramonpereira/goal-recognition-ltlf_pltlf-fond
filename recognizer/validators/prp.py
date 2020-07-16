@@ -18,7 +18,7 @@ def load(pol, fmap):
     global POLICY
     global FSAP
 
-    print("\nLoading PRP policy...")
+    # print("\nLoading PRP policy...")
 
     with open(pol, 'r') as f:
         file_lines = list(filter(lambda x: x != '', [line.rstrip("\n") for line in f.readlines()]))
