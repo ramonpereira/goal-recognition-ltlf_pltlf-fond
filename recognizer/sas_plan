@@ -1,7 +1,0 @@
-(pick-tower_DETDUP_1 b3 b2 b1)
-(put-down b2)
-(pick-up_DETDUP_1 b4 b5)
-(pick-up_DETDUP_0 b3 b2)
-(put-on-block_DETDUP_0 b3 b1)
-(pick-up-from-table_DETDUP_1 b5)
-(put-on-block_DETDUP_0 b5 b3)
