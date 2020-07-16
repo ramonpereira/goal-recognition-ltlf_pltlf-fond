@@ -14,13 +14,13 @@ import validator
 import fond4ltlfpltlf.core
 from fond4ltlfpltlf.automa.symbol import Symbol
 
-def main(args):
-    original_domain = args.domain_path
-    original_problem = args.problem_path
-    VERBOSE = args.verbose
-    LTL = args.ltl
-    GRAPH = args.graph
-    PLANS = args.plans
+def plan(domain_path, problem_path, verbose=True, ltl=False, graph=False, plans=False):
+    original_domain = domain_path
+    original_problem = problem_path
+    VERBOSE = verbose
+    LTL = ltl
+    GRAPH = graph
+    PLANS = plans
 
     domain = original_domain
     problem = original_problem
@@ -126,6 +126,16 @@ def _str2bool(v):
     else:
         raise argparse.ArgumentTypeError('Boolean value expected.')
 
+def main(args):
+    domain_path = args.domain_path
+    problem_path = args.problem_path
+    verbose = args.verbose
+    ltl = args.ltl
+    graph = args.graph
+    plans = args.plans
+
+    plan(domain_path, problem_path, verbose, ltl, graph, plans)        
+
 if __name__ == '__main__':
     """
     Usage: python prp_wrapper.py -d <DOMAIN> -p <PROBLEM>
@@ -134,7 +144,7 @@ if __name__ == '__main__':
 
     Example Usage: python prp_wrapper.py -d domain.pddl -p p01.pddl
 
-    The argument -ltl plans for temporally extended goals either formalized in LTLf or PLTL. 
+    The argument -ltl allows PRP planer to plan for temporally extended goals either formalized in LTLf or PLTL. 
     To do so, in the same directory with the <PROBLEM> (e.g., pb01.pddl)
     you must create a file containing the temporally exetended goal you want to be achieved.
     This file must have the same name as the <PROBLEM> file, for instance pb01.formula,
