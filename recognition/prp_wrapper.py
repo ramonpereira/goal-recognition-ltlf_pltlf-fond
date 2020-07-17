@@ -14,7 +14,7 @@ import validator
 import fond4ltlfpltlf.core
 from fond4ltlfpltlf.automa.symbol import Symbol
 
-def plan(domain_path, problem_path, verbose=True, ltl=False, graph=False, plans=False):
+def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=False, plans=False):
     """ 
         Planning for conjunctive goals and temporally extended goals (LTLf or PLTL).
 
@@ -35,12 +35,18 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, graph=False, plans=
     if LTL:
         in_domain = open(domain).read()
         in_problem = open(problem).read()
-        ltl_formula = open(problem.replace('.pddl', '.formula')).read()
+
+        ltl_formula = ''
+        if formula != '':
+            ltl_formula = formula
+        else:
+            ltl_formula = open(problem.replace('.pddl', '.formula')).read()
+        
         print('\n$> LTLf/PLTL Formula: ')
         print(ltl_formula)
 
         domain_prime, problem_prime = fond4ltlfpltlf.core.execute(in_domain, in_problem, ltl_formula)
-        domain_prime_path, problem_prime_path = _generate_domain_problem_files_ltl(domain_prime, problem_prime, domain, problem)
+        domain_prime_path, problem_prime_path = generate_domain_problem_files_ltl(domain_prime, problem_prime, domain, problem)
 
         domain = domain_prime_path
         problem = problem_prime_path
@@ -55,8 +61,7 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, graph=False, plans=
         os.system(prp_planner_command)
 
     # # """ Translate the policy from SAS+ to instantiated standard facts. """
-    set_fluents = set()
-    set_fluents = translator.translate('policy.out', 'policy-translated.out')
+    translator.translate('policy.out', 'policy-translated.out')
 
     if LTL:
         os.system('cp policy-translated.out policy-with-trans.out')
@@ -68,23 +73,26 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, graph=False, plans=
     G = None
     if GRAPH:
         print('\n$> Loading policy and generating the graph ...')
-        G = validator.validate_and_generate_graph(original_domain, original_problem, 'policy-translated.out', 'prp', set_fluents)
+        G = validator.validate_and_generate_graph(original_domain, original_problem, 'policy-translated.out', 'prp')
         validator.generate_dot_graph(G)
 
     if PLANS:
-        _extract_plans_from_graph(G)
+        extract_plans_from_graph(G)
 
     print()
 
-def _extract_plans_from_graph(G):
-    print('\n$> Extracting all possible plans from the graph (policy) ... \n')
+def extract_plans_from_graph(G, verbose=True):
+    if verbose:
+        print('\n$> Extracting all possible plans from the graph (policy) ... \n')
+    
     # all_shortest_plans = validator.extract_all_shortest_plans(G)
     
     all_plans, set_actions = validator.extract_all_plans(G)
-    index = 0
-    for plan in all_plans:
-        print('\t- Plan [' + str(index) + ']:' + str(plan))
-        index += 1
+    if verbose:
+        index = 0
+        for plan in all_plans:
+            print('\t- Plan [' + str(index) + ']:' + str(plan))
+            index += 1
 
     actions_distance_to_goal = dict()
     for plan in all_plans:
@@ -103,10 +111,13 @@ def _extract_plans_from_graph(G):
         sum_distances = sum(distances)
         actions_avg_distance_to_goal[k] = float(sum_distances/len(distances))
 
-    print('\n\t- Average distance of the actions in the policy to the goal state: ')
-    print('\t' + str(actions_avg_distance_to_goal))
+    if verbose:
+        print('\n\t- Average distance of the actions in the policy to the goal state: ')
+        print('\t' + str(actions_avg_distance_to_goal))
 
-def _generate_domain_problem_files_ltl(domain_prime, problem_prime, domain, problem):
+    return all_plans, actions_avg_distance_to_goal
+
+def generate_domain_problem_files_ltl(domain_prime, problem_prime, domain, problem):
     pb = problem.split('/')
     pb_number = pb[len(pb)-1]
     pb_number = pb_number.split('.')[0]
@@ -138,10 +149,11 @@ def main(args):
     problem_path = args.problem_path
     verbose = args.verbose
     ltl = args.ltl
+    formula = args.formula
     graph = args.graph
     plans = args.plans
 
-    plan(domain_path, problem_path, verbose, ltl, graph, plans)        
+    plan(domain_path, problem_path, verbose, ltl, formula, graph, plans)        
 
 if __name__ == '__main__':
     """
@@ -152,10 +164,13 @@ if __name__ == '__main__':
     Example Usage: python prp_wrapper.py -d domain.pddl -p p01.pddl
 
     The argument -ltl allows PRP planer to plan for temporally extended goals either formalized in LTLf or PLTL. 
-    To do so, in the same directory with the <PROBLEM> (e.g., pb01.pddl)
-    you must create a file containing the temporally exetended goal you want to be achieved.
-    This file must have the same name as the <PROBLEM> file, for instance pb01.formula,
-    in case the name of the <PROBLEM> file is pb01.pddl.
+    - For planning for temporally extended goals, there are two options:
+        (1) In the same directory with the <PROBLEM> (e.g., pb01.pddl) you have to create 
+        a file containing the temporally exetended goal you want to be achieved.
+        This file must have the same name as the <PROBLEM> file, for instance pb01.formula,
+        in case the name of the <PROBLEM> file is pb01.pddl.
+        (2) Using the parameter -formula.
+        For example: -formula '(vehicleat_l15)'
     """ 
     parser = argparse.ArgumentParser(description="Wrapper to use PRP Planner.")
     
@@ -163,6 +178,7 @@ if __name__ == '__main__':
     parser.add_argument('-p', dest='problem_path', default='example/p01.pddl')
     parser.add_argument('-verbose', dest='verbose', type=_str2bool, const=True, nargs='?', default=True)
     parser.add_argument('-ltl', dest='ltl', type=_str2bool, const=True, nargs='?', default=False)
+    parser.add_argument('-formula', dest='formula', default=False)
     parser.add_argument('-graph', dest='graph', type=_str2bool, const=True, nargs='?', default=False)
     parser.add_argument('-plans', dest='plans', type=_str2bool, const=True, nargs='?', default=False)
 

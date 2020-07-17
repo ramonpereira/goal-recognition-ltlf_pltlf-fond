@@ -52,7 +52,7 @@ unhandled = []
 nodes = {}
 states_to_actions = dict()
 
-def validate_and_generate_graph(dfile, pfile, sol, val, set_fluents):
+def validate_and_generate_graph(dfile, pfile, sol, val):
     """ Validate the policy and generate graph structure. """
 
     module_validator = importlib.import_module("validators.%s" % val)

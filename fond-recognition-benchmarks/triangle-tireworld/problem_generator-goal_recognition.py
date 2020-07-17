@@ -48,9 +48,9 @@ def main() :
 					numberOfObservations = math.ceil(Decimal(len(goalPlan)) * obsFloat)
 					if numberOfObservations < 1:
 						numberOfObservations = 1
-					print 'OBS: ' + str(obs)
-					print numberOfObservations
-					#print(randint(0,numberOfObservations-1))
+					print('OBS: ' + str(obs))
+					print(numberOfObservations)
+					# print(randint(0,numberOfObservations-1))
 
 					obsIndexes = []
 					obsCounter = 0
@@ -67,7 +67,7 @@ def main() :
 
 					observations.write(obsStringPlan)
 					observations.close()
-					cmd = 'tar jcvf ' + domainName + '_p0' + str(problemNumber) + '_hyp-' + str(hypNumber) + '_' + str(obs) + '_' + str(alternativeObs) + '.tar.bz2' + ' domain.pddl template.pddl hyps.dat obs.dat real_hyp.dat'
+					cmd = 'tar jcvf ' + domainName + '_p0' + str(problemNumber) + '_hyp-' + str(hypNumber) + '_' + str(obs) + '_' + str(alternativeObs) + '.tar.bz2' + ' domain.pddl initial_state.pddl hyps.dat obs.dat real_hyp.dat'
 					os.system(cmd)
 
 			# Full plan (100%)
@@ -77,7 +77,7 @@ def main() :
 				observations.write(line)
 
 			observations.close()
-			cmd = 'tar jcvf ' + domainName + '_p0' + str(problemNumber) + '_hyp-' + str(hypNumber) + '_full.tar.bz2' + ' domain.pddl template.pddl hyps.dat obs.dat real_hyp.dat'
+			cmd = 'tar jcvf ' + domainName + '_p0' + str(problemNumber) + '_hyp-' + str(hypNumber) + '_full.tar.bz2' + ' domain.pddl initial_state.pddl hyps.dat obs.dat real_hyp.dat'
 			os.system(cmd)
 
 if __name__ == '__main__' :
