@@ -4,16 +4,21 @@
 
 import os, sys
 import argparse
+import json
 import numpy as np
 import prp_wrapper as prp_planner
 import validator
 
 def recognize(recognition_problem_path, verbose=True):
     """ Removing temporary files. """
-    # os.system('rm -rf graph.dot *.out *.fsap plan_numbers_and_cost sas_plan elapsed.time output *.sas')
+    os.system('rm -rf graph.dot *.out *.fsap plan_numbers_and_cost sas_plan elapsed.time output *.sas *.pddl *.dat')
     print('\n@@@> Starting Recognition Process: \n')
     print('  Problem file: ' + recognition_problem_path)
     os.system('tar -xf ' + recognition_problem_path)
+
+    trace = {}
+    trace['problem'] = os.path.split(os.path.basename(recognition_problem_path).replace('.tar.bz2', ''))[-1]
+    trace['domain'] = trace['problem'].split('_')[0]
 
     goals_file = open('hyps.dat', "r")
     obs_file = open('obs.dat', "r")
@@ -33,6 +38,11 @@ def recognize(recognition_problem_path, verbose=True):
     obs_file.close()
     correct_goal_file.close()
     goal_plans = dict()
+
+    trace['G'] = candidate_goals
+    trace['G*'] = correct_goal
+    trace['Obs'] = [o for o in observations]
+
     print('\n> STEP 1: Planning for getting the policies for the possible goals: ')
     for goal in candidate_goals:
         print('\n\t### Goal: ' + goal)
@@ -52,7 +62,10 @@ def recognize(recognition_problem_path, verbose=True):
         achieved_obs_dist = []
         achieved_obs =[]
         for obs in observations:
-            obs_dist_g = sys.maxsize
+            """ TO-DO: We need to think about it, sys.max is affecting 
+            the computation of the posterior probabilities."""
+            obs_dist_g = 99
+            # obs_dist_g = sys.maxsize
             plan_actions_dist = goal_plans[goal]
             if obs in list(plan_actions_dist.keys()):
                 obs_dist_g = plan_actions_dist[obs]
@@ -86,14 +99,20 @@ def recognize(recognition_problem_path, verbose=True):
     index = 0
     normalization_factor = np.full(len(candidate_goals), 1/len(candidate_goals))
     posterior_probs = dict()
+    trace['P(Obs | G)'] = []
     for goal in goals_scores:
-        # print('\n' + goal)
+        print('\n' + goal)
         posterior = 0
+        prob_O_G_i = []
         for score in goals_scores[goal]:
-            posterior += float(1 / (1 + score))
+            h = float(1 / (1 + score))
+            posterior += h
+            # print(' #> P(Obs | G): ' + str(float(1 / (1 + score))))
+            prob_O_G_i += [float(h)]
 
         total_posterior = (posterior / len(goals_scores))
         posterior_probs[goal] = total_posterior
+        trace['P(Obs | G)'] += [prob_O_G_i]
         # print(' #> P(Obs | G): ' + str(total_posterior))
 
     highest_prob_G = 0
@@ -112,6 +131,12 @@ def recognize(recognition_problem_path, verbose=True):
             print('\n> The correct goal [' + goal + '] has the highest posterior probability (' + str(prob_all_goals[goal]) + ') among all goals.')
             break
 
+    """ Generating a JSON file containing the probabilities for the goals for each observation step.
+        This allows us to recognizing goals in two settings: online (step-by-step) and offline (all steps).
+    """
+    with open('{}.json'.format(trace['problem']), 'w') as output:
+        json.dump(trace, output, indent=True, sort_keys=True)
+    
     print()
 
 def _compute_posterior(goal, posterior_probs, normalization_factor):
