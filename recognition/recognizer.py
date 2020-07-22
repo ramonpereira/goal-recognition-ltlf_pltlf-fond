@@ -5,6 +5,7 @@
 import os, sys
 import argparse
 import json
+import math
 import numpy as np
 import prp_wrapper as prp_planner
 import validator
@@ -64,7 +65,7 @@ def recognize(recognition_problem_path, verbose=True):
         for obs in observations:
             """ TO-DO: We need to think about it, sys.max is affecting 
             the computation of the posterior probabilities."""
-            obs_dist_g = 99
+            obs_dist_g = math.e ** 5
             # obs_dist_g = sys.maxsize
             plan_actions_dist = goal_plans[goal]
             if obs in list(plan_actions_dist.keys()):
@@ -84,6 +85,7 @@ def recognize(recognition_problem_path, verbose=True):
         goals_scores[goal] = []
 
     for i in range(0, len(observations)):
+        print()
         for goal in goals_achieved_observations_dist.keys():
             obs_dist_goal = goals_achieved_observations_dist[goal][i]
             sum_dist_other_goals = 0        
@@ -93,8 +95,8 @@ def recognize(recognition_problem_path, verbose=True):
 
             score = float(obs_dist_goal/sum_dist_other_goals)
             goals_scores[goal].append(score)
-            # print(goal)
-            # print(' Obs [' + str(i) + '] =' + str(float(obs_dist_goal/sum_dist_other_goals)))
+            print(' Obs [' + str(i) + '] =' + str(float(obs_dist_goal/sum_dist_other_goals)))
+            print()
 
     index = 0
     normalization_factor = np.full(len(candidate_goals), 1/len(candidate_goals))
@@ -198,7 +200,7 @@ if __name__ == '__main__':
     """ 
     parser = argparse.ArgumentParser(description="Goal Recognition in FOND Domain Models with LTLf/PLTL Goals")
     
-    parser.add_argument('-p', dest='problem_path', default='example/triangle-tireworld_p01_hyp-1_30_2.tar.bz2')
+    parser.add_argument('-p', dest='problem_path', default='example/triangle-tireworld_p01_hyp-1-example.tar.bz2')
     parser.add_argument('-ltl', dest='ltl', type=_str2bool, const=True, nargs='?', default=False)
     parser.add_argument('-verbose', dest='verbose', type=_str2bool, const=True, nargs='?', default=True)
 
