@@ -178,7 +178,7 @@ if __name__ == '__main__':
     parser.add_argument('-p', dest='problem_path', default='example/p01.pddl')
     parser.add_argument('-verbose', dest='verbose', type=_str2bool, const=True, nargs='?', default=True)
     parser.add_argument('-ltl', dest='ltl', type=_str2bool, const=True, nargs='?', default=False)
-    parser.add_argument('-formula', dest='formula', default=False)
+    parser.add_argument('-formula', dest='formula', default='')
     parser.add_argument('-graph', dest='graph', type=_str2bool, const=True, nargs='?', default=False)
     parser.add_argument('-plans', dest='plans', type=_str2bool, const=True, nargs='?', default=False)
 
