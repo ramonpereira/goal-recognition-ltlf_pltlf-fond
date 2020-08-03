@@ -67,7 +67,12 @@ def main() :
 
 					observations.write(obsStringPlan)
 					observations.close()
-					cmd = 'tar jcvf ' + domainName + '_p0' + str(problemNumber) + '_hyp-' + str(hypNumber) + '_' + str(obs) + '_' + str(alternativeObs) + '.tar.bz2' + ' domain.pddl initial_state.pddl hyps.dat obs.dat real_hyp.dat'
+
+					observability_file = open('observability.dat', 'w')
+					observability_file.write(str(obs))
+					observability_file.close()
+					
+					cmd = 'tar jcvf ' + domainName + '_p0' + str(problemNumber) + '_hyp-' + str(hypNumber) + '_' + str(obs) + '_' + str(alternativeObs) + '.tar.bz2' + ' domain.pddl initial_state.pddl hyps.dat obs.dat observability.dat real_hyp.dat'
 					os.system(cmd)
 
 			# Full plan (100%)
@@ -77,7 +82,12 @@ def main() :
 				observations.write(line)
 
 			observations.close()
-			cmd = 'tar jcvf ' + domainName + '_p0' + str(problemNumber) + '_hyp-' + str(hypNumber) + '_full.tar.bz2' + ' domain.pddl initial_state.pddl hyps.dat obs.dat real_hyp.dat'
+
+			observability_file = open('observability.dat', 'w')
+			observability_file.write('100')
+			observability_file.close()
+
+			cmd = 'tar jcvf ' + domainName + '_p0' + str(problemNumber) + '_hyp-' + str(hypNumber) + '_full.tar.bz2' + ' domain.pddl initial_state.pddl hyps.dat obs.dat observability.dat real_hyp.dat'
 			os.system(cmd)
 
 if __name__ == '__main__' :

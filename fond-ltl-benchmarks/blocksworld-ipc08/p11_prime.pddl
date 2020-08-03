@@ -1,0 +1,6 @@
+(define (problem bw_10_11)
+	(:domain blocks-domain)
+	(:objects b1 - block b2 - block b3 - block b4 - block b5 - block b6 - block b7 - block b8 - block b9 - block b10 - block)
+	(:init (clear b1) (clear b3) (clear b6) (clear b7) (clear b8) (emptyhand) (on b1 b9) (on b2 b4) (on b5 b2) (on b7 b5) (on b8 b10) (ontable b10) (ontable b3) (ontable b4) (ontable b6) (ontable b9) (q1 b1 b9 b2 b3 b4 b7 b5 b6 b8 b10) (turnDomain))
+(:goal (and (q3 b1 b9 b2 b3 b4 b7 b5 b6 b8 b10) (turnDomain)))
+)

@@ -1,7 +1,7 @@
 (define (domain blocks-domain)
 	(:requirements :non-deterministic :equality :typing)
 	(:types block)
-	(:predicates (holding ?b - block) (emptyhand) (ontable ?b - block) (on ?b1 - block ?b2 - block) (clear ?b - block) (turnDomain) (q1 ?b23 - block ?b110 - block) (q2 ?b23 - block ?b110 - block) (q3 ?b23 - block ?b110 - block))
+	(:predicates (holding ?b - block) (emptyhand) (ontable ?b - block) (on ?b1 - block ?b2 - block) (clear ?b - block) (q1 ?b1-00 - block ?b2-01 - block) (q2 ?b1-00 - block ?b2-01 - block) (q3 ?b1-00 - block ?b2-01 - block) (turnDomain))
 	(:action pick-up
 		:parameters (?b1 - block ?b2 - block)
 		:precondition (and (not (= ?b1 ?b2)) (emptyhand) (clear ?b1) (on ?b1 ?b2) (turnDomain))
@@ -37,14 +37,14 @@
 		:precondition (and (holding ?b2) (on ?b1 ?b2) (turnDomain))
 		:effect (and (ontable ?b2) (emptyhand) (not (holding ?b2)) (not (turnDomain)))
 	)
-	(:action trans-1
-		:parameters (?b23 - block ?b110 - block)
-		:precondition (and (or (and (q1 ?b23 ?b110) (not (ontable ?b23))) (and (q1 ?b23 ?b110) (ontable ?b23) (not (emptyhand))) (and (q1 ?b23 ?b110) (ontable ?b23) (emptyhand) (not (on ?b110 ?b23))) (and (q2 ?b23 ?b110) (not (ontable ?b23))) (and (q2 ?b23 ?b110) (ontable ?b23) (not (emptyhand))) (and (q2 ?b23 ?b110) (ontable ?b23) (emptyhand) (not (on ?b110 ?b23)))) (not (turnDomain)))
-		:effect (and (q2 ?b23 ?b110) (not (q1 ?b23 ?b110)) (not (q3 ?b23 ?b110)) (turnDomain))
+	(:action trans-0
+		:parameters (?b1-00 - block ?b2-01 - block)
+		:precondition (and (or (and (q1 ?b1-00 ?b2-01) (not (emptyhand))) (and (q1 ?b1-00 ?b2-01) (emptyhand) (not (on ?b1-00 ?b2-01))) (and (q1 ?b1-00 ?b2-01) (emptyhand) (on ?b1-00 ?b2-01) (not (ontable ?b2-01))) (and (q2 ?b1-00 ?b2-01) (not (emptyhand))) (and (q2 ?b1-00 ?b2-01) (emptyhand) (not (on ?b1-00 ?b2-01))) (and (q2 ?b1-00 ?b2-01) (emptyhand) (on ?b1-00 ?b2-01) (not (ontable ?b2-01)))) (not (turnDomain)))
+		:effect (and (q2 ?b1-00 ?b2-01) (not (q1 ?b1-00 ?b2-01)) (not (q3 ?b1-00 ?b2-01)) (turnDomain))
 	)
-	(:action trans-2
-		:parameters (?b23 - block ?b110 - block)
-		:precondition (and (or (and (q1 ?b23 ?b110) (ontable ?b23) (emptyhand) (on ?b110 ?b23)) (and (q2 ?b23 ?b110) (ontable ?b23) (emptyhand) (on ?b110 ?b23)) (q3 ?b23 ?b110)) (not (turnDomain)))
-		:effect (and (q3 ?b23 ?b110) (not (q1 ?b23 ?b110)) (not (q2 ?b23 ?b110)) (turnDomain))
+	(:action trans-1
+		:parameters (?b1-00 - block ?b2-01 - block)
+		:precondition (and (or (and (q1 ?b1-00 ?b2-01) (emptyhand) (on ?b1-00 ?b2-01) (ontable ?b2-01)) (and (q2 ?b1-00 ?b2-01) (emptyhand) (on ?b1-00 ?b2-01) (ontable ?b2-01)) (q3 ?b1-00 ?b2-01)) (not (turnDomain)))
+		:effect (and (q3 ?b1-00 ?b2-01) (not (q1 ?b1-00 ?b2-01)) (not (q2 ?b1-00 ?b2-01)) (turnDomain))
 	)
 )

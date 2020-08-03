@@ -2,16 +2,19 @@
  Author: Ramon Fraga Pereira
 """
 
-import os, sys
+import os
 import argparse
 import json
 import math
+import time
 import numpy as np
 import prp_wrapper as prp_planner
 import validator
 
+
 def recognize(recognition_problem_path, verbose=True):
     """ Removing temporary files. """
+    start_time = time.time()
     os.system('rm -rf graph.dot *.out *.fsap plan_numbers_and_cost sas_plan elapsed.time output *.sas *.pddl *.dat')
     print('\n@@@> Starting Recognition Process: \n')
     print('  Problem file: ' + recognition_problem_path)
@@ -20,12 +23,13 @@ def recognize(recognition_problem_path, verbose=True):
     trace = {}
     trace['problem'] = os.path.split(os.path.basename(recognition_problem_path).replace('.tar.bz2', ''))[-1]
     trace['domain'] = trace['problem'].split('_')[0]
+    trace['observability'] = open('observability.dat', "r").readlines()[0]
 
     goals_file = open('hyps.dat', "r")
     obs_file = open('obs.dat', "r")
     correct_goal_file = open('real_hyp.dat', "r")
-    
-    possible_goals = [] 
+
+    possible_goals = []
     for g in goals_file:
         possible_goals.append(g.replace('\n', ''))
 
@@ -49,7 +53,7 @@ def recognize(recognition_problem_path, verbose=True):
         print('\n\t### Goal: ' + goal)
 
         prp_planner.plan('domain.pddl', 'initial_state.pddl', False, True, goal)
-        
+
         conjuctive_goal = _get_goal()
         _create_problem_with_goal(conjuctive_goal)
         G = validator.validate_and_generate_graph('domain.pddl', 'problem.pddl', 'policy-translated.out', 'prp')
@@ -61,78 +65,61 @@ def recognize(recognition_problem_path, verbose=True):
     goals_achieved_observations = dict()
     for i, obs in enumerate(observations):
         print('- Obs (' + str(i) + '): ' + obs)
-    
+
     print()
     for goal in possible_goals:
         achieved_obs_dist = []
         achieved_obs =[]
         for obs in observations:
-            """ TO-DO: We need to think about it, sys.max is affecting 
+            """ TO-DO: We need to think about it, sys.max is affecting
             the computation of the posterior probabilities."""
-            """ I think that the use of the Euler constant e seems 
+            """ I think that the use of the Euler constant e seems
             a good alternative."""
-            # obs_dist_g = sys.maxsize
             obs_dist_g = math.e ** 5
             plan_actions_dist = goal_plans[goal]
             if obs in list(plan_actions_dist.keys()):
                 obs_dist_g = plan_actions_dist[obs]
                 achieved_obs.append(obs)
-            
+
             achieved_obs_dist.append(obs_dist_g)
-            
+
         goals_achieved_observations_dist[goal] = achieved_obs_dist
         goals_achieved_observations[goal] = achieved_obs
 
     print('\t #> Achieved observations for the goals: ')
-    for goal in possible_goals:        
+    for goal in possible_goals:
         print('\t ### Goal: ' + goal + ' \n\t\t = ' + str(goals_achieved_observations[goal]))
 
     print('\n> STEP 3: Computing probabilities for the goals:')
-    goals_scores = dict()
-    for goal in possible_goals:
-        goals_scores[goal] = []
-
     """
     Compute scores for the goals.
     """
+    posterior_probs = dict()
+    trace['P(Obs | G)'] = []
     for i in range(0, len(observations)):
+        # posterior = 0
+        prob_O_G_i = []
         for goal in goals_achieved_observations_dist.keys():
             obs_dist_goal = goals_achieved_observations_dist[goal][i]
-            sum_dist_other_goals = 0        
+            sum_dist_other_goals = 0
             for goal_prime in goals_achieved_observations_dist.keys():
                 if goal != goal_prime:
                     sum_dist_other_goals += goals_achieved_observations_dist[goal_prime][i]
 
             score = float(obs_dist_goal/sum_dist_other_goals)
-            goals_scores[goal].append(score)
-            # print('### Goal: ' + goal)
-            # print(' - Obs: ' + observations[i] + ' = ' + str(float(obs_dist_goal/sum_dist_other_goals)))
-
-    """
-    Compute P(Obs | G) for the goals.
-    """
-    index = 0
-    normalization_factor = np.full(len(possible_goals), 1/len(possible_goals))
-    posterior_probs = dict()
-    trace['P(Obs | G)'] = []
-    # print()
-    for goal in goals_scores:
-        posterior = 0
-        prob_O_G_i = []
-        for score in goals_scores[goal]:
+            """
+            Compute P(Obs | G) for the goals.
+            """
             h = float(1 / (1 + score))
-            posterior += h
-            # print(' #> P(Obs | G): ' + str(float(1 / (1 + score))))
             prob_O_G_i += [float(h)]
-
-        total_posterior = (posterior / len(goals_scores))
-        posterior_probs[goal] = total_posterior
+            total_posterior = (h / len(possible_goals))
+            posterior_probs[goal] = total_posterior
         trace['P(Obs | G)'] += [prob_O_G_i]
-        # print(' #> P(Obs | G): ' + str(total_posterior))
 
     """
     Compute P(G | Obs) for the goals.
     """
+    normalization_factor = np.full(len(possible_goals), 1/len(possible_goals))
     highest_prob_G = 0
     prob_all_goals = dict()
     for goal in possible_goals:
@@ -143,24 +130,27 @@ def recognize(recognition_problem_path, verbose=True):
         if prob_G > highest_prob_G:
             highest_prob_G = prob_G
 
-    
     for goal in possible_goals:
         if highest_prob_G == prob_all_goals[goal] and goal == correct_goal:
             print('\n> The correct goal [' + goal + '] has the highest posterior probability (' + str(prob_all_goals[goal]) + ') among all goals.')
             break
+
+    recognition_time = (time.time() - start_time)
+    print("> Total time: %s seconds" % recognition_time)
+    trace['time'] = recognition_time
 
     """ Generating a JSON file containing the probabilities for the goals for each observation step.
         This allows us to recognizing goals in two settings: online (step-by-step) and offline (all steps).
     """
     with open('{}.json'.format(trace['problem']), 'w') as output:
         json.dump(trace, output, indent=True, sort_keys=True)
-    
+
     print()
 
 def _compute_posterior(goal, posterior_probs, normalization_factor):
     num = posterior_probs[goal] * normalization_factor[0]
     denom = np.sum(list(posterior_probs.values()) * normalization_factor)
-    return num / denom    
+    return num / denom
 
 def _get_goal():
     policy_file = open('policy-translated.out', "r")
@@ -171,7 +161,7 @@ def _get_goal():
         if('goal' in line):
             goal = prevLine.replace('If holds: ', '')
             goal = goal.replace('(', ' ')
-            goal = '(' + goal 
+            goal = '(' + goal
             break
         prevLine = line
 
@@ -181,7 +171,7 @@ def _create_problem_with_goal(goal):
     content = ''
     with open('initial_state.pddl') as initial_state:
         content = initial_state.read()
-    
+
     content = content.replace('(goal_state)', goal)
 
     with open('problem.pddl', 'w') as problem:
@@ -213,9 +203,9 @@ if __name__ == '__main__':
     - a set of possible goals (hyps.dat);
     - the correct intended goal (real_hyp.dat);
     - a sequences of observations (obs.dat);
-    """ 
+    """
     parser = argparse.ArgumentParser(description="Goal Recognition in FOND Domain Models with LTLf/PLTL Goals")
-    
+
     parser.add_argument('-p', dest='problem_path', default='example/triangle-tireworld_p01_hyp-1-example.tar.bz2')
     parser.add_argument('-ltl', dest='ltl', type=_str2bool, const=True, nargs='?', default=False)
     parser.add_argument('-verbose', dest='verbose', type=_str2bool, const=True, nargs='?', default=True)

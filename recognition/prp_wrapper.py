@@ -1,12 +1,12 @@
 """
  Author: Ramon Fraga Pereira
- 
+
  The aim of this wrapper is to call PRP planner to plan and generate some data structures from the extracted policy.
- For example, a directed graph representing the policy, 
+ For example, a directed graph representing the policy,
  and all valid paths (plans) to achieve the goal state (G) from the initial state (s0).
 """
 
-import os, sys
+import os
 import argparse
 import translator.translate_policy as translator
 import translator.translate_policy_ltl as translator_ltl
@@ -14,10 +14,10 @@ import validator
 import fond4ltlfpltlf.core
 from fond4ltlfpltlf.automa.symbol import Symbol
 
-def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=False, plans=False):
-    """ 
-        Planning for conjunctive goals and temporally extended goals (LTLf or PLTL).
 
+def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=False, plans=False):
+    """
+        Planning for conjunctive goals and temporally extended goals (LTLf or PLTL).
     """
     """ Removing temporary files. """
     os.system('rm -rf graph.dot *.out *.fsap plan_numbers_and_cost sas_plan elapsed.time output *.sas')
@@ -41,7 +41,7 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=F
             ltl_formula = formula
         else:
             ltl_formula = open(problem.replace('.pddl', '.formula')).read()
-        
+
         print('\n$> LTLf/PLTL Formula: ')
         print(ltl_formula)
 
@@ -84,9 +84,9 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=F
 def extract_plans_from_graph(G, verbose=True):
     if verbose:
         print('\n$> Extracting all possible plans from the graph (policy) ... \n')
-    
+
     # all_shortest_plans = validator.extract_all_shortest_plans(G)
-    
+
     all_plans, set_actions = validator.extract_all_plans(G)
     if verbose:
         index = 0
@@ -122,7 +122,7 @@ def generate_domain_problem_files_ltl(domain_prime, problem_prime, domain, probl
     pb_number = pb[len(pb)-1]
     pb_number = pb_number.split('.')[0]
     domain_prime_path = domain.replace('.pddl', '_' + pb_number + '_prime.pddl')
-    
+
     prime_domain_file_writer = open(domain_prime_path, "w")
     prime_domain_file_writer.write(str(domain_prime))
     prime_domain_file_writer.close()
@@ -153,7 +153,7 @@ def main(args):
     graph = args.graph
     plans = args.plans
 
-    plan(domain_path, problem_path, verbose, ltl, formula, graph, plans)        
+    plan(domain_path, problem_path, verbose, ltl, formula, graph, plans)
 
 if __name__ == '__main__':
     """
@@ -163,17 +163,17 @@ if __name__ == '__main__':
 
     Example Usage: python prp_wrapper.py -d domain.pddl -p p01.pddl
 
-    The argument -ltl allows PRP planer to plan for temporally extended goals either formalized in LTLf or PLTL. 
+    The argument -ltl allows PRP planer to plan for temporally extended goals either formalized in LTLf or PLTL.
     - For planning for temporally extended goals, there are two options:
-        (1) In the same directory with the <PROBLEM> (e.g., pb01.pddl) you have to create 
+        (1) In the same directory with the <PROBLEM> (e.g., pb01.pddl) you have to create
         a file containing the temporally exetended goal you want to be achieved.
         This file must have the same name as the <PROBLEM> file, for instance pb01.formula,
         in case the name of the <PROBLEM> file is pb01.pddl.
         (2) Using the parameter -formula.
         For example: -formula '(vehicleat_l15)'
-    """ 
+    """
     parser = argparse.ArgumentParser(description="Wrapper to use PRP Planner.")
-    
+
     parser.add_argument('-d', dest='domain_path', default='example/domain.pddl')
     parser.add_argument('-p', dest='problem_path', default='example/p01.pddl')
     parser.add_argument('-verbose', dest='verbose', type=_str2bool, const=True, nargs='?', default=True)

@@ -76,7 +76,7 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
         index += 1
 
     # print fluents
-    
+
     global actions
     actions = {}
 
@@ -85,14 +85,14 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
             op_name = op.name[:-1].lower()
         else:
             op_name = op.name.lower()
-        
+
         actions[op_name] = [VALAction(_convert_conjunction(fluents, op.precondition),
                                       _convert_cond_effect(fluents, eff), op_name, unfluents)
                             for eff in flatten(op)]
 
         # print("\n%s\n%s" % (op.name, '\n'.join(map(str, actions[op.name]))))
 
-    # return 
+    # return
     # print actions
     global init_state
     init_state = State(_convert_conjunction(fluents, problem.init))
@@ -128,7 +128,7 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
 
         a = module_validator.next_action(u)
         if not a:
-            G.node[nodes[u]]['label'] = 'X'
+            # G.node[nodes[u]]['label'] = 'X'
             unhandled.append(u)
         else:
             i = 0
@@ -138,7 +138,7 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
                 v = progress(u, outcome, unfluents)
                 # print("\nNew state:")
                 # print(_state_string(unfluents, v))
-                
+
                 i += 1
                 if v.is_goal(goal_fluents):
                     v = goal_state
@@ -146,7 +146,7 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
                     nodes[v] = node_index
                     node_index += 1
                     G.add_node(nodes[v], label=node_index-1)
-                    open_list.append(v)                    
+                    open_list.append(v)
 
                 states_to_actions[str(nodes[u]) + ' -> ' + str(nodes[v])] = a
                 G.add_edge(nodes[u], nodes[v], label="%s (%d)" % (a, i))
@@ -220,17 +220,17 @@ def generate_actions_mapping_and_unfluents():
             for outcome in actions[a]:
                 i += 1
                 f.write("%d: %s\n" % (i, " / ".join(["%s -> %s" % (map(str, [unfluents[fl] for fl in c]), map(str, [unfluents[fl] for fl in e])) for (c,e) in outcome.effs])))
-    
+
     if len(unhandled) > 0:
         with open('unhandled.states', 'w') as f:
             for s in unhandled:
                 f.write("\n%s\n" % _state_string(unfluents, s))
-    
+
     print("  Action mapping: action.map")
     if len(unhandled) > 0:
         print("Unhandled states: unhandled.states")
 
-def generate_dot_graph(G):    
+def generate_dot_graph(G):
     # Analyze the final controller.
     print("\n$> Policy Statistics from graph: \n")
     print("\t Nodes: %d" % G.number_of_nodes())
@@ -264,7 +264,7 @@ def _extract_plans_from_paths(paths):
     for p in paths:
         if not p in paths_set:
             paths_set.append(p)
-    
+
     for p in paths_set:
         plan = []
         for i, a in enumerate(p):
@@ -286,16 +286,16 @@ if __name__ == '__main__':
     validators/<MODULE>.py should exist and contain (at least) two functions: load and next_action.
 
     Example Usage: python validator.py domain.pddl p09.pddl policy.out prp
-    """    
+    """
     parser = argparse.ArgumentParser(description="Validator that validates and generates data structure from a valid policy.")
-    
+
     parser.add_argument('-d', dest='domain_path')
     parser.add_argument('-p', dest='problem_path')
     parser.add_argument('-s', dest='policy_file')
     parser.add_argument('-m', dest='validator_module', default="prp")
 
     args = parser.parse_args()
-    
+
     domain = args.domain_path
     problem = args.problem_path
     policy = args.policy_file
@@ -305,7 +305,7 @@ if __name__ == '__main__':
     Validate the policy and generate the graph structure.
     """
     G = validate_and_generate_graph(domain, problem, policy, validator_module)
-    
+
     """
     Generate a graph of the policy using GraphViz.
     """
