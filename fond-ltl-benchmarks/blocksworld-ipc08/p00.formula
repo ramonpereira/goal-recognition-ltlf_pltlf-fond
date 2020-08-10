@@ -1,1 +1,1 @@
-F(emptyhand & on_b_e & ontable_e)
+F(((ontable_d & on_a_d) & X(F((ontable_e & on_b_e)))))

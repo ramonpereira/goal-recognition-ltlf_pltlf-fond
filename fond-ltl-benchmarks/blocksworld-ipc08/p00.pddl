@@ -7,9 +7,10 @@
   		(ontable d) (on e d) (clear e))
   (:goal 
   	(and 
-  		(emptyhand) 
+  		;(emptyhand) 
   		;(on a b) (clear a)
   		(on b e) (ontable e)
+      ; (ontable d) (on a d)
   		;(ontable c) (ontable d) (clear c) (clear d)
   	)
   )
