@@ -13,6 +13,7 @@ __pycache__/
 *.spec
 
 # Other files
+*_prime.pddl
 recognizer/elapsed.time
 recognizer/graph.dot
 recognizer/output
