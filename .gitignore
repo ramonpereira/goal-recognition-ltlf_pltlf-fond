@@ -16,12 +16,12 @@ __pycache__/
 
 *_prime.pddl
 
-recognizer/elapsed.time
-recognizer/graph.dot
-recognizer/output
-recognizer/output.sas
-recognizer/plan_numbers_and_cost
-recognizer/policy-translated.out
-recognizer/policy.fsap
-recognizer/policy.out
-recognizer/sas_plan
+recognition/elapsed.time
+recognition/graph.dot
+recognition/output
+recognition/output.sas
+recognition/plan_numbers_and_cost
+recognition/policy-translated.out
+recognition/policy.fsap
+recognition/policy.out
+recognition/sas_plan
