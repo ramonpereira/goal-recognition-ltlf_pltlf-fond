@@ -36,5 +36,5 @@
   		(sparein l51)
 
   		(notflattire))
-  (:goal (vehicleat l15))
+  (:goal (and (goal_state)))
 )

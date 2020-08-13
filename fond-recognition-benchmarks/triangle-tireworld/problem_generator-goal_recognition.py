@@ -13,7 +13,7 @@ def main() :
 
 	for problemNumber in range(1, int(numberOfProblems)+1):
 		# Creating a PDDL problem template according to the defined problem number		
-		problemTemplate = open('template.pddl', 'w')
+		problemTemplate = open('initial_state.pddl', 'w')
 		planningProblemNumber = open('pb' + str(problemNumber) + '.pddl')
 		for line in planningProblemNumber:
 			problemTemplate.write(line)

@@ -35,5 +35,5 @@
       (sparein l51)
 
       (notflattire))
-  (:goal (and (vehicleat l33)))
+  (:goal (and (vehicleat l15)))
 )
