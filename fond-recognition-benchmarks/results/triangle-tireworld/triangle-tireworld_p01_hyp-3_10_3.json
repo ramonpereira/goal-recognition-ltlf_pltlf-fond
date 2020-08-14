@@ -1,0 +1,22 @@
+{
+ "G": [
+  "F(vehicleat_l15)",
+  "F(vehicleat_l33)",
+  "F(vehicleat_l51)"
+ ],
+ "G*": "F(vehicleat_l51)",
+ "Obs": [
+  "move-car_l21_l31"
+ ],
+ "P(Obs | G)": [
+  [
+   0.5050028963734052,
+   0.5050028963734052,
+   0.9899942072531897
+  ]
+ ],
+ "domain": "triangle-tireworld",
+ "observability": "10",
+ "problem": "triangle-tireworld_p01_hyp-3_10_3",
+ "time": 3.9405088424682617
+}
