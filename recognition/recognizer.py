@@ -43,6 +43,7 @@ def recognize(recognition_problem_path, verbose=True):
     obs_file.close()
     correct_goal_file.close()
     goal_plans = dict()
+    goal_all_plans = dict()
 
     trace['G'] = possible_goals
     trace['G*'] = correct_goal
@@ -59,6 +60,7 @@ def recognize(recognition_problem_path, verbose=True):
         G = validator.validate_and_generate_graph('domain.pddl', 'problem.pddl', 'policy-translated.out', 'prp')
         all_plans, actions_avg_distance_to_goal = prp_planner.extract_plans_from_graph(G, False)
         goal_plans[goal] = actions_avg_distance_to_goal
+        goal_all_plans[goal] = all_plans
 
     print('> STEP 2: Computing achieved observations for the goals ... \n')
     goals_achieved_observations_dist = dict()
@@ -106,7 +108,12 @@ def recognize(recognition_problem_path, verbose=True):
                 if goal != goal_prime:
                     sum_dist_other_goals += goals_achieved_observations_dist[goal_prime][i]
 
-            score = float(obs_dist_goal/sum_dist_other_goals)
+            penalty_value = 0
+            if i > 0:
+                penalty_value = _compute_penalty_value(goal_all_plans[goal], observations[i-1], observations[i])
+
+            penalty = math.e ** penalty_value
+            score = float((penalty*obs_dist_goal)/sum_dist_other_goals)
             """
             Compute P(Obs | G) for the goals.
             """
@@ -147,6 +154,24 @@ def recognize(recognition_problem_path, verbose=True):
 
     print()
 
+def _compute_penalty_value(all_plans, obs_prev, obs):
+    penalty_value = 3
+
+    ordering_okay = False
+    for plan in all_plans:
+        if obs in plan and obs_prev in plan:
+            i = plan.index(obs)
+            i_prev = plan.index(obs_prev)
+            if i_prev < i:
+                ordering_okay = True
+            else:
+                return penalty_value
+
+    if ordering_okay:
+        penalty_value = 0
+
+    return penalty_value
+
 def _compute_posterior(goal, posterior_probs, normalization_factor):
     num = posterior_probs[goal] * normalization_factor[0]
     denom = np.sum(list(posterior_probs.values()) * normalization_factor)
@@ -161,6 +186,8 @@ def _get_goal():
         if('goal' in line):
             goal = prevLine.replace('If holds: ', '')
             goal = goal.replace('(', ' ')
+            goal = goal.replace(',', ' ')
+            goal = goal.replace(')/', ') (')
             goal = '(' + goal
             break
         prevLine = line

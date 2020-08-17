@@ -1,6 +1,13 @@
 (define (problem bw_15_24)
   (:domain blocks-domain)
-  (:objects b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 - block)
-  (:init (emptyhand) (on b1 b12) (on b2 b10) (on b3 b2) (on b4 b15) (on b5 b9) (ontable b6) (on b7 b13) (ontable b8) (on b9 b7) (on b10 b4) (on b11 b8) (on b12 b3) (on b13 b6) (on b14 b5) (on b15 b11) (clear b1) (clear b14))
-  (:goal (and (emptyhand) (on b1 b14) (on b2 b4) (on b3 b9) (on b4 b12) (ontable b5) (on b6 b1) (on b7 b6) (on b8 b10) (on b9 b15) (on b10 b7) (ontable b11) (on b12 b13) (on b13 b8) (ontable b14) (ontable b15) (clear b2) (clear b3) (clear b5) (clear b11)))
+  (:objects a b c d e f g h i j k l n m o - block)
+  
+  (:init (emptyhand) (ontable m) (on k m) (on f k) (clear f) (ontable h) (on e h) (on l e) (clear l) (ontable g) (on o g) (on n o) (on d n) (clear d) (ontable i) (on b i) (on c b) (on j c) (on a j) (clear a))
+  
+  ;(:goal (and (emptyhand) (ontable m) (on a m) (on j a) (on d j) (on e d) (on b e) (clear b) (ontable o) (on f o) (on n f) (clear n) (ontable c) (on l c) (on k l) (on g k) (on h g) (on i h) (clear i)))
+  ;(:goal (and (emptyhand) (ontable m) (on a m) (on j a) (on d j) (on e d) (on o e) (clear o) (ontable b) (on f b) (on n f) (clear n) (ontable g) (on l g) (on k l) (on c k) (on h c) (on i h) (clear i)))
+  ;(:goal (and (emptyhand) (ontable d) (on a d) (on j a) (on m j) (on f m) (on o f) (clear o) (ontable b) (on e b) (on n e) (clear n) (ontable g) (on l g) (on k l) (on i k) (on h i) (on c h) (clear c)))
+  ;(:goal (and (emptyhand) (ontable d) (on a d) (on j a) (on m j) (on b m) (on o b) (clear o) (ontable f) (on e f) (on g e) (clear g) (ontable n) (on l n) (on h l) (on i h) (on k i) (on c k) (clear c)))
+  ;(:goal (and (emptyhand) (ontable e) (on a e) (on b a) (on m b) (on j m) (on f j) (clear f) (ontable o) (on d o) (on g d) (clear g) (ontable i) (on l i) (on c l) (on n c) (on k n) (on h k) (clear h)))
+  (:goal (and (emptyhand) (ontable e) (on f e) (on b f) (on o b) (on j o) (on a j) (clear a) (ontable m) (on d m) (on g d) (clear g) (ontable n) (on l n) (on c l) (on i c) (on k i) (on h k) (clear h)))
 )
