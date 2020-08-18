@@ -1,69 +1,63 @@
-(define (problem tidyup_inst_mdp__04)
-    (:domain tidyup_v2)
+(define (problem tidyupinstmdp04)
+    (:domain tidyup)
     (:objects
-      kitchen_table - table
+      kitchentable - table
       desk1 - table
       desk2 - table
       kitchen - room
       corridor - room
       office1 - room
       office2 - room
-      init_location - location
-      k_door_l1 - location
-      k_door_l2 - location
-      o_door1_l1 - location
-      o_door1_l2 - location
-      o_door2_l1 - location
-      o_door2_l2 - location
-      k_table_l - location
-      desk1_l - location
-      desk2_l - location
-      cup1 - movable_object
-      kitchen_door - door
-      o_door1 - door
-      o_door2 - door
+      initlocation - location
+      kdoorl1 - location
+      kdoorl2 - location
+      odoor1l1 - location
+      odoor1l2 - location
+      odoor2l1 - location
+      odoor2l2 - location
+      ktablel - location
+      desk1l - location
+      desk2l - location
+      cup1 - movableobject
+      laptop1 - movableobject
+      kitchendoor - door
+      odoor1 - door
+      odoor2 - door
+      leftarm - arm
+      rightarm - arm
+      sponge - movableobject
     )
     (:init
-      (on cup1 desk1)
-      (attached-to-base sponge)
-      (at-base init_location)
-      (hand-free left_arm)
-      (hand-free right_arm)
-      (arm-at-side left_arm)
-      (arm-at-side right_arm)
-      (belongs-to-door k_door_l1 kitchen_door)
-      (belongs-to-door k_door_l2 kitchen_door)
-      (belongs-to-door o_door1_l1 o_door1)
-      (belongs-to-door o_door1_l2 o_door1)
-      (belongs-to-door o_door2_l1 o_door2)
-      (belongs-to-door o_door2_l2 o_door2)
-      (belongs-to-table k_table_l kitchen_table)
-      (belongs-to-table desk1_l desk1)
-      (belongs-to-table desk2_l desk2)
-      (tidy-pos cup1 kitchen_table)
-      (location-in-room init_location kitchen)
-      (location-in-room k_table_l kitchen)
-      (location-in-room desk1_l office1)
-      (location-in-room desk2_l office2)
-      (location-in-room k_door_l1 kitchen)
-      (location-in-room k_door_l2 corridor)
-      (location-in-room o_door1_l1 office1)
-      (location-in-room o_door1_l2 corridor)
-      (location-in-room o_door2_l1 office2)
-      (location-in-room o_door2_l2 corridor)
+      (on cup1 kitchentable)
+      (on laptop1 desk1)
+      (attachedtobase_sponge)
+      (atbase initlocation)
+      (handfree leftarm)
+      (handfree rightarm)
+      (armatside leftarm)
+      (armatside rightarm)
+      (belongstodoor kdoorl1 kitchendoor)
+      (belongstodoor kdoorl2 kitchendoor)
+      (belongstodoor odoor1l1 odoor1)
+      (belongstodoor odoor1l2 odoor1)
+      (belongstodoor odoor2l1 odoor2)
+      (belongstodoor odoor2l2 odoor2)
+      (belongstotable ktablel kitchentable)
+      (belongstotable desk1l desk1)
+      (belongstotable desk2l desk2)
+      (locationinroom initlocation kitchen)
+      (locationinroom ktablel kitchen)
+      (locationinroom desk1l office1)
+      (locationinroom desk2l office2)
+      (locationinroom kdoorl1 kitchen)
+      (locationinroom kdoorl2 corridor)
+      (locationinroom odoor1l1 office1)
+      (locationinroom odoor1l2 corridor)
+      (locationinroom odoor2l1 office2)
+      (locationinroom odoor2l2 corridor)
     )
-    (:goal (and
-      (wiped kitchen_table)
-      (table-state-known kitchen_table)
-      (wiped desk1)
-      (table-state-known desk1)
-      (wiped desk2)
-      (table-state-known desk2)
-      (attached-to-base sponge)
-      (on cup1 kitchen_table)
-      (arm-at-side right_arm)
-      (arm-at-side left_arm)
-      (hand-free right_arm)
-      (hand-free left_arm)
-    ))
+    ;(:goal (and (atbase desk1l) (wiped kitchentable) (wiped desk1) (wiped desk2) (on cup1 desk1) (on laptop1 desk2) (handfree rightarm) (handfree leftarm)))
+    (:goal (and (atbase desk1l) (wiped desk1) (wiped desk2) (on cup1 desk2) (on laptop1 kitchentable) (handfree rightarm) (handfree leftarm)))
+    ;(:goal (and (atbase desk2l) (wiped kitchentable) (wiped desk2) (on cup1 desk2) (on laptop1 kitchentable) (handfree rightarm) (handfree leftarm)))
+    ;(:goal (and (atbase desk2l) (wiped desk2) (wiped desk1) (on cup1 desk1) (on laptop1 desk2) (handfree rightarm) (handfree leftarm)))
 )

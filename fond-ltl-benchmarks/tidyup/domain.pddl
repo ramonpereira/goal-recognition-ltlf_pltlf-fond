@@ -1,153 +1,138 @@
-(define (domain tidyup_v2)
-    (:requirements :strips :typing :equality)
-    (:types
-            room
-            location
-            table
-            door
-            movable_object
-            arm
-    )
-
-    (:constants
-            left_arm right_arm - arm
-            sponge - movable_object
-    )
+(define (domain tidyup)
+    (:requirements :strips :typing :equality :non-deterministic)
+    (:types room location table door movableobject arm)
 
     (:predicates 
-        (table-state-known ?t - table)
-        (on ?o - movable_object ?t - table)
+        (tablestateknown ?t - table)
+        (on ?o - movableobject ?t - table)
         (wiped ?s - table)
-        (hand-free ?a - arm)
-        (grasped ?o - movable_object ?a - arm)
-        (attached-to-base ?o - movable_object)
-        (door-open ?d - door)
-        (door-state-known ?d - door)
-        (arm-at-side ?a - arm)
-        (belongs-to-door ?l - location ?d - door)
-        (belongs-to-table ?l - location ?t - table)
-        (location-in-room ?l - location ?r - room)
-        (at-base ?l - location)
-        (tidy-pos ?o - movable_object ?t - table)
+        (handfree ?a - arm)
+        (grasped ?o - movableobject ?a - arm)
+        (grasped_sponge ?a - arm)
+        (attachedtobase_sponge)
+        (attachedtobase ?o - movableobject)
+        (dooropen ?d - door)
+        (doorstateknown ?d - door)
+        (armatside ?a - arm)
+        (belongstodoor ?l - location ?d - door)
+        (belongstotable ?l - location ?t - table)
+        (locationinroom ?l - location ?r - room)
+        (atbase ?l - location)
     ) 
 
     (:action pickup-object
-     :parameters (?l - location ?o - movable_object ?t - table ?a - arm)
+     :parameters (?l - location ?o - movableobject ?t - table ?a - arm)
      :precondition 
         (and 
-            (at-base ?l)
-            (belongs-to-table ?l ?t)
+            (atbase ?l)
+            (belongstotable ?l ?t)
             (on ?o ?t)
-            (hand-free ?a)
-            (table-state-known ?t)
-            (arm-at-side right_arm)
-            (arm-at-side left_arm)
+            (handfree ?a)
+            (tablestateknown ?t)
+            (armatside ?a)
         )
      :effect 
         (oneof
             (and 
                 (not (on ?o ?t))
                 (grasped ?o ?a)
-                (not (hand-free ?a))
-                (not (arm-at-side ?a))
-                (not (table-state-known ?t))
+                (not (handfree ?a))
+                (not (armatside ?a))
+                (not (tablestateknown ?t))
             )
             (and 
-                (not (arm-at-side ?a))
-                (not (table-state-known ?t))
+                (not (armatside ?a))
+                (not (tablestateknown ?t))
             )
         )
     ) 
  
     (:action pickup-object-blind
-     :parameters (?l - location ?o - movable_object ?t - table ?a - arm)
+     :parameters (?l - location ?o - movableobject ?t - table ?a - arm)
      :precondition 
         (and 
-            (at-base ?l)
-            (belongs-to-table ?l ?t)
+            (atbase ?l)
+            (belongstotable ?l ?t)
             (on ?o ?t)
-            (hand-free ?a)
-            (not (table-state-known ?t))
-            (arm-at-side right_arm)
-            (arm-at-side left_arm)
+            (handfree ?a)
+            (not (tablestateknown ?t))
+            (armatside ?a)
         ) 
      :effect 
         (oneof
             (and 
                 (not (on ?o ?t))
                 (grasped ?o ?a)
-                (not (hand-free ?a))
-                (not (arm-at-side ?a))
-                (not (table-state-known ?t))
+                (not (handfree ?a))
+                (not (armatside ?a))
+                (not (tablestateknown ?t))
             )
             (and 
-                (not (arm-at-side ?a))
-                (not (table-state-known ?t))
+                (not (armatside ?a))
+                (not (tablestateknown ?t))
             )
             (and 
                 (not (on ?o ?t))
-                (not (arm-at-side ?a))
-                (not (table-state-known ?t))
+                (not (armatside ?a))
+                (not (tablestateknown ?t))
             )
         )
     ) 
  
     (:action putdown-object
-     :parameters (?l - location ?o - movable_object ?t - table ?a - arm)
+     :parameters (?l - location ?o - movableobject ?t - table ?a - arm)
      :precondition
         (and
-            (at-base ?l)
-            (belongs-to-table ?l ?t)
+            (atbase ?l)
+            (belongstotable ?l ?t)
             (grasped ?o ?a)
-            (table-state-known ?t)
-            (arm-at-side right_arm)
-            (arm-at-side left_arm)
+            (tablestateknown ?t)
+            (armatside ?a)
         )
      :effect
         (oneof
             (and
                 (on ?o ?t)
                 (not (grasped ?o ?a))
-                (hand-free ?a)
-                (not (arm-at-side ?a))
-                (not (table-state-known ?t))
+                (handfree ?a)
+                (not (armatside ?a))
+                (not (tablestateknown ?t))
             )
             (and
-                (not (arm-at-side ?a))
-                (not (table-state-known ?t))
+                (not (armatside ?a))
+                (not (tablestateknown ?t))
             )
         )
     )  
  
     (:action putdown-object-blind
-     :parameters (?l - location ?o - movable_object ?t - table ?a - arm)
+     :parameters (?l - location ?o - movableobject ?t - table ?a - arm)
      :precondition
         (and
-            (at-base ?l)
-            (belongs-to-table ?l ?t)
+            (atbase ?l)
+            (belongstotable ?l ?t)
             (grasped ?o ?a)
-            (not (table-state-known ?t))
-            (arm-at-side right_arm)
-            (arm-at-side left_arm)
+            (not (tablestateknown ?t))
+            (armatside ?a)
         )
      :effect
         (oneof
             (and
                 (on ?o ?t)
                 (not (grasped ?o ?a))
-                (hand-free ?a)
-                (not (arm-at-side ?a))
-                (not (table-state-known ?t))
+                (handfree ?a)
+                (not (armatside ?a))
+                (not (tablestateknown ?t))
             )
             (and
-                (not (arm-at-side ?a))
-                (not (table-state-known ?t))
+                (not (armatside ?a))
+                (not (tablestateknown ?t))
             )
             (and
                 (not (grasped ?o ?a))
-                (hand-free ?a)
-                (not (arm-at-side ?a))
-                (not (table-state-known ?t))
+                (handfree ?a)
+                (not (armatside ?a))
+                (not (tablestateknown ?t))
             )
         )
     ) 
@@ -156,21 +141,16 @@
      :parameters (?l - location ?t - table ?a - arm)
      :precondition
         (and
-            (at-base ?l)
-            ; (not (on cup1 ?t))
-            ; (not (on cup2 ?t))
-            ; (not (on cup3 ?t))
-            ; (not (on cup4 ?t))
-            (grasped sponge ?a)
-            (table-state-known ?t)
-            (arm-at-side right_arm)
-            (arm-at-side left_arm)
-            (belongs-to-table ?l ?t)
+            (atbase ?l)
+            (grasped_sponge ?a)
+            (tablestateknown ?t)
+            (armatside ?a)
+            (belongstotable ?l ?t)
             (not (wiped ?t))
         )
      :effect
         (and 
-            (not (arm-at-side ?a))
+            (not (armatside ?a))
             (wiped ?t)
         )
     )
@@ -179,17 +159,16 @@
      :parameters (?a - arm)
      :precondition
         (and
-            (hand-free ?a)
-            (attached-to-base sponge)
-            (arm-at-side right_arm)
-            (arm-at-side left_arm)
+            (handfree ?a)
+            (attachedtobase_sponge)
+            (armatside ?a)
         )
      :effect
         (and
-            (grasped sponge ?a)
-            (not (attached-to-base sponge))
-            (not (arm-at-side ?a))
-            (not (hand-free ?a))
+            (grasped_sponge ?a)
+            (not (attachedtobase_sponge))
+            (not (armatside ?a))
+            (not (handfree ?a))
         )
     )
  
@@ -197,16 +176,15 @@
     :parameters (?a - arm)
     :precondition
         (and
-            (grasped sponge ?a)
-            (arm-at-side right_arm)
-            (arm-at-side left_arm)
+            (grasped_sponge ?a)
+            (armatside ?a)
         )
     :effect
         (and
-            (not (grasped sponge ?a))
-            (attached-to-base sponge)
-            (not (arm-at-side ?a))
-            (hand-free ?a)
+            (not (grasped_sponge ?a))
+            (attachedtobase_sponge)
+            (not (armatside ?a))
+            (handfree ?a)
         )
     )
 
@@ -214,15 +192,13 @@
     :parameters (?l - location ?t - table)
     :precondition
         (and
-            (at-base ?l)
-            (belongs-to-table ?l ?t)
-            (not (table-state-known ?t))
-            (arm-at-side right_arm)
-            (arm-at-side left_arm)
+            (atbase ?l)
+            (belongstotable ?l ?t)
+            (not (tablestateknown ?t))
         )
     :effect
         (and
-            (table-state-known ?t)
+            (tablestateknown ?t)
         )
     )
 
@@ -230,15 +206,14 @@
     :parameters (?l - location ?t - table)
     :precondition
         (and
-            (at-base ?l)
-            (belongs-to-table ?l ?t)
-            (not (table-state-known ?t))
-            (not (arm-at-side left_arm))
+            (atbase ?l)
+            (belongstotable ?l ?t)
+            (not (tablestateknown ?t))
         )
     :effect
         (oneof
             (and
-                (table-state-known ?t)
+                (tablestateknown ?t)
             )
             (and)
         )
@@ -248,15 +223,14 @@
     :parameters (?l - location ?t - table)
     :precondition
         (and
-            (at-base ?l)
-            (belongs-to-table ?l ?t)
-            (not (table-state-known ?t))
-            (not (arm-at-side right_arm))
+            (atbase ?l)
+            (belongstotable ?l ?t)
+            (not (tablestateknown ?t))
         )
     :effect
         (oneof
             (and
-                (table-state-known ?t)
+                (tablestateknown ?t)
             )
             (and)
         )
@@ -266,15 +240,13 @@
     :parameters (?l - location ?d - door)
     :precondition
         (and
-            (at-base ?l)
-            (belongs-to-door ?l ?d)
-            (not (door-state-known ?d))
-            (arm-at-side right_arm)
-            (arm-at-side left_arm)
+            (atbase ?l)
+            (belongstodoor ?l ?d)
+            (not (doorstateknown ?d))
         )
     :effect
         (and
-            (door-state-known ?d)
+            (doorstateknown ?d)
         )
     )
 
@@ -282,15 +254,14 @@
     :parameters (?l - location ?d - door)
     :precondition
         (and
-            (at-base ?l)
-            (belongs-to-door ?l ?d)
-            (not (door-state-known ?d))
-            (not (arm-at-side left_arm))
+            (atbase ?l)
+            (belongstodoor ?l ?d)
+            (not (doorstateknown ?d))
         )
     :effect
         (oneof
             (and
-                (door-state-known ?d)
+                (doorstateknown ?d)
             )
             (and)
         )
@@ -300,15 +271,14 @@
     :parameters (?l - location ?d - door)
     :precondition
         (and
-            (at-base ?l)
-            (belongs-to-door ?l ?d)
-            (not (door-state-known ?d))
-            (not (arm-at-side right_arm))
+            (atbase ?l)
+            (belongstodoor ?l ?d)
+            (not (doorstateknown ?d))
         )
     :effect
         (oneof
             (and
-                (door-state-known ?d)
+                (doorstateknown ?d)
             )
             (and)
         )
@@ -318,19 +288,17 @@
      :parameters (?l - location ?d - door ?a - arm)
      :precondition
         (and
-            (at-base ?l)
-            (belongs-to-door ?l ?d)
-            (door-state-known ?d)
-            (not (door-open ?d))
-            (hand-free ?a)
-            (arm-at-side right_arm)
-            (arm-at-side left_arm)
+            (atbase ?l)
+            (belongstodoor ?l ?d)
+            (doorstateknown ?d)
+            (not (dooropen ?d))
+            (handfree ?a)
         )
      :effect
         (and 
-            (not (arm-at-side ?a))
-            (door-open ?d)
-            (not (door-state-known ?d))
+            (not (armatside ?a))
+            (dooropen ?d)
+            (not (doorstateknown ?d))
         )
     )
  
@@ -339,104 +307,98 @@
      :precondition
         (and
             (not (= ?s ?g))
-            (at-base ?s)
-            (location-in-room ?s ?r)
-            (location-in-room ?g ?r)
-            (arm-at-side right_arm)
-            (arm-at-side left_arm)
+            (atbase ?s)
+            (locationinroom ?s ?r)
+            (locationinroom ?g ?r)
         )
      :effect
         (oneof
             (and
-                (not (at-base ?s))
-                (at-base ?g)
+                (not (atbase ?s))
+                (atbase ?g)
             )
             (and)
         )
     )
     
     (:action drive-untucked-right-arm
-     :parameters (?r - room ?s ?g - location)
+     :parameters (?r - room ?s ?g - location ?a - arm)
      :precondition
         (and
             (not (= ?s ?g))
-            (at-base ?s)
-            (location-in-room ?s ?r)
-            (location-in-room ?g ?r)
-            (not (arm-at-side right_arm))
-            (hand-free right_arm)
-            (arm-at-side left_arm)
+            (atbase ?s)
+            (locationinroom ?s ?r)
+            (locationinroom ?g ?r)
+            (not (armatside ?a))
+            (handfree ?a)
         )
      :effect
         (oneof
             (and
-                (not (at-base ?s))
-                (at-base ?g)
+                (not (atbase ?s))
+                (atbase ?g)
             )
             (and)
         )
     )
 
     (:action drive-untucked-left-arm
-     :parameters (?r - room ?s ?g - location)
+     :parameters (?r - room ?s ?g - location ?a - arm)
      :precondition
         (and
             (not (= ?s ?g))
-            (at-base ?s)
-            (location-in-room ?s ?r)
-            (location-in-room ?g ?r)
-            (not (arm-at-side left_arm))
-            (hand-free left_arm)
-            (arm-at-side right_arm)
+            (atbase ?s)
+            (locationinroom ?s ?r)
+            (locationinroom ?g ?r)
+            (not (armatside ?a))
+            (handfree ?a)
         )
      :effect
         (oneof
             (and
-                (not (at-base ?s))
-                (at-base ?g)
+                (not (atbase ?s))
+                (atbase ?g)
             )
             (and)
         )
     )
 
     (:action drive-untucked
-     :parameters (?r - room ?s ?g - location)
+     :parameters (?r - room ?s ?g - location ?a - arm)
      :precondition
         (and
             (not (= ?s ?g))
-            (at-base ?s)
-            (location-in-room ?s ?r)
-            (location-in-room ?g ?r)
-            (not (arm-at-side left_arm))
-            (not (arm-at-side right_arm))
-            (hand-free left_arm)
-            (hand-free right_arm)
+            (atbase ?s)
+            (locationinroom ?s ?r)
+            (locationinroom ?g ?r)
+            (not (armatside ?a))
+            (handfree ?a)
         )
      :effect
         (oneof
             (and
-                (not (at-base ?s))
-                (at-base ?g)
+                (not (atbase ?s))
+                (atbase ?g)
             )
             (and)
         )
     )
     
     (:action drive-untucked-carrying
-     :parameters (?r - room ?s ?g - location ?o - movable_object ?a - arm)
+     :parameters (?r - room ?s ?g - location ?o - movableobject ?a - arm)
      :precondition
         (and
             (not (= ?s ?g))
-            (at-base ?s)
-            (location-in-room ?s ?r)
-            (location-in-room ?g ?r)
-            (not (arm-at-side ?a))
+            (atbase ?s)
+            (locationinroom ?s ?r)
+            (locationinroom ?g ?r)
+            (not (armatside ?a))
             (grasped ?o ?a)
         )
      :effect
         (oneof
             (and
-                (hand-free ?a)
+                (handfree ?a)
                 (not (grasped ?o ?a))         
             )
         )
@@ -447,124 +409,117 @@
      :precondition
         (and
             (not (= ?s ?g))
-            (at-base ?s)
-            (belongs-to-door ?s ?d)
-            (belongs-to-door ?g ?d)
-            (location-in-room ?s ?sr)
-            (location-in-room ?g ?gr)
-            (door-state-known ?d)
-            (door-open ?d)
-            (arm-at-side right_arm)
-            (arm-at-side left_arm)
+            (atbase ?s)
+            (belongstodoor ?s ?d)
+            (belongstodoor ?g ?d)
+            (locationinroom ?s ?sr)
+            (locationinroom ?g ?gr)
+            (doorstateknown ?d)
+            (dooropen ?d)
         )
      :effect
         (oneof
             (and
-                (not (at-base ?s))
-                (at-base ?g) 
+                (not (atbase ?s))
+                (atbase ?g) 
             )
             (and)
         )
     )
     
     (:action drive-through-door-untucked-right-arm
-     :parameters (?sr ?gr - room ?d - door ?s ?g - location)
+     :parameters (?sr ?gr - room ?d - door ?s ?g - location ?a - arm)
      :precondition
         (and
             (not (= ?s ?g))
-            (at-base ?s)
-            (belongs-to-door ?s ?d)
-            (belongs-to-door ?g ?d)
-            (location-in-room ?s ?sr)
-            (location-in-room ?g ?gr)
-            (door-state-known ?d)
-            (door-open ?d)
-            (not (arm-at-side right_arm))
-            ;(not (grasped ?o right_arm))
-            (hand-free right_arm)
-            (arm-at-side left_arm)
+            (atbase ?s)
+            (belongstodoor ?s ?d)
+            (belongstodoor ?g ?d)
+            (locationinroom ?s ?sr)
+            (locationinroom ?g ?gr)
+            (doorstateknown ?d)
+            (dooropen ?d)
+            (not (armatside ?a))
+            (handfree ?a)
         )
      :effect
         (oneof
             (and
-                (not (at-base ?s))
-                (at-base ?g)
+                (not (atbase ?s))
+                (atbase ?g)
             )
             (and)
         )
     )
 
     (:action drive-through-door-untucked-left-arm
-     :parameters (?sr ?gr - room ?d - door ?s ?g - location)
+     :parameters (?sr ?gr - room ?d - door ?s ?g - location ?a - arm)
      :precondition
         (and
             (not (= ?s ?g))
-            (at-base ?s)
-            (belongs-to-door ?s ?d)
-            (belongs-to-door ?g ?d)
-            (location-in-room ?s ?sr)
-            (location-in-room ?g ?gr)
-            (door-state-known ?d)
-            (door-open ?d)
-            (not (arm-at-side left_arm))
-            (hand-free left_arm)
-            (arm-at-side right_arm)
+            (atbase ?s)
+            (belongstodoor ?s ?d)
+            (belongstodoor ?g ?d)
+            (locationinroom ?s ?sr)
+            (locationinroom ?g ?gr)
+            (doorstateknown ?d)
+            (dooropen ?d)
+            (not (armatside ?a))
+            (handfree ?a)
         )
      :effect
         (oneof
             (and
-                (not (at-base ?s))
-                (at-base ?g)
+                (not (atbase ?s))
+                (atbase ?g)
             )
             (and)
         )
     )
 
     (:action drive-through-door-untucked
-     :parameters (?sr ?gr - room ?d - door ?s ?g - location)
+     :parameters (?sr ?gr - room ?d - door ?s ?g - location ?a - arm)
      :precondition
         (and
             (not (= ?s ?g))
-            (at-base ?s)
-            (belongs-to-door ?s ?d)
-            (belongs-to-door ?g ?d)
-            (location-in-room ?s ?sr)
-            (location-in-room ?g ?gr)
-            (door-state-known ?d)
-            (door-open ?d)
-            (not (arm-at-side left_arm))
-            (hand-free left_arm)
-            (not (arm-at-side right_arm))
-            (hand-free right_arm)
+            (atbase ?s)
+            (belongstodoor ?s ?d)
+            (belongstodoor ?g ?d)
+            (locationinroom ?s ?sr)
+            (locationinroom ?g ?gr)
+            (doorstateknown ?d)
+            (dooropen ?d)
+            (not (armatside ?a))
+            (handfree ?a)
         )
      :effect
         (oneof
             (and
-                (not (at-base ?s))
-                (at-base ?g)
+                (not (atbase ?s))
+                (atbase ?g)
             )
             (and)
         )
     )
     
     (:action drive-through-door-untucked-carrying
-     :parameters (?sr ?gr - room ?d - door ?s ?g - location ?o - movable_object ?a - arm)
+     :parameters (?sr ?gr - room ?d - door ?s ?g - location ?o - movableobject ?a - arm)
      :precondition
         (and
             (not (= ?s ?g))
-            (at-base ?s)
-            (belongs-to-door ?s ?d)
-            (belongs-to-door ?g ?d)
-            (location-in-room ?s ?sr)
-            (location-in-room ?g ?gr)
-            (door-state-known ?d)
-            (door-open ?d)
-            (not (arm-at-side ?a))
+            (atbase ?s)
+            (belongstodoor ?s ?d)
+            (belongstodoor ?g ?d)
+            (locationinroom ?s ?sr)
+            (locationinroom ?g ?gr)
+            (doorstateknown ?d)
+            (dooropen ?d)
+            (not (armatside ?a))
             (grasped ?o ?a)
         )
      :effect
         (and
-            (hand-free right_arm)
+            (handfree ?a)
             (not (grasped ?o ?a))
         )
     )
@@ -573,11 +528,11 @@
     :parameters (?a - arm)
     :precondition
         (and
-            (not (arm-at-side ?a))
+            (not (armatside ?a))
         )
     :effect
         (and
-            (arm-at-side ?a)
+            (armatside ?a)
         )
     )
 )

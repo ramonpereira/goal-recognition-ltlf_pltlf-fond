@@ -36,6 +36,7 @@ def load(pol, fmap):
 
     while file_lines:
         fluent_line = file_lines.pop(0)
+        fluent_line = fluent_line.replace('/<none of those>', '')
 
         if fluent_line == 'Policy:':
             stage = STAGE_POL
