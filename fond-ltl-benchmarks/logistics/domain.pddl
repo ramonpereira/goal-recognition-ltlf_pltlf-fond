@@ -11,8 +11,8 @@
       (flattire ?truck)
       (at ?obj ?loc)
       (in ?obj1 ?obj2)
-      (in-city ?obj ?city)
-      (spare-tire-in ?loc)
+      (incity ?obj ?city)
+      (sparetirein ?loc)
       (hasspare ?truck)
   )
 
@@ -70,8 +70,8 @@
    (and (TRUCK ?truck) (LOCATION ?loc-from) (LOCATION ?loc-to) (CITY ?city)
    (at ?truck ?loc-from)
    (not (flattire ?truck))
-   (in-city ?loc-from ?city)
-   (in-city ?loc-to ?city))
+   (incity ?loc-from ?city)
+   (incity ?loc-to ?city))
   :effect
   (oneof
    (and (flattire ?truck))
@@ -87,8 +87,8 @@
 
 (:action LOAD-TIRE-TRUCK
     :parameters (?truck ?loc)
-    :precondition (and (TRUCK ?truck) (LOCATION ?loc) (at ?truck ?loc) (spare-tire-in ?loc))
-    :effect (and (hasspare ?truck) (not (spare-tire-in ?loc)))
+    :precondition (and (TRUCK ?truck) (LOCATION ?loc) (at ?truck ?loc) (sparetirein ?loc))
+    :effect (and (hasspare ?truck) (not (sparetirein ?loc)))
 )
 
 (:action FLY-AIRPLANE
