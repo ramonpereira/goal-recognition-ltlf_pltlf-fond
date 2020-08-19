@@ -16,6 +16,8 @@ __pycache__/
 
 *_prime.pddl
 
+*downward.*
+
 recognition/elapsed.time
 recognition/graph.dot
 recognition/output
