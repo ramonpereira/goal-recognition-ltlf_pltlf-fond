@@ -55,8 +55,5 @@
           (at package2 city1u1)
           (at package1 city3u1))
    
-   ;(:goal (and (at package4 city3u1) (at package2 city2u1) (at package1 city1u2) (at package3 city3u2)))
-   ;(:goal (and (at package4 city3u2) (at package2 city2u1) (at package1 city3u1) (at package3 city3u1)))
-   ;(:goal (and (at package4 city3u1) (at package2 city2u2) (at package1 city2u2) (at package3 city1u2)))
-   (:goal (and (at package4 city3u2) (at package2 city3u1) (at package1 city1u1) (at package3 city1u1)))
+   (:goal (and (goal_state)))
 )

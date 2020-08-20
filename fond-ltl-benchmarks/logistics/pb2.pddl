@@ -1,9 +1,9 @@
 (define (problem pb2)
-   (:domain logistics-strips)
-   (:objects package3 package2 package1
-             city4 city3 city2 city1 
-             truck3 truck2 truck1 plane2 plane1 
-             city4u1 city3u1 city3u2 city2u1 city2u2 city2u3 city1u1 city1u2)
+   (:domain logistics)
+   (:objects package3 package2 package1 - obj
+             city4 city3 city2 city1 - obj
+             truck3 truck2 truck1 plane2 plane1 - obj
+             city4u1 city3u1 city3u2 city2u1 city2u2 city2u3 city1u1 city1u2 - obj)
    (:init 
           (obj package3)
           (obj package2)
@@ -17,13 +17,9 @@
           (truck truck3)
           (truck truck2)
           (truck truck1)
-          (not (flattire truck1))
-          (not (flattire truck2))
-          (not (flattire truck3))
           
           (airplane plane2)
           (airplane plane1)
-          (not (needfuel plane1))
           (needfuel plane2)
           
           (location city3u1)
@@ -69,10 +65,8 @@
           (at package2 city2u1)
           (at package1 city3u1))
    
-   ;(:goal (and (at package1 city4u1) (at package2 city3u1) (at package3 city2u1)))
    (:goal (and (at package3 city3u2) (at package1 city2u1) (at package2 city3u2)))
-   ; (:goal (and (at package3 city4u1) (at package1 city2u1) (at package2 city1u1)))
-   ; (:goal (and (at package2 city3u1) (at package3 city2u2) (at package1 city1u2)))
-   ; (:goal (and (at package2 city3u2) (at package3 city3u1) (at package1 city1u1)))
-   ; (:goal (and (at package2 city1u2) (at package3 city4u1) (at package1 city2u1)))
+   ;(:goal (and (at package2 city1u2) (at package3 city4u1) (at package1 city2u1)))
+   ;(:goal (and (at package2 city1u2) (at package1 city3u2) (at package3 city4u1)))
+   ;(:goal (and (at package3 city3u2) (at package1 city3u2) (at package2 city1u2)))
 )
