@@ -126,30 +126,31 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
         # print "\n--------\nHandling state:"
         # print _state_string(unfluents, u)
 
-        a = module_validator.next_action(u)
-        if not a:
-            # G.node[nodes[u]]['label'] = 'X'
-            unhandled.append(u)
-        else:
-            i = 0
-            if 'goal' in a:
-                continue
-            for outcome in actions[a]:
-                v = progress(u, outcome, unfluents)
-                # print("\nNew state:")
-                # print(_state_string(unfluents, v))
+        next_actions = module_validator.next_action(u)
+        for a in next_actions:
+            if not a:
+                # G.node[nodes[u]]['label'] = 'X'
+                unhandled.append(u)
+            else:
+                i = 0
+                if 'goal' in a:
+                    continue
+                for outcome in actions[a]:
+                    v = progress(u, outcome, unfluents)
+                    # print("\nNew state:")
+                    # print(_state_string(unfluents, v))
 
-                i += 1
-                if v.is_goal(goal_fluents):
-                    v = goal_state
-                elif v not in nodes:
-                    nodes[v] = node_index
-                    node_index += 1
-                    G.add_node(nodes[v], label=node_index-1)
-                    open_list.append(v)
+                    i += 1
+                    if v.is_goal(goal_fluents):
+                        v = goal_state
+                    elif v not in nodes:
+                        nodes[v] = node_index
+                        node_index += 1
+                        G.add_node(nodes[v], label=node_index-1)
+                        open_list.append(v)
 
-                states_to_actions[str(nodes[u]) + ' -> ' + str(nodes[v])] = a
-                G.add_edge(nodes[u], nodes[v], label="%s (%d)" % (a, i))
+                    states_to_actions[str(nodes[u]) + ' -> ' + str(nodes[v])] = a
+                    G.add_edge(nodes[u], nodes[v], label="%s (%d)" % (a, i))
     return G
 
 

@@ -1,1 +1,1 @@
-F(atbase_desk1l & wiped_desk1 & on_cup1_kitchentable & on_cup2_kitchentable & on_book1_desk1 & handfree_rightarm & handfree_leftarm)
+F((wiped_kitchentable) & X(F(on_cup1_kitchentable)))

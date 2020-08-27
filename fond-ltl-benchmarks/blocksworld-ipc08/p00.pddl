@@ -1,17 +1,13 @@
 (define (problem bw_0)
   (:domain blocks-domain)
-  (:objects a b c d e - block)
+  (:objects a b c d e f - block)
   (:init 
   		(emptyhand) 
   		(ontable c) (on a c) (on b a) (clear b)
-  		(ontable d) (on e d) (clear e))
+  		(ontable d) (on e d) (on f e) (clear f))
   (:goal 
   	(and 
-  		;(emptyhand) 
-  		;(on a b) (clear a)
-  		(on b e) (ontable e)
-      ; (ontable d) (on a d)
-  		;(ontable c) (ontable d) (clear c) (clear d)
+  		(goal_state)
   	)
   )
 )

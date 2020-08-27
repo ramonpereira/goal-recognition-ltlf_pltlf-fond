@@ -1,1 +1,1 @@
-F(vehicleat_l15)
+F((vehicleat_l30) & X(F((vehicleat_l15))))

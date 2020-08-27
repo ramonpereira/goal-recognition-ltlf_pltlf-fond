@@ -62,5 +62,6 @@
     ;(:goal (and (wiped kitchentable) (wiped desk1) (on cup1 kitchentable) (on cup2 desk1) (on book1 desk1) (atbase desk2l) (handfree rightarm) (handfree leftarm)))
     ;(:goal (and (wiped desk1) (wiped desk2) (on cup1 kitchentable) (on cup2 desk2) (on book1 desk2) (atbase desk2l) (handfree rightarm) (handfree leftarm)))
     ;(:goal (and (wiped kitchentable) (wiped desk2) (on cup1 kitchentable) (on cup2 kitchentable) (on book1 desk2) (atbase desk1l) (handfree rightarm) (handfree leftarm)))
-    (:goal (and (wiped kitchentable) (wiped desk2) (on cup1 desk2) (on cup2 desk1) (on book1 desk1) (atbase desk1l) (handfree rightarm) (handfree leftarm)))  
+    ;(:goal (and (wiped kitchentable) (wiped desk2) (on cup1 desk2) (on cup2 desk1) (on book1 desk1) (atbase desk1l) (handfree rightarm) (handfree leftarm)))  
+    (:goal (goal_state))
 )

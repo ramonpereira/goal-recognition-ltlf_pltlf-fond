@@ -37,6 +37,7 @@ def load(pol, fmap):
     while file_lines:
         fluent_line = file_lines.pop(0)
         fluent_line = fluent_line.replace('/<none of those>', '')
+        fluent_line = fluent_line.replace('<none of those>/', '')
 
         if fluent_line == 'Policy:':
             stage = STAGE_POL
@@ -65,7 +66,7 @@ def load(pol, fmap):
 def next_action(s):
     global POLICY
     global FSAP
-
+    next_actions = []
     for (n,p,a) in POLICY:
         if 0 == len(n & s.fluents) and p <= s.fluents:
             ok = True
@@ -73,6 +74,6 @@ def next_action(s):
                 if 0 == len(n2 & s.fluents) and p2 <= s.fluents:
                     ok = False
             if ok:
-                return a
-
-    return None
+                if a not in next_actions:
+                    next_actions.append(a)
+    return next_actions

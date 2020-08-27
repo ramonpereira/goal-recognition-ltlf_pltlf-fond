@@ -1,6 +1,6 @@
 """
  Author: Francesco Fuggitti
- The aim of this translator is to translate a policy with trans actions 
+ The aim of this translator is to translate a policy with trans actions
  (actions added in the domain model by the LTL2DFA) to a policy with no trans actions.
 """
 
@@ -44,3 +44,19 @@ def process_policy(policy):
         for a, b in zip(actual_if_holds, actual_executes):
             t += "If holds: {}\nExecute: {}\n\n".format(a, b)
         fo.write(t)
+
+if __name__ == '__main__':
+    """
+    Usage: python translate_policy_ltl.py -p <POLICY>
+
+    Example Usage: python translate_policy_ltl.py -p policy.out
+    """
+    parser = argparse.ArgumentParser(description="Translate LTL Policy (Remove trans operators).")
+
+    parser.add_argument('-p', dest='policy_file')
+
+    args = parser.parse_args()
+
+    policy_file = args.policy_file
+
+    process_policy(policy_file)

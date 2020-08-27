@@ -94,4 +94,4 @@
   		(road l101 l111) (road l111 l102) 
   		(sparein l111) 
   		(notflattire))
-  (:goal (vehicleat l39)))
+  (:goal (goal_state)))

@@ -1,1 +1,1 @@
-F(((ontable_d & on_a_d) & X(F((ontable_e & on_b_e)))))
+F(((ontable_d & on_a_d & clear_a) & X(F((ontable_b & on_c_b & clear_c)))))

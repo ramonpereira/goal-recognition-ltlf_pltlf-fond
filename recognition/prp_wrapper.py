@@ -69,6 +69,10 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=F
         """ TO-DO: Improve this part. """
         os.system('mv new-policy.out policy-translated.out')
 
+        conjuctive_goal = _get_goal()
+        _create_problem_with_goal(original_problem, conjuctive_goal)
+        original_problem = 'problem.pddl'
+
     """ Validade the policy (from the initial state to the goal state) and generate the data structure. """
     G = None
     if GRAPH:
@@ -133,6 +137,33 @@ def generate_domain_problem_files_ltl(domain_prime, problem_prime, domain, probl
     prime_problem_file_writer.close()
 
     return domain_prime_path, problem_prime_path
+
+def _get_goal():
+    policy_file = open('policy-translated.out', "r")
+    lines = policy_file.readlines()
+    prevLine = ''
+    goal = ''
+    for line in lines:
+        if('goal' in line):
+            goal = prevLine.replace('If holds: ', '')
+            goal = goal.replace('(', ' ')
+            goal = goal.replace(',', ' ')
+            goal = goal.replace(')/', ') (')
+            goal = '(' + goal
+            break
+        prevLine = line
+
+    return goal
+
+def _create_problem_with_goal(original_problem, goal):
+    content = ''
+    with open(original_problem) as initial_state:
+        content = initial_state.read()
+
+    content = content.replace('(goal_state)', goal)
+
+    with open('problem.pddl', 'w') as problem:
+        problem.write(content)
 
 def _str2bool(v):
     if isinstance(v, bool):
