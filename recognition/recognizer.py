@@ -2,6 +2,10 @@
  Author: Ramon Fraga Pereira
 """
 
+import sys
+# insert at 1, 0 is the script path (or '' in REPL)
+sys.path.append('../planning/PRP')
+
 import os
 import argparse
 import json
