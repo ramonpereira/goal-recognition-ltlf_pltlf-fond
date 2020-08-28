@@ -12,7 +12,6 @@ import translator.translate_policy as translator
 import translator.translate_policy_ltl as translator_ltl
 import validator
 import fond4ltlfpltlf.core
-from fond4ltlfpltlf.automa.symbol import Symbol
 
 
 def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=False, plans=False):
@@ -192,9 +191,9 @@ if __name__ == '__main__':
 
     <DOMAIN> and <PROBLEM> are the original FOND domain and problem files.
 
-    Example Usage: python prp_wrapper.py -d domain.pddl -p p01.pddl
+    Example Usage: python prp_ltl_wrapper.py -d domain.pddl -p p01.pddl
 
-    The argument -ltl allows PRP planer to plan for temporally extended goals either formalized in LTLf or PLTL.
+    The argument -ltl allows PRP planner to plan for temporally extended goals either formalized in LTLf or PLTL.
     - For planning for temporally extended goals, there are two options:
         (1) In the same directory with the <PROBLEM> (e.g., pb01.pddl) you have to create
         a file containing the temporally exetended goal you want to be achieved.

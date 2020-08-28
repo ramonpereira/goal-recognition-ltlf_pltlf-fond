@@ -75,7 +75,7 @@ class Parser:
     if self.domain == None or self.problem == None:
       raise MyError('Domain and/or problem not set!')
     time_limit = 1000
-    command = 'python translate/translate.py ' + str(time_limit) + ' ' + self.domain + ' ' + self.problem + ' ' + sas_file_name + ' | grep "noprint"'
+    command = 'python ' + os.getcwd() + '/translate/translate.py ' + str(time_limit) + ' ' + self.domain + ' ' + self.problem + ' ' + sas_file_name + ' | grep "noprint"'
     os.system(command)
 
   def generate_task(self, sas_file_name):

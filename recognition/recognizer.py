@@ -8,7 +8,7 @@ import json
 import math
 import time
 import numpy as np
-import prp_wrapper as prp_planner
+import prp_ltl_wrapper as prp_planner
 import validator
 
 
