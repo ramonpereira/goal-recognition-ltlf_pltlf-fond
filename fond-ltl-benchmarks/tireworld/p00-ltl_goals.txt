@@ -1,3 +1,7 @@
+(vehicleat_n01 & O(vehicleat_n20))
+
+(vehicleat_n20 & O(vehicleat_n01))
+
 - OK:
 F((vehicleat_n01) & X(F((vehicleat_n10))) & X(F((vehicleat_n30))))
 

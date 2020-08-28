@@ -1,1 +1,1 @@
-F((vehicleat_n21) & X(F((vehicleat_n30))) & X(F((vehicleat_n01))))
+(vehicleat_n10 & O(vehicleat_n30))

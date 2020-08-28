@@ -18,12 +18,16 @@ __pycache__/
 
 *downward.*
 
-recognition/elapsed.time
-recognition/graph.dot
-recognition/output
-recognition/output.sas
-recognition/plan_numbers_and_cost
-recognition/policy-translated.out
-recognition/policy.fsap
-recognition/policy.out
-recognition/sas_plan
+elapsed.time
+output.sas
+graph.pdf
+graph.dot
+output
+output.sas
+plan_numbers_and_cost
+policy-translated.out
+policy.fsap
+policy.out
+sas_plan
+policy.txt
+policy.pdf

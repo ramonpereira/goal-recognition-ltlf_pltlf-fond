@@ -1,0 +1,60 @@
+Policy:
+If holds: q4(c, d, a, b)/turndomain()
+Execute: goal / SC / d=0
+
+If holds: on(a, b)/holding(c)/q3(c, d, a, b)/not(turndomain())
+Execute: trans-21_v1 c d a b / SC / d=1
+
+If holds: on(a, b)/ontable(c)/q3(c, d, a, b)/not(turndomain())
+Execute: trans-21_v5 c d a b / SC / d=1
+
+If holds: on(a, b)/clear(c)/on(c, d)/emptyhand()/q3(c, d, a, b)/turndomain()
+Execute: pick-up c d / SC / d=2
+
+If holds: on(a, b)/clear(c)/on(c, d)/emptyhand()/q2(c, d, a, b)/not(turndomain())
+Execute: trans-12 c d a b / SC / d=3
+
+If holds: on(a, b)/holding(c)/clear(d)/q2(c, d, a, b)/turndomain()
+Execute: put-on-block c d / SC / d=4
+
+If holds: on(a, b)/holding(c)/clear(d)/q2(c, d, a, b)/not(turndomain())
+Execute: trans-02_v1 c d a b / SC / d=5
+
+If holds: on(a, b)/clear(c)/ontable(c)/clear(d)/emptyhand()/q2(c, d, a, b)/turndomain()
+Execute: pick-up-from-table c / SC / d=6
+
+If holds: on(a, b)/clear(c)/ontable(c)/clear(d)/emptyhand()/q2(c, d, a, b)/not(turndomain())
+Execute: trans-02_v5 c d a b / SC / d=7
+
+If holds: on(a, b)/holding(b)/clear(c)/ontable(c)/clear(d)/q2(c, d, a, b)/turndomain()
+Execute: put-down b / SC / d=8
+
+If holds: on(a, b)/holding(b)/clear(c)/ontable(c)/clear(d)/q2(c, d, a, b)/not(turndomain())
+Execute: trans-02_v5 c d a b / SC / d=9
+
+If holds: on(a, b)/on(b, d)/clear(c)/ontable(c)/emptyhand()/q2(c, d, a, b)/turndomain()
+Execute: pick-tower a b d / SC / d=10
+
+If holds: on(a, b)/on(b, d)/clear(c)/ontable(c)/emptyhand()/q2(c, d, a, b)/not(turndomain())
+Execute: trans-02_v5 c d a b / SC / d=11
+
+If holds: holding(a)/clear(b)/on(b, d)/clear(c)/ontable(c)/q2(c, d, a, b)/turndomain()
+Execute: put-on-block a b / SC / d=12
+
+If holds: holding(a)/clear(b)/on(b, d)/clear(c)/ontable(c)/q1(c, d, a, b)/not(turndomain())
+Execute: trans-01_v5 c d a b / SC / d=13
+
+If holds: holding(a)/clear(b)/on(b, d)/clear(c)/ontable(c)/q2(c, d, a, b)/not(turndomain())
+Execute: trans-02_v5 c d a b / SC / d=13
+
+If holds: clear(a)/on(a, c)/clear(b)/on(b, d)/ontable(c)/emptyhand()/q1(c, d, a, b)/turndomain()
+Execute: pick-up a c / SC / d=14
+
+If holds: clear(a)/ontable(a)/clear(b)/on(b, d)/clear(c)/ontable(c)/emptyhand()/q2(c, d, a, b)/turndomain()
+Execute: pick-up-from-table a / SC / d=14
+
+If holds: clear(a)/ontable(a)/clear(b)/on(b, d)/clear(c)/ontable(c)/emptyhand()/q2(c, d, a, b)/not(turndomain())
+Execute: trans-02_v5 c d a b / SC / d=15
+
+If holds: clear(a)/ontable(a)/clear(b)/on(b, d)/clear(c)/ontable(c)/emptyhand()/q1(c, d, a, b)/not(turndomain())
+Execute: trans-01_v5 c d a b / SC / d=15

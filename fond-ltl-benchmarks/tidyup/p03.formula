@@ -1,1 +1,1 @@
-F((wiped_kitchentable) & X(F(on_cup1_kitchentable)))
+((wiped_kitchentable) S(wiped_desk1))
