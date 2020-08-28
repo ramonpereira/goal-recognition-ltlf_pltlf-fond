@@ -37,22 +37,23 @@
   		(road l33 l43) (road l34 l44) 
   		(road l41 l32) (road l42 l33) 
   		(road l43 l34) (road l44 l35) (road l35 l44)
-      (road l44 l34) (road l44 l33)
+      (road l44 l34) (road l44 l33) (road l33 l44) (road l33 l42)
       (road l43 l42) (road l43 l52)
       (road l42 l52) (road l42 l41)
   		(sparein l41) (sparein l42) 
   		(sparein l43) (sparein l44) 
 
-  		(road l51 l52) (road l52 l53) 
+  		(road l51 l52) (road l52 l53) (road l53 l52)
   		(road l41 l51) (road l43 l53) 
   		(road l51 l42) (road l53 l44) 
   		(sparein l51) (sparein l53) 
 
   		(road l51 l61) (road l52 l62) 
-  		(road l61 l52) (road l62 l53) 
+  		(road l61 l52) (road l62 l53) (road l53 l61) (road l52 l61)
   		(sparein l61) (sparein l62) 
 
   		(road l61 l71) (road l71 l62) 
   		(sparein l71) 
   		(notflattire))
-  (:goal (vehicleat l71)))
+  (:goal (goal_state)))
+  

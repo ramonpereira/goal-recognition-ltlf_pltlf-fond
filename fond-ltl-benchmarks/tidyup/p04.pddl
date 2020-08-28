@@ -4,6 +4,7 @@
       kitchentable - table
       desk1 - table
       desk2 - table
+      desk3 - table
       kitchen - room
       corridor - room
       office1 - room
@@ -45,6 +46,7 @@
       (belongstotable ktablel kitchentable)
       (belongstotable desk1l desk1)
       (belongstotable desk2l desk2)
+      (belongstotable desk2l desk3)
       (locationinroom initlocation kitchen)
       (locationinroom ktablel kitchen)
       (locationinroom desk1l office1)

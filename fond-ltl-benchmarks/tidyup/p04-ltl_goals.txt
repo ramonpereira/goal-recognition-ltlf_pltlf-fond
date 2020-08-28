@@ -1,0 +1,12 @@
+- Goal set (1):
+
+F((wiped_desk1) & X(F(wiped_desk2)) & X(F(wiped_kitchentable)))
+
+F((wiped_desk2) & X(F(wiped_desk1)) & X(F(wiped_kitchentable)))
+
+F((wiped_kitchentable) & X(F(wiped_desk2)) & X(F(wiped_desk3)))
+
+F((wiped_desk3) & X(F(wiped_desk1)) & X(F(wiped_kitchentable)))
+
+- Goal set (2):
+

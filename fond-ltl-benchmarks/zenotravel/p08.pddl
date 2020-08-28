@@ -18,5 +18,6 @@
   ;(:goal (and (atperson p0 c10) (atperson p1 c6) (atperson p2 c4) (atperson p3 c1) (atperson p4 c9)))
   ;(:goal (and (atperson p0 c10) (atperson p1 c3) (atperson p2 c7) (atperson p3 c0) (atperson p4 c1)))
   ;(:goal (and (atperson p0 c8) (atperson p1 c6) (atperson p2 c9) (atperson p3 c0) (atperson p4 c3)))
-  (:goal (and (atperson p0 c8) (atperson p1 c3) (atperson p2 c4) (atperson p3 c9) (atperson p4 c6)))
+  ;(:goal (and (atperson p0 c8) (atperson p1 c3) (atperson p2 c4) (atperson p3 c9) (atperson p4 c6)))
+  (:goal (goal_state))
 )
