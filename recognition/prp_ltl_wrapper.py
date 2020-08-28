@@ -78,6 +78,11 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=F
         print('\n$> Loading policy and generating the graph ...')
         G = validator.validate_and_generate_graph(original_domain, original_problem, 'policy-translated.out', 'prp')
         validator.generate_dot_graph(G)
+        
+        print('\n$> Generating graph...')
+        dot_command = "dot -Tpdf graph.dot -o graph.pdf"
+        os.system(dot_command)
+        print('\n$> Done !')
 
     if PLANS:
         extract_plans_from_graph(G)
