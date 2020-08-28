@@ -6,14 +6,30 @@
 
 import os
 import argparse
+import copy
 import fond4ltlfpltlf.core
+
+from file_read_backwards import FileReadBackwards
+from pydot import Dot, Edge, Node
+
+class Triplet:
+
+    def __init__(self, source, action, destination):
+        self.source = source
+        self.action = action
+        self.destination = destination
+
+
+    def __str__(self):
+        return '({0} {1} {2})'.format(self.source, self.action, self.destination)
+
 
 def plan(domain_path, problem_path, verbose=True, ltl=False, formula=''):
     """
-        Planning for temporally extended goals (LTLf or PLTL).
+        Planning for temporally extended goals (LTLf or PLTLf).
     """
     """ Removing temporary files. """
-    os.system('rm -rf formula-extra-temp.txt formula-temp.txt')
+    os.system('rm -rf formula-extra-temp.txt formula-temp.txt plan_*.txt graph-policy.pdf')
 
     VERBOSE = verbose
     LTL = ltl
@@ -31,7 +47,7 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula=''):
         else:
             ltl_formula = open(problem.replace('.pddl', '.formula')).read()
 
-        print('\n$> LTLf/PLTL Formula: ')
+        print('\n$> LTLf/PLTLf Formula: ')
         print(ltl_formula)
 
         domain_prime, problem_prime = fond4ltlfpltlf.core.execute(in_domain, in_problem, ltl_formula)
@@ -42,12 +58,99 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula=''):
 
     if VERBOSE:
         """ Print the planner output. """
-        planner_command = 'python main.py ' + domain + ' ' + problem + ' -strong 1 -policy 1'
+        planner_command = 'python main.py {} {} -strong 1 -policy 1 | tee plan_.txt'.format(domain, problem)
         os.system(planner_command)
     else:
         """ Omit the planner output. """
-        planner_command = 'python main.py ' + domain + ' ' + problem + ' -strong 1 -policy 1 >/dev/null 2>&1'
+        planner_command = 'python main.py {} {} -strong 1 -policy 1 >/dev/null 2>&1'.format(domain, problem)
         os.system(planner_command)
+        
+    print('\n$> Generating graph out of the plan... ')
+    generate_graph("plan_.txt".format(str(ltl_formula)), False)
+    print('\n$> Done ! ')    
+        
+        
+def generate_graph(file_path, no_trans=False):
+    """Generate the graph out of the policy."""
+    #assert os.path.isfile("plan_{}.txt".format(formula))
+    with FileReadBackwards(file_path, encoding="utf-8") as frb:
+        # getting lines by lines starting from the last line up
+        lines = []
+        for line in frb:
+            lines.append(line)
+
+        _interesting = []
+        csActionArg = {}
+        csActioncs = []
+        count = 0
+        for i in reversed(lines):
+            if count > 5 and count < 9:
+                # print(i)
+                _interesting.append(i)
+            if i == '===================':
+                count += 1
+
+    interesting = _interesting[2:]
+    i = 0
+    pos = 0
+    while interesting[i] != '===================':
+        temp = interesting[i][1:-1]
+        if '(' in temp:
+            _temp = temp.split(',', 1)
+            if _temp[0] in csActionArg.keys():
+                csActionArg[_temp[0]].append(_temp[1])
+            else:
+                csActionArg[_temp[0]] = [_temp[1]]
+        i += 1
+        pos = i
+
+    interesting2 = interesting[pos + 4:]
+    i = 0
+    while interesting2[i] != '===================':
+        s, a, d = interesting2[i][1:-1].split(',')
+        actions_with_args = csActionArg[s]
+        for act in actions_with_args:
+            if a in act:
+                csActioncs.append(Triplet(s, act, d))
+        i += 1
+
+    # deleting trans and mapping nodes
+    new_final = str()
+    if no_trans:
+        mapping = {}
+        for triple in copy.copy(csActioncs):
+            if 'trans' in triple.action:
+                mapping[triple.destination] = triple.source
+                csActioncs.remove(triple)
+                if triple.destination == 'ng':
+                    new_final = triple.source
+
+        for triple in csActioncs:
+            if triple.source in mapping.keys():
+                triple.source = mapping[triple.source]
+
+    # creating the digraph
+    g = Dot(graph_type='digraph', graph_name='policiesTS', center='true', size='7.5,7.5')
+    g.set_edge_defaults(fontname='Courier')
+    g.set_node_defaults(height=0.5, width=0.5)
+    g.set_node_defaults(shape='doublecircle')
+    if not no_trans:
+        g.add_node(Node('ng'))
+    else:
+        g.add_node(Node(new_final))
+    g.set_node_defaults(shape='circle')
+    if not no_trans:
+        for key in csActionArg.keys():
+            if key != 'ng':
+                g.add_node(Node(str(key)))
+    else:
+        pass
+    g.add_node(Node('init', shape='plaintext', label=''))
+    g.add_edge(Edge('init', 'n0'))
+    for triple in csActioncs:
+        g.add_edge(Edge(triple.source, triple.destination, label=triple.action))
+
+    g.write('graph-policy.pdf', format='pdf')
 
 
 def generate_domain_problem_files_ltl(domain_prime, problem_prime, domain, problem):
@@ -94,7 +197,7 @@ if __name__ == '__main__':
 
     Example Usage: python fond_sat_ltl_wrapper.py -d domain.pddl -p p01.pddl
 
-    The argument -ltl allows FOND-SAT planenr to plan for temporally extended goals either formalized in LTLf or PLTL.
+    The argument -ltl allows FOND-SAT planner to plan for temporally extended goals either formalized in LTLf or PLTL.
     - This wrapper has two options for planning for temporally extended goals:
 
         (1) Using a file: to do so, you have to create a file in the same directory with the <PROBLEM> (e.g., pb01.pddl)
