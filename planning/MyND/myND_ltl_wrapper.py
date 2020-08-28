@@ -6,6 +6,7 @@
 
 import os
 import argparse
+import subprocess
 import fond4ltlfpltlf.core
 
 def plan(domain_path, problem_path, verbose=True, ltl=False, formula=''):
@@ -48,7 +49,11 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula=''):
         """ Omit the planner output. """
         planner_command = 'java -jar MyND.jar -search LAOSTAR -heuristic FF output.sas -exportPlan policy.txt -exportDot policy.dot >/dev/null 2>&1'
         os.system(planner_command)
-
+    
+    print('\n$> Generating graph...')
+    dot_command = "dot -Tpdf policy.dot -o policy.pdf"
+    os.system(dot_command)
+    print('\n$> Done !')
 
 def generate_domain_problem_files_ltl(domain_prime, problem_prime, domain, problem):
     pb = problem.split('/')
