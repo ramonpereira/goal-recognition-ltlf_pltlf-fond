@@ -52,11 +52,11 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=F
 
     if VERBOSE:
         """ Print the planner output. """
-        prp_planner_command = '../planning/PRP/./prp ' + domain + ' ' + problem + ' --dump-policy 2'
+        prp_planner_command = './prp ' + domain + ' ' + problem + ' --dump-policy 2'
         os.system(prp_planner_command)
     else:
         """ Omit the planner output. """
-        prp_planner_command = '../planning/PRP/./prp ' + domain + ' ' + problem + ' --dump-policy 2 >/dev/null 2>&1'
+        prp_planner_command = './prp ' + domain + ' ' + problem + ' --dump-policy 2 >/dev/null 2>&1'
         os.system(prp_planner_command)
 
     # # """ Translate the policy from SAS+ to instantiated standard facts. """
