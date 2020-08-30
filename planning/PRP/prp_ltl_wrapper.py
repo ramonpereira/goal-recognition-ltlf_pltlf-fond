@@ -50,20 +50,22 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=F
         domain = domain_prime_path
         problem = problem_prime_path
 
+    current_path = os.path.dirname(__file__)
     if VERBOSE:
         """ Print the planner output. """
-        prp_planner_command = './prp ' + domain + ' ' + problem + ' --dump-policy 2'
+        prp_planner_command = ('./' if current_path == '' else current_path + '/') + 'prp ' + domain + ' ' + problem + ' --dump-policy 2'
         os.system(prp_planner_command)
     else:
         """ Omit the planner output. """
-        prp_planner_command = './prp ' + domain + ' ' + problem + ' --dump-policy 2 >/dev/null 2>&1'
+        prp_planner_command = ('./' if current_path == '' else current_path + '/') + 'prp ' + domain + ' ' + problem + ' --dump-policy 2 >/dev/null 2>&1'
         os.system(prp_planner_command)
 
     # # """ Translate the policy from SAS+ to instantiated standard facts. """
-    translator.translate('policy.out', 'policy-translated.out')
+    translator.translate('output', 'policy.out', 'policy-translated.out')
 
     if LTL:
-        os.system('cp policy-translated.out policy-with-trans.out')
+        os.system('cp ' 'policy-translated.out ' + 'policy-with-trans.out')
+
         translator_ltl.process_policy('policy-translated.out')
         """ TO-DO: Improve this part. """
         os.system('mv new-policy.out policy-translated.out')
@@ -78,7 +80,7 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=F
         print('\n$> Loading policy and generating the graph ...')
         G = validator.validate_and_generate_graph(original_domain, original_problem, 'policy-translated.out', 'prp')
         validator.generate_dot_graph(G)
-        
+
         print('\n$> Generating graph...')
         dot_command = "dot -Tpdf graph.dot -o graph.pdf"
         os.system(dot_command)
