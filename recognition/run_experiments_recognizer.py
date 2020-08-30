@@ -20,6 +20,7 @@ def run_experiments(domain_name, observability):
         for filename in os.listdir(experiments_path_obs):
             full_dir_filename = experiments_path_obs + '/' + filename
             recognizer.recognize(full_dir_filename)
+            os.system('mv *.json ../fond-recognition-benchmarks/results/' + domain_name)
 
 def main(args):
     domain_name = args.domain_name
