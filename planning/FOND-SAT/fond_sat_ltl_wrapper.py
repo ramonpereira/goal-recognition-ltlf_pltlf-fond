@@ -24,7 +24,7 @@ class Triplet:
         return '({0} {1} {2})'.format(self.source, self.action, self.destination)
 
 
-def plan(domain_path, problem_path, verbose=True, ltl=False, formula=''):
+def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', strong='0'):
     """
         Planning for temporally extended goals (LTLf or PLTLf).
     """
@@ -58,11 +58,11 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula=''):
 
     if VERBOSE:
         """ Print the planner output. """
-        planner_command = 'python main.py {} {} -strong 1 -policy 1 | tee plan_.txt'.format(domain, problem)
+        planner_command = 'python main.py {} {} -strong {} -policy 1 | tee plan_.txt'.format(domain, problem, strong)
         os.system(planner_command)
     else:
         """ Omit the planner output. """
-        planner_command = 'python main.py {} {} -strong 1 -policy 1 >/dev/null 2>&1'.format(domain, problem)
+        planner_command = 'python main.py {} {} -strong {} -policy 1 >/dev/null 2>&1'.format(domain, problem, strong)
         os.system(planner_command)
         
     if LTL:
@@ -187,8 +187,9 @@ def main(args):
     verbose = args.verbose
     ltl = args.ltl
     formula = args.formula
+    strong = args.strong
 
-    plan(domain_path, problem_path, verbose, ltl, formula)
+    plan(domain_path, problem_path, verbose, ltl, formula, strong)
 
 if __name__ == '__main__':
     """
@@ -213,6 +214,7 @@ if __name__ == '__main__':
 
     parser.add_argument('-d', dest='domain_path', default='../../recognition/example/domain.pddl')
     parser.add_argument('-p', dest='problem_path', default='../../recognition/example/p01.pddl')
+    parser.add_argument('-s', dest='strong', choices=['0', '1'], default='0')    
     parser.add_argument('-verbose', dest='verbose', type=_str2bool, const=True, nargs='?', default=True)
     parser.add_argument('-ltl', dest='ltl', type=_str2bool, const=True, nargs='?', default=False)
     parser.add_argument('-formula', dest='formula', default='')
