@@ -65,9 +65,10 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula=''):
         planner_command = 'python main.py {} {} -strong 1 -policy 1 >/dev/null 2>&1'.format(domain, problem)
         os.system(planner_command)
         
-    print('\n$> Generating graph out of the plan... ')
-    generate_graph("plan_.txt".format(str(ltl_formula)), False)
-    print('\n$> Done ! ')    
+    if LTL:
+        print('\n$> Generating graph out of the plan... ')
+        generate_graph("plan_.txt".format(str(ltl_formula)), False)
+        print('\n$> Done ! ')    
         
         
 def generate_graph(file_path, no_trans=False):

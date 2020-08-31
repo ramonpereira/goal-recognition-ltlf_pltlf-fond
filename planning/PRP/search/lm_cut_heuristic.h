@@ -57,8 +57,7 @@ const int COST_MULTIPLIER = 1;
    see the effect, though.
  */
 
-class RelaxedOperator {
-public:
+struct RelaxedOperator {
     const Operator *op;
     std::vector<RelaxedProposition *> precondition;
     std::vector<RelaxedProposition *> effects;
@@ -77,8 +76,7 @@ public:
     inline void update_h_max_supporter();
 };
 
-class RelaxedProposition {
-public:
+struct RelaxedProposition {
     std::vector<RelaxedOperator *> precondition_of;
     std::vector<RelaxedOperator *> effect_of;
 

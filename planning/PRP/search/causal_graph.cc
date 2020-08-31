@@ -6,10 +6,10 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
-#include <unordered_set>
+#include <tr1/unordered_set>
 
 using namespace std;
-//using namespace std::tr1;
+using namespace std::tr1;
 
 
 /*

@@ -21,15 +21,15 @@
 #ifndef BOOST_TT_IS_LVALUE_REFERENCE_HPP_INCLUDED
 #define BOOST_TT_IS_LVALUE_REFERENCE_HPP_INCLUDED
 
-#include "config.hpp"
+#include <boost/type_traits/config.hpp>
 
 #ifdef BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION
-#   include "detail/yes_no_type.hpp"
-#   include "detail/wrap.hpp>"
+#   include <boost/type_traits/detail/yes_no_type.hpp>
+#   include <boost/type_traits/detail/wrap.hpp>
 #endif
 
 // should be the last #include
-#include "detail/bool_trait_def.hpp"
+#include <boost/type_traits/detail/bool_trait_def.hpp>
 
 namespace boost {
 
@@ -112,7 +112,7 @@ BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_lvalue_reference,T,::boost::detail::is_lvalue_re
 
 } // namespace boost
 
-#include "detail/bool_trait_undef.hpp"
+#include <boost/type_traits/detail/bool_trait_undef.hpp>
 
 #endif // BOOST_TT_IS_REFERENCE_HPP_INCLUDED
 

@@ -1,7 +1,7 @@
 #ifndef STATE_ID_H
 #define STATE_ID_H
 
-#include <ext/hash_set>
+#include <hash_set>
 
 // For documentation on classes relevant to storing and working with registered
 // states see the file state_registry.h.

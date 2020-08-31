@@ -21,8 +21,7 @@ class DomainTransitionGraph;
 // put into vectors otherwise.
 
 
-class LocalAssignment {
-public:
+struct LocalAssignment {
     short local_var;
     short value;
 
@@ -34,8 +33,7 @@ public:
     }
 };
 
-class ValueTransitionLabel {
-public:    
+struct ValueTransitionLabel {
     Operator *op;
     vector<LocalAssignment> precond;
     vector<LocalAssignment> effect;
@@ -46,8 +44,7 @@ public:
     void dump() const;
 };
 
-class ValueTransition {
-public:    
+struct ValueTransition {
     ValueNode *target;
     vector<ValueTransitionLabel> labels;
     vector<ValueTransitionLabel> cea_labels; // labels for cea heuristic
@@ -61,8 +58,7 @@ private:
     void simplify_labels(vector<ValueTransitionLabel> &label_vec);
 };
 
-class ValueNode {
-public:
+struct ValueNode {
     DomainTransitionGraph *parent_graph;
     int value;
     vector<ValueTransition> transitions;

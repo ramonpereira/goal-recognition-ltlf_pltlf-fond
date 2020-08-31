@@ -13,11 +13,11 @@
 #include <algorithm>
 #include <typeinfo>
 
-#include "config.hpp"
-#include "type_traits/remove_reference.hpp"
-#include "type_traits/is_reference.hpp"
-#include "throw_exception.hpp"
-#include "static_assert.hpp"
+#include "boost/config.hpp"
+#include <boost/type_traits/remove_reference.hpp>
+#include <boost/type_traits/is_reference.hpp>
+#include <boost/throw_exception.hpp>
+#include <boost/static_assert.hpp>
 
 // See boost/python/type_id.hpp
 // TODO: add BOOST_TYPEID_COMPARE_BY_NAME to config.hpp

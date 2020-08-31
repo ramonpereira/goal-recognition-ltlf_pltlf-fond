@@ -11,8 +11,7 @@ class State;
 class Proposition;
 class UnaryOperator;
 
-class UnaryOperator {
-public:    
+struct UnaryOperator {
     int operator_no; // -1 for axioms; index into g_operators otherwise
     std::vector<Proposition *> precondition;
     Proposition *effect;
@@ -27,8 +26,7 @@ public:
           base_cost(base) {}
 };
 
-class Proposition {
-public:
+struct Proposition {
     bool is_goal;
     int id, var, val;
     std::vector<UnaryOperator *> precondition_of;

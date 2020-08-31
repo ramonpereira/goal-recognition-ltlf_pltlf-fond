@@ -14,7 +14,7 @@
 // $Date: 2008-10-11 02:19:02 -0400 (Sat, 11 Oct 2008) $
 // $Revision: 49267 $
 
-#include "../config/preprocessor.hpp"
+#include <boost/mpl/aux_/config/preprocessor.hpp>
 
 // BOOST_MPL_PP_PARAMS(0,T): <nothing>
 // BOOST_MPL_PP_PARAMS(1,T): T1
@@ -42,10 +42,10 @@
 
 #else
 
-#   include "../../../preprocessor/comma_if.hpp"
-#   include "../../../preprocessor/repeat.hpp"
-#   include "../../../preprocessor/inc.hpp"
-#   include "../../../preprocessor/cat.hpp"
+#   include <boost/preprocessor/comma_if.hpp>
+#   include <boost/preprocessor/repeat.hpp>
+#   include <boost/preprocessor/inc.hpp>
+#   include <boost/preprocessor/cat.hpp>
 
 #   define BOOST_MPL_PP_AUX_PARAM_FUNC(unused, i, param) \
     BOOST_PP_COMMA_IF(i) \

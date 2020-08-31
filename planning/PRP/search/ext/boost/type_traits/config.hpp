@@ -10,10 +10,10 @@
 #define BOOST_TT_CONFIG_HPP_INCLUDED
 
 #ifndef BOOST_CONFIG_HPP
-#include "../config.hpp"
+#include <boost/config.hpp>
 #endif
 
-#include "../workaround.hpp"
+#include <boost/detail/workaround.hpp>
 
 //
 // whenever we have a conversion function with elipses

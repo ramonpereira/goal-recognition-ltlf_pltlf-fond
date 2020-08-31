@@ -128,7 +128,7 @@ void parse_pattern(OptionParser &parser, Options &opts) {
             parser, opts.get<int>("max_states"), pattern);
     }
     validate_and_normalize_pattern(parser, pattern);
-    opts.set_option("pattern", pattern);
+    opts.set("pattern", pattern);
 
     if (!parser.dry_run())
         cout << "pattern: " << pattern << endl;
@@ -173,7 +173,7 @@ void parse_patterns(OptionParser &parser, Options &opts) {
        manually specified, but does not hurt in other cases.
        Normalization is always useful. */
     validate_and_normalize_patterns(parser, pattern_collection);
-    opts.set_option("patterns", pattern_collection);
+    opts.set("patterns", pattern_collection);
 
     if (!parser.dry_run())
         cout << "pattern collection: " << pattern_collection << endl;

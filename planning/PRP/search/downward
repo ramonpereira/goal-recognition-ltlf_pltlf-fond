@@ -3,7 +3,7 @@ BASEDIR="$(dirname "$0")"
 TEMPFILE=downward.tmp.$$
 cat > $TEMPFILE
 
-if [[ "$(uname -s)" == "Cygwin" ]]; then
+if [[ "$(uname -o)" == "Cygwin" ]]; then
     # Not sure how to handle time in Cygwin (command time doesn't work).
     # Ignoring it for now.
     UNIT_COST=$("$BASEDIR/unitcost" $TEMPFILE)

@@ -90,8 +90,3 @@ void print_subtree_bracketed(const tree<T>& t, typename tree<T>::iterator iRoot,
 }
 
 #endif
-
-// Local variables:
-// default-tab-width: 3
-// End:
-

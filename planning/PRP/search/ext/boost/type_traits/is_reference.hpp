@@ -12,13 +12,13 @@
 #ifndef BOOST_TT_IS_REFERENCE_HPP_INCLUDED
 #define BOOST_TT_IS_REFERENCE_HPP_INCLUDED
 
-#include "config.hpp"
-#include "is_lvalue_reference.hpp"
-#include "is_rvalue_reference.hpp"
-#include "ice.hpp"
+#include <boost/type_traits/config.hpp>
+#include <boost/type_traits/is_lvalue_reference.hpp>
+#include <boost/type_traits/is_rvalue_reference.hpp>
+#include <boost/type_traits/ice.hpp>
 
 // should be the last #include
-#include "detail/bool_trait_def.hpp"
+#include <boost/type_traits/detail/bool_trait_def.hpp>
 
 namespace boost {
 
@@ -39,7 +39,7 @@ BOOST_TT_AUX_BOOL_TRAIT_DEF1(is_reference,T,::boost::detail::is_reference_impl<T
 
 } // namespace boost
 
-#include "detail/bool_trait_undef.hpp"
+#include <boost/type_traits/detail/bool_trait_undef.hpp>
 
 #endif // BOOST_TT_IS_REFERENCE_HPP_INCLUDED
 

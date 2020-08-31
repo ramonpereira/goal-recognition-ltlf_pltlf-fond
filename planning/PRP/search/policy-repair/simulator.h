@@ -22,7 +22,6 @@
 using namespace std;
 
 class Simulator {
-public:
     PartialState *current_state;
     PartialState *current_goal;
     

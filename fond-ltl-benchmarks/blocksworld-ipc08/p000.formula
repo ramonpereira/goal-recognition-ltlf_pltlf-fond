@@ -1,1 +1,1 @@
-F((on_c_d) & X(on_a_b))
+on_a_d & ((! ontable_d) S on_d_b)
