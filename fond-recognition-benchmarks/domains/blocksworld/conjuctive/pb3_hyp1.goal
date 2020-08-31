@@ -1,0 +1,1 @@
+(and (emptyhand) (ontable m) (on a m) (on j a) (on d j) (on e d) (on b e) (clear b) (ontable o) (on f o) (on n f) (clear n) (ontable c) (on l c) (on k l) (on g k) (on h g) (on i h) (clear i))

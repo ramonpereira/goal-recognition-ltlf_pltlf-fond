@@ -16,7 +16,7 @@ import prp_ltl_wrapper as prp_planner
 import validator
 
 
-def recognize(recognition_problem_path, verbose=True):
+def recognize(recognition_problem_path, ltl=True, verbose=True):
     """ Removing temporary files. """
     start_time = time.time()
     os.system('rm -rf graph.dot *.out *.fsap plan_numbers_and_cost sas_plan elapsed.time output *.sas *.pddl *.dat')
@@ -56,11 +56,14 @@ def recognize(recognition_problem_path, verbose=True):
     print('\n> STEP 1: Planning for getting the policies for the possible goals: ')
     for goal in possible_goals:
         print('\n\t### Goal: ' + goal)
+        if ltl:
+            prp_planner.plan('domain.pddl', 'initial_state.pddl', False, ltl, goal)
+            conjuctive_goal = _get_goal()
+            _create_problem_with_goal(conjuctive_goal)
+        else:
+            _create_problem_with_goal(goal)
+            prp_planner.plan('domain.pddl', 'problem.pddl', False)
 
-        prp_planner.plan('domain.pddl', 'initial_state.pddl', False, True, goal)
-
-        conjuctive_goal = _get_goal()
-        _create_problem_with_goal(conjuctive_goal)
         G = validator.validate_and_generate_graph('domain.pddl', 'problem.pddl', 'policy-translated.out', 'prp')
         all_plans, actions_avg_distance_to_goal = prp_planner.extract_plans_from_graph(G, False)
         goal_plans[goal] = actions_avg_distance_to_goal
@@ -202,8 +205,9 @@ def _create_problem_with_goal(goal):
     content = ''
     with open('initial_state.pddl') as initial_state:
         content = initial_state.read()
-
-    content = content.replace('(goal_state)', goal)
+    goal = goal.replace('(and ', '')
+    goal = goal.replace('))', ')')
+    content = content.replace('(goal_state)', goal.replace('(and ', ''))
 
     with open('problem.pddl', 'w') as problem:
         problem.write(content)
@@ -220,9 +224,10 @@ def _str2bool(v):
 
 def main(args):
     problem_path = args.problem_path
+    ltl = args.ltl
     verbose = args.verbose
 
-    recognize(problem_path, verbose)
+    recognize(problem_path, ltl, verbose)
 
 if __name__ == '__main__':
     """
@@ -238,7 +243,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Goal Recognition in FOND Domain Models with LTLf/PLTL Goals")
 
     parser.add_argument('-p', dest='problem_path', default='example/triangle-tireworld_p01_hyp-1-example.tar.bz2')
-    parser.add_argument('-ltl', dest='ltl', type=_str2bool, const=True, nargs='?', default=False)
+    parser.add_argument('-ltl', dest='ltl', type=_str2bool, const=True, nargs='?', default=True)
     parser.add_argument('-verbose', dest='verbose', type=_str2bool, const=True, nargs='?', default=True)
 
     args = parser.parse_args()

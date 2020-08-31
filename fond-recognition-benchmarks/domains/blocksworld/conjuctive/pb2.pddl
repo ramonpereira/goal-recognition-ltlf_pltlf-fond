@@ -1,0 +1,6 @@
+(define (problem bw-pb2)
+  (:domain blocks-domain)
+  (:objects a b c d e f g h i j - block)
+  (:init (emptyhand) (ontable e) (on i e) (on b i) (clear b) (ontable j) (on g j) (on d g) (clear d) (ontable f) (on a f) (on h a) (on c h) (clear c))
+  (:goal (and (goal_state)))
+)
