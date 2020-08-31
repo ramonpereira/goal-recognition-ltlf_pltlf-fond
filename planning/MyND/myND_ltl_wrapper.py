@@ -9,12 +9,14 @@ import argparse
 import subprocess
 import fond4ltlfpltlf.core
 
-def plan(domain_path, problem_path, verbose=True, ltl=False, formula=''):
+def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', search='LAOSTAR', heuristics='FF'):
     """
         Planning for temporally extended goals (LTLf or PLTL).
     """
     VERBOSE = verbose
     LTL = ltl
+    SEARCH = search
+    HEURISTICS = heuristics
 
     domain = domain_path
     problem = problem_path
@@ -42,12 +44,12 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula=''):
     os.system(translate_command)
     if VERBOSE:
         """ Print the planner output. """
-        planner_command = 'java -jar MyND.jar -search LAOSTAR -heuristic FF output.sas -exportPlan policy.txt -exportDot policy.dot'
+        planner_command = 'java -jar MyND.jar -search {} -heuristic {} output.sas -exportPlan policy.txt -exportDot policy.dot'.format(SEARCH, HEURISTICS)
         print(planner_command)
         os.system(planner_command)
     else:
         """ Omit the planner output. """
-        planner_command = 'java -jar MyND.jar -search LAOSTAR -heuristic FF output.sas -exportPlan policy.txt -exportDot policy.dot >/dev/null 2>&1'
+        planner_command = 'java -jar MyND.jar -search {} -heuristic {} output.sas -exportPlan policy.txt -exportDot policy.dot >/dev/null 2>&1'.format(SEARCH, HEURISTICS)
         os.system(planner_command)
     
     print('\n$> Generating graph...')
@@ -88,8 +90,10 @@ def main(args):
     verbose = args.verbose
     ltl = args.ltl
     formula = args.formula
-
-    plan(domain_path, problem_path, verbose, ltl, formula)
+    search = args.search
+    heuristics = args.heuristics
+    
+    plan(domain_path, problem_path, verbose, ltl, formula, search, heuristics)
 
 if __name__ == '__main__':
     """
@@ -115,8 +119,10 @@ if __name__ == '__main__':
     """
     parser = argparse.ArgumentParser(description="Wrapper to use MyND Planner.")
 
-    parser.add_argument('-d', dest='domain_path', default='../../recognition/example/domain.pddl')
-    parser.add_argument('-p', dest='problem_path', default='../../recognition/example/p01.pddl')
+    parser.add_argument('-d', dest='domain_path', default='../planning/PRP/example/domain.pddl')
+    parser.add_argument('-p', dest='problem_path', default='../planning/PRP/example/p01.pddl')
+    parser.add_argument('-s', dest='search', type=str, choices=['LAOSTAR', 'AOSTAR', 'FIP'], default='LAOSTAR')
+    parser.add_argument('-e', dest='heuristics', type=str, choices=['FF', 'HMAX', 'PDBS', 'ZERO', 'LMCUT'], default='FF')
     parser.add_argument('-verbose', dest='verbose', type=_str2bool, const=True, nargs='?', default=True)
     parser.add_argument('-ltl', dest='ltl', type=_str2bool, const=True, nargs='?', default=False)
     parser.add_argument('-formula', dest='formula', default='')
