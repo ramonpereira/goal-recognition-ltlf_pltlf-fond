@@ -10,14 +10,23 @@ import recognizer
 def run_experiments(domain_name, observability):
     observabilities = []
     if 'all' in observability:
-        observabilities = ['10', '25', '30', '50', '70', '75', '100']
+        observabilities = ['10', '30', '50', '70', '100']
+        # observabilities = ['10', '25', '30', '50', '70', '75', '100']
     else:
         observabilities = [observability]
+
+    results_computed = []
+    results_path = '../fond-recognition-benchmarks/results/' + domain_name
+    for result_file in os.listdir(results_path):
+        result = result_file.replace('.json', '')
+        results_computed.append(result)
 
     experiments_path = '../fond-recognition-benchmarks/' + domain_name
     for obs in observabilities:
         experiments_path_obs = experiments_path + '/' + obs
         for filename in os.listdir(experiments_path_obs):
+            if filename.replace('.tar.bz2', '') in results_computed:
+                continue
             full_dir_filename = experiments_path_obs + '/' + filename
             recognizer.recognize(full_dir_filename)
             os.system('mv *.json ../fond-recognition-benchmarks/results/' + domain_name)
