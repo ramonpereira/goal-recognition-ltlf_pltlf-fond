@@ -1,6 +1,6 @@
-# Goal Recognition Benchmarks in FOND Planning Models with LTLf and PLTLf Goals
+# Recognition Benchmarks for GR in FOND Planning Models with LTLf and PLTLf Goals
 
-## Type of goals we use to buil the datasets
+## Type of goals we use to buil the datasets:
 
 - Conjunctive goals;
 - LTLf goals:
