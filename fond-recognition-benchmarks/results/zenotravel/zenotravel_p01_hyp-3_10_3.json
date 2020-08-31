@@ -1,0 +1,87 @@
+{
+ "G": [
+  "F(atperson_p0_c5 & atperson_p1_c14 & atperson_p2_c10 & atperson_p3_c0 & atperson_p4_c9)",
+  "F(atperson_p0_c5 & atperson_p1_c14 & atperson_p2_c12 & atperson_p3_c1 & atperson_p4_c8)",
+  "F(atperson_p0_c3 & atperson_p1_c10 & atperson_p2_c12 & atperson_p3_c2 & atperson_p4_c9)",
+  "F(atperson_p0_c3 & atperson_p1_c12 & atperson_p2_c12 & atperson_p3_c1 & atperson_p4_c6)",
+  "F(atperson_p0_c8 & atperson_p1_c13 & atperson_p2_c11 & atperson_p3_c0 & atperson_p4_c3)",
+  "F(atperson_p0_c8 & atperson_p1_c10 & atperson_p2_c13 & atperson_p3_c5 & atperson_p4_c7)",
+  "F(atperson_p0_c9 & atperson_p1_c12 & atperson_p2_c10 & atperson_p3_c8 & atperson_p4_c5)",
+  "F(atperson_p0_c9 & atperson_p1_c11 & atperson_p2_c14 & atperson_p3_c4 & atperson_p4_c8)"
+ ],
+ "G*": "F(atperson_p0_c9 & atperson_p1_c12 & atperson_p2_c10 & atperson_p3_c8 & atperson_p4_c5)",
+ "Obs": [
+  "complete-zooming_a2_c10_f2_f1_f0",
+  "start-zooming_a1_c1_c0_f3_f2_f1",
+  "start-refueling_a0_c0_f0_f1",
+  "complete-flying_a0_c8_f1_f0",
+  "complete-refuling_a0_f0_f1",
+  "complete-flying_a0_c5_f1_f0"
+ ],
+ "P(Obs | G)": [
+  [
+   0.9513420942480105,
+   0.8495526352506632,
+   0.8495526352506632,
+   0.8495526352506632,
+   0.8495526352506632,
+   0.8495526352506632,
+   0.9513420942480105,
+   0.8495526352506632
+  ],
+  [
+   0.955032246945677,
+   0.21780651155015157,
+   0.21780651155015157,
+   0.21780651155015157,
+   0.21780651155015157,
+   0.21780651155015157,
+   0.955032246945677,
+   0.21780651155015157
+  ],
+  [
+   0.8883263226719051,
+   0.685469776223799,
+   0.4354977117311651,
+   0.4354977117311651,
+   0.0524482528627651,
+   0.3120363955612528,
+   0.8883263226719051,
+   0.4354977117311651
+  ],
+  [
+   0.9393065174796789,
+   0.11275316621175675,
+   0.11275316621175675,
+   0.9848266293699196,
+   0.11275316621175675,
+   0.9734466013973595,
+   0.9506865454522391,
+   0.99620665734248
+  ],
+  [
+   0.3055086105880177,
+   0.617613928120235,
+   0.4141790293490406,
+   0.4141790293490406,
+   0.05873143905320438,
+   0.3055086105880177,
+   0.3055086105880177,
+   0.33563408806158007
+  ],
+  [
+   0.1688648978091129,
+   0.997347711549972,
+   0.1688648978091129,
+   0.1688648978091129,
+   0.1688648978091129,
+   0.9893908461998878,
+   0.997347711549972,
+   0.1688648978091129
+  ]
+ ],
+ "domain": "zenotravel",
+ "observability": "10",
+ "problem": "zenotravel_p01_hyp-3_10_3",
+ "time": 525.5521721839905
+}

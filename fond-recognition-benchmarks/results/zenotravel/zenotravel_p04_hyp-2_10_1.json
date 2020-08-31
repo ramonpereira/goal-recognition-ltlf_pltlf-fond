@@ -1,0 +1,65 @@
+{
+ "G": [
+  "F(atperson_p0_c3 & atperson_p1_c4 & atperson_p2_c4 & atperson_p3_c9 & atperson_p4_c4)",
+  "F(atperson_p0_c3 & atperson_p1_c2 & atperson_p2_c8 & atperson_p3_c7 & atperson_p4_c0)",
+  "F(atperson_p0_c12 & atperson_p1_c4 & atperson_p2_c3 & atperson_p3_c9 & atperson_p4_c5)",
+  "F(atperson_p0_c12 & atperson_p1_c2 & atperson_p2_c3 & atperson_p3_c1 & atperson_p4_c8)",
+  "F(atperson_p0_c10 & atperson_p1_c6 & atperson_p2_c4 & atperson_p3_c1 & atperson_p4_c9)",
+  "F(atperson_p0_c10 & atperson_p1_c3 & atperson_p2_c7 & atperson_p3_c0 & atperson_p4_c1)",
+  "F(atperson_p0_c8 & atperson_p1_c6 & atperson_p2_c9 & atperson_p3_c0 & atperson_p4_c3)",
+  "F(atperson_p0_c8 & atperson_p1_c3 & atperson_p2_c4 & atperson_p3_c9 & atperson_p4_c6)"
+ ],
+ "G*": "F(atperson_p0_c12 & atperson_p1_c2 & atperson_p2_c3 & atperson_p3_c1 & atperson_p4_c8)",
+ "Obs": [
+  "start-boarding_p4_a1_c2",
+  "complete-boarding_p4_a1_c2",
+  "start-refueling_a1_c8_f0_f1",
+  "start-refueling_a2_c11_f0_f1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7951940672737118,
+   0.9448011392076803,
+   0.7951940672737118,
+   0.9544609398463361,
+   0.7951940672737118,
+   0.7951940672737118,
+   0.9599808259255682,
+   0.9599808259255682
+  ],
+  [
+   0.16104916291571741,
+   0.9458823876725606,
+   0.16104916291571741,
+   0.9555958052697934,
+   0.16104916291571741,
+   0.16104916291571741,
+   0.9611463296110693,
+   0.9611463296110693
+  ],
+  [
+   0.47029718019713657,
+   0.15986694173790297,
+   0.5237132979258207,
+   0.9692588291012921,
+   0.5237132979258207,
+   0.15986694173790297,
+   0.15986694173790297,
+   0.15986694173790297
+  ],
+  [
+   0.9669953197553353,
+   0.5583145764582104,
+   0.18343578800444071,
+   0.9779968798368902,
+   0.18343578800444071,
+   0.18343578800444071,
+   0.18343578800444071,
+   0.18343578800444071
+  ]
+ ],
+ "domain": "zenotravel",
+ "observability": "10",
+ "problem": "zenotravel_p04_hyp-2_10_1",
+ "time": 381.19102597236633
+}

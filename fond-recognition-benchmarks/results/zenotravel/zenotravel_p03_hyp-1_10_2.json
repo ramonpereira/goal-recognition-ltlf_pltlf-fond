@@ -1,0 +1,91 @@
+{
+ "G": [
+  "F(atperson_p0_c2 & atperson_p1_c13 & atperson_p2_c13 & atperson_p3_c16 & atperson_p4_c5 & atperson_p5_c6 & atperson_p6_c4 & atperson_p7_c16 & atperson_p8_c8 & atperson_p9_c12)",
+  "F(atperson_p0_c2 & atperson_p1_c13 & atperson_p2_c8 & atperson_p3_c6 & atperson_p4_c5 & atperson_p5_c1 & atperson_p6_c4 & atperson_p7_c15 & atperson_p8_c2 & atperson_p9_c12)",
+  "F(atperson_p0_c13 & atperson_p1_c9 & atperson_p2_c8 & atperson_p3_c6 & atperson_p4_c9 & atperson_p5_c6 & atperson_p6_c10 & atperson_p7_c13 & atperson_p8_c3 & atperson_p9_c11)",
+  "F(atperson_p0_c13 & atperson_p1_c8 & atperson_p2_c11 & atperson_p3_c7 & atperson_p4_c9 & atperson_p5_c1 & atperson_p6_c10 & atperson_p7_c15 & atperson_p8_c2 & atperson_p9_c10)",
+  "F(atperson_p0_c15 & atperson_p1_c11 & atperson_p2_c13 & atperson_p3_c9 & atperson_p4_c4 & atperson_p5_c6 & atperson_p6_c7 & atperson_p7_c13 & atperson_p8_c1 & atperson_p9_c10)",
+  "F(atperson_p0_c15 & atperson_p1_c10 & atperson_p2_c11 & atperson_p3_c16 & atperson_p4_c4 & atperson_p5_c7 & atperson_p6_c2 & atperson_p7_c16 & atperson_p8_c1 & atperson_p9_c16)"
+ ],
+ "G*": "F(atperson_p0_c2 & atperson_p1_c13 & atperson_p2_c13 & atperson_p3_c16 & atperson_p4_c5 & atperson_p5_c6 & atperson_p6_c4 & atperson_p7_c16 & atperson_p8_c8 & atperson_p9_c12)",
+ "Obs": [
+  "start-zooming_a4_c6_c13_f4_f3_f2",
+  "complete-refuling_a0_f0_f1",
+  "start-boarding_p5_a5_c3",
+  "complete-boarding_p7_a5_c1",
+  "start-flying_a5_c1_c2_f1_f0",
+  "complete-debarking_p0_a5_c2",
+  "start-flying_a5_c4_c16_f1_f0",
+  "start-debarking_p7_a5_c16"
+ ],
+ "P(Obs | G)": [
+  [
+   0.9095425946852148,
+   0.7981192588422635,
+   0.7981192588422635,
+   0.7981192588422635,
+   0.8979803699457308,
+   0.7981192588422635
+  ],
+  [
+   0.8610076098080538,
+   0.25225725276555866,
+   0.22810010979066597,
+   0.4073295192318657,
+   0.8649045927106317,
+   0.07350523330918411
+  ],
+  [
+   0.9586598449569815,
+   0.1734738516938845,
+   0.1734738516938845,
+   0.1734738516938845,
+   0.1734738516938845,
+   0.1734738516938845
+  ],
+  [
+   0.9652806620917229,
+   0.1399918736016964,
+   0.1399918736016964,
+   0.1399918736016964,
+   0.1399918736016964,
+   0.6300219882645848
+  ],
+  [
+   0.9724794373912603,
+   0.17094527210518626,
+   0.17094527210518626,
+   0.17094527210518626,
+   0.17094527210518626,
+   0.17094527210518626
+  ],
+  [
+   0.9763178397103717,
+   0.1702529721471979,
+   0.1702529721471979,
+   0.1702529721471979,
+   0.1702529721471979,
+   0.1702529721471979
+  ],
+  [
+   0.995973509966412,
+   0.1667740565446434,
+   0.1667740565446434,
+   0.1667740565446434,
+   0.1667740565446434,
+   0.1667740565446434
+  ],
+  [
+   0.9983267872689288,
+   0.13096606885660117,
+   0.13096606885660117,
+   0.13096606885660117,
+   0.13096606885660117,
+   0.9079924263872644
+  ]
+ ],
+ "domain": "zenotravel",
+ "observability": "10",
+ "problem": "zenotravel_p03_hyp-1_10_2",
+ "time": 1406.7586793899536
+}

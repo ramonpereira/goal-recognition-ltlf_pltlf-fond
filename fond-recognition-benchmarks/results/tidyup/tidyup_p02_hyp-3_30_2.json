@@ -1,0 +1,157 @@
+{
+ "G": [
+  "F(atbase_desk1l & wiped_kitchentable & wiped_desk1 & wiped_desk2 & on_cup1_desk1 & on_laptop1_desk2 & handfree_rightarm & handfree_leftarm)",
+  "F(atbase_desk1l & wiped_desk1 & wiped_desk2 & on_cup1_desk2 & on_laptop1_kitchentable & handfree_rightarm & handfree_leftarm)",
+  "F(atbase_desk2l & wiped_kitchentable & wiped_desk2 & on_cup1_desk2 & on_laptop1_kitchentable & handfree_rightarm & handfree_leftarm)",
+  "F(atbase_desk2l & wiped_desk2 & wiped_desk1 & on_cup1_desk1 & on_laptop1_desk2 & handfree_rightarm & handfree_leftarm)"
+ ],
+ "G*": "F(atbase_desk2l & wiped_desk2 & wiped_desk1 & on_cup1_desk1 & on_laptop1_desk2 & handfree_rightarm & handfree_leftarm)",
+ "Obs": [
+  "sense-door-state_kdoorl1_kitchendoor",
+  "sense-door-state_kdoorl1_kitchendoor",
+  "drive_corridor_kdoorl2_odoor2l2",
+  "open-door_odoor2l2_odoor2_leftarm",
+  "open-door_odoor1l2_odoor1_leftarm",
+  "drive_office1_desk1l_odoor1l1",
+  "drive-through-door-untucked-left-arm_office1_corridor_odoor1_odoor1l1_odoor1l2_leftarm",
+  "detach-sponge_rightarm",
+  "arm-to-side_rightarm",
+  "wipe_desk2l_desk2_rightarm",
+  "drive-through-door_corridor_office1_odoor1_odoor1l2_odoor1l1",
+  "arm-to-side_leftarm",
+  "arm-to-side_rightarm",
+  "drive_office2_desk2l_odoor2l1",
+  "drive_kitchen_ktablel_kdoorl1",
+  "drive_corridor_kdoorl2_odoor2l2",
+  "drive-through-door-untucked-left-arm_corridor_office1_odoor1_odoor1l2_odoor1l1_leftarm",
+  "sense-table-state_desk1l_desk1",
+  "drive_corridor_odoor1l2_odoor2l2",
+  "drive-through-door-untucked-left-arm_corridor_office2_odoor2_odoor2l2_odoor2l1_leftarm"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7063197026022305,
+   0.7657992565055761,
+   0.7620817843866171,
+   0.7657992565055761
+  ],
+  [
+   0.10693637645149075,
+   0.14000378169073047,
+   0.137540104732714,
+   0.14000378169073047
+  ],
+  [
+   0.08232223076478995,
+   0.08232223076478995,
+   0.8557089886494432,
+   0.8581138388386191
+  ],
+  [
+   0.10811492284772381,
+   0.14737290296776676,
+   0.7552742616033755,
+   0.759493670886076
+  ],
+  [
+   0.10059842596801583,
+   0.1358618117596006,
+   0.7721518987341773,
+   0.7763713080168776
+  ],
+  [
+   0.6352201257861635,
+   0.7672955974842768,
+   0.89937106918239,
+   0.6981132075471698
+  ],
+  [
+   0.8577937689939164,
+   0.07806501255000423,
+   0.07806501255000423,
+   0.8827422305739311
+  ],
+  [
+   0.7126436781609194,
+   0.13530238611938142,
+   0.14294530613827894,
+   0.7586206896551725
+  ],
+  [
+   0.7108433734939759,
+   0.7590361445783133,
+   0.7710843373493976,
+   0.7590361445783133
+  ],
+  [
+   0.7394366197183098,
+   0.7746478873239436,
+   0.7605633802816901,
+   0.7253521126760563
+  ],
+  [
+   0.26365683489487074,
+   0.07117069005153523,
+   0.07117069005153523,
+   0.9097727564201352
+  ],
+  [
+   0.10948330754032425,
+   0.13543207359544,
+   0.1432733793657736,
+   0.13543207359544
+  ],
+  [
+   0.7108433734939759,
+   0.7590361445783133,
+   0.7710843373493976,
+   0.7590361445783133
+  ],
+  [
+   0.09376270975446804,
+   0.13385969573258205,
+   0.13385969573258205,
+   0.8121827411167513
+  ],
+  [
+   0.5630252100840336,
+   0.8991596638655462,
+   0.6470588235294118,
+   0.8907563025210083
+  ],
+  [
+   0.08232223076478995,
+   0.08232223076478995,
+   0.22795372878057008,
+   0.231423936326175
+  ],
+  [
+   0.16630921220002945,
+   0.22367223819291815,
+   0.05003253728964355,
+   0.8330130890566144
+  ],
+  [
+   0.6529411764705882,
+   0.7470588235294118,
+   0.2835014181890895,
+   0.711764705882353
+  ],
+  [
+   0.09689228314530052,
+   0.13268383358668542,
+   0.1413952847230696,
+   0.7946428571428572
+  ],
+  [
+   0.6869158878504673,
+   0.7616822429906542,
+   0.7616822429906542,
+   0.7897196261682243
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "30",
+ "problem": "tidyup_p02_hyp-3_30_2",
+ "time": 262.1927034854889
+}

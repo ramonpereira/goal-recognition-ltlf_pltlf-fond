@@ -1,0 +1,118 @@
+{
+ "G": [
+  "F(emptyhand & ontable_d & on_j_d & on_c_j & clear_c & ontable_b & on_f_b & on_a_f & clear_a & ontable_e & on_g_e & clear_g & ontable_h & on_i_h & clear_i)",
+  "F(emptyhand & ontable_d & on_j_d & on_c_j & clear_c & ontable_f & on_a_f & on_b_a & clear_b & ontable_e & on_g_e & clear_g & ontable_i & on_h_i & clear_h)",
+  "F(emptyhand & ontable_c & on_d_c & on_j_d & clear_j & ontable_f & on_b_f & on_a_b & clear_a & ontable_g & on_e_g & clear_e & ontable_i & on_h_i & clear_h)",
+  "F(emptyhand & ontable_c & on_d_c & on_j_d & clear_j & ontable_e & on_b_e & on_a_b & clear_a & ontable_i & on_f_i & clear_f & ontable_g & on_h_g & clear_h)",
+  "F(emptyhand & ontable_a & on_d_a & on_j_d & clear_j & ontable_e & on_b_e & on_c_b & clear_c & ontable_i & on_f_i & clear_f & ontable_g & on_h_g & clear_h)",
+  "F(emptyhand & ontable_a & on_d_a & on_j_d & clear_j & ontable_g & on_b_g & on_h_b & clear_h & ontable_i & on_f_i & clear_f & ontable_e & on_c_e & clear_c)"
+ ],
+ "G*": "F(emptyhand & ontable_a & on_d_a & on_j_d & clear_j & ontable_g & on_b_g & on_h_b & clear_h & ontable_i & on_f_i & clear_f & ontable_e & on_c_e & clear_c)",
+ "Obs": [
+  "pick-tower_h_a_f",
+  "put-down_a",
+  "put-down_g",
+  "pick-tower_b_i_e",
+  "pick-up_c_h",
+  "pick-up_b_i",
+  "pick-up-from-table_b",
+  "pick-up-from-table_d",
+  "put-on-block_d_a",
+  "pick-up-from-table_h",
+  "put-on-block_j_d"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7665184558335134,
+   0.7665184558335134,
+   0.7665184558335134,
+   0.7665184558335134,
+   0.9669630883329733,
+   0.9669630883329733
+  ],
+  [
+   0.8579477406242071,
+   0.10260338627851467,
+   0.10260338627851467,
+   0.10260338627851467,
+   0.95912022449607,
+   0.95912022449607
+  ],
+  [
+   0.06855866056876496,
+   0.06855866056876496,
+   0.5145846345021529,
+   0.4845638474812694,
+   0.951063860552902,
+   0.951063860552902
+  ],
+  [
+   0.028040814501979008,
+   0.42138420377465047,
+   0.354302415275877,
+   0.925345487996507,
+   0.9274784740537497,
+   0.9274784740537497
+  ],
+  [
+   0.2948864900335535,
+   0.9716312056737589,
+   0.7801418439716312,
+   0.7801418439716312,
+   0.7872340425531915,
+   0.7872340425531915
+  ],
+  [
+   0.5777707087304349,
+   0.7024782958107015,
+   0.10125057504460075,
+   0.10125057504460075,
+   0.10125057504460075,
+   0.9752188729702139
+  ],
+  [
+   0.016820813552815936,
+   0.9548675722279167,
+   0.4853405933369366,
+   0.4853405933369366,
+   0.46026942222741174,
+   0.9448381438341205
+  ],
+  [
+   0.05647109847170441,
+   0.05647109847170441,
+   0.9785818962241406,
+   0.9785818962241406,
+   0.9755221671133035,
+   0.9755221671133035
+  ],
+  [
+   0.13382789163216857,
+   0.13382789163216857,
+   0.13382789163216857,
+   0.13382789163216857,
+   0.7961241892213066,
+   0.7961241892213066
+  ],
+  [
+   0.007986800515513075,
+   0.3995947540579677,
+   0.7376380409005996,
+   0.7376380409005996,
+   0.9825999360163967,
+   0.9825999360163967
+  ],
+  [
+   0.017268466602534838,
+   0.7391304347826086,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ]
+ ],
+ "domain": "blocks-world",
+ "observability": "50",
+ "problem": "blocks-world_p02_hyp-3_50_1",
+ "time": 27.656801462173462
+}

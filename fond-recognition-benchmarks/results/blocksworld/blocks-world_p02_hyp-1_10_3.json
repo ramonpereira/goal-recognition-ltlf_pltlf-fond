@@ -1,0 +1,37 @@
+{
+ "G": [
+  "F(emptyhand & ontable_d & on_j_d & on_c_j & clear_c & ontable_b & on_f_b & on_a_f & clear_a & ontable_e & on_g_e & clear_g & ontable_h & on_i_h & clear_i)",
+  "F(emptyhand & ontable_d & on_j_d & on_c_j & clear_c & ontable_f & on_a_f & on_b_a & clear_b & ontable_e & on_g_e & clear_g & ontable_i & on_h_i & clear_h)",
+  "F(emptyhand & ontable_c & on_d_c & on_j_d & clear_j & ontable_f & on_b_f & on_a_b & clear_a & ontable_g & on_e_g & clear_e & ontable_i & on_h_i & clear_h)",
+  "F(emptyhand & ontable_c & on_d_c & on_j_d & clear_j & ontable_e & on_b_e & on_a_b & clear_a & ontable_i & on_f_i & clear_f & ontable_g & on_h_g & clear_h)",
+  "F(emptyhand & ontable_a & on_d_a & on_j_d & clear_j & ontable_e & on_b_e & on_c_b & clear_c & ontable_i & on_f_i & clear_f & ontable_g & on_h_g & clear_h)",
+  "F(emptyhand & ontable_a & on_d_a & on_j_d & clear_j & ontable_g & on_b_g & on_h_b & clear_h & ontable_i & on_f_i & clear_f & ontable_e & on_c_e & clear_c)"
+ ],
+ "G*": "F(emptyhand & ontable_d & on_j_d & on_c_j & clear_c & ontable_b & on_f_b & on_a_f & clear_a & ontable_e & on_g_e & clear_g & ontable_h & on_i_h & clear_i)",
+ "Obs": [
+  "put-on-block_j_d",
+  "pick-up-from-table_f"
+ ],
+ "P(Obs | G)": [
+  [
+   0.2608695652173913,
+   0.7391304347826086,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  [
+   0.990531089661379,
+   0.05347517053007887,
+   0.05347517053007887,
+   0.7563936700948867,
+   0.7206070614101999,
+   0.7206070614101999
+  ]
+ ],
+ "domain": "blocks-world",
+ "observability": "10",
+ "problem": "blocks-world_p02_hyp-1_10_3",
+ "time": 48.83795213699341
+}

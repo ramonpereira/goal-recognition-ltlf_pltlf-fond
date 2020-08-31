@@ -1,0 +1,87 @@
+{
+ "G": [
+  "F(atperson_p0_c5 & atperson_p1_c14 & atperson_p2_c10 & atperson_p3_c0 & atperson_p4_c9)",
+  "F(atperson_p0_c5 & atperson_p1_c14 & atperson_p2_c12 & atperson_p3_c1 & atperson_p4_c8)",
+  "F(atperson_p0_c3 & atperson_p1_c10 & atperson_p2_c12 & atperson_p3_c2 & atperson_p4_c9)",
+  "F(atperson_p0_c3 & atperson_p1_c12 & atperson_p2_c12 & atperson_p3_c1 & atperson_p4_c6)",
+  "F(atperson_p0_c8 & atperson_p1_c13 & atperson_p2_c11 & atperson_p3_c0 & atperson_p4_c3)",
+  "F(atperson_p0_c8 & atperson_p1_c10 & atperson_p2_c13 & atperson_p3_c5 & atperson_p4_c7)",
+  "F(atperson_p0_c9 & atperson_p1_c12 & atperson_p2_c10 & atperson_p3_c8 & atperson_p4_c5)",
+  "F(atperson_p0_c9 & atperson_p1_c11 & atperson_p2_c14 & atperson_p3_c4 & atperson_p4_c8)"
+ ],
+ "G*": "F(atperson_p0_c3 & atperson_p1_c12 & atperson_p2_c12 & atperson_p3_c1 & atperson_p4_c6)",
+ "Obs": [
+  "complete-boarding_p3_a1_c7",
+  "complete-flying_a1_c1_f1_f0",
+  "start-debarking_p3_a1_c1",
+  "start-boarding_p0_a0_c0",
+  "complete-boarding_p0_a0_c0",
+  "start-refueling_a0_c8_f0_f1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.789081783506549,
+   0.9758403520141333,
+   0.789081783506549,
+   0.9531018597921412,
+   0.9687345731947609,
+   0.789081783506549,
+   0.789081783506549,
+   0.9459960809727688
+  ],
+  [
+   0.20824989184553988,
+   0.9839138460704608,
+   0.20824989184553988,
+   0.9710449229268295,
+   0.20824989184553988,
+   0.20824989184553988,
+   0.20824989184553988,
+   0.20824989184553988
+  ],
+  [
+   0.20782908658152582,
+   0.9849539853313655,
+   0.20782908658152582,
+   0.9720574013296785,
+   0.20782908658152582,
+   0.20782908658152582,
+   0.20782908658152582,
+   0.20782908658152582
+  ],
+  [
+   0.11354469497475582,
+   0.9905702984896799,
+   0.6004952819397505,
+   0.9679390148649119,
+   0.11354469497475582,
+   0.4625174907446658,
+   0.11354469497475582,
+   0.6004952819397505
+  ],
+  [
+   0.11222469460480938,
+   0.9923844262040181,
+   0.9695377048160722,
+   0.9695377048160722,
+   0.11222469460480938,
+   0.9466909834281263,
+   0.11222469460480938,
+   0.9695377048160722
+  ],
+  [
+   0.46594357491123806,
+   0.12499362450077237,
+   0.12499362450077237,
+   0.9878099638276022,
+   0.12499362450077237,
+   0.43408874202265424,
+   0.522399678655354,
+   0.46594357491123806
+  ]
+ ],
+ "domain": "zenotravel",
+ "observability": "10",
+ "problem": "zenotravel_p01_hyp-2_10_2",
+ "time": 498.18836998939514
+}

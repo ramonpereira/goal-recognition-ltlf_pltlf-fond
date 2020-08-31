@@ -1,0 +1,65 @@
+{
+ "G": [
+  "F(atperson_p0_c3 & atperson_p1_c4 & atperson_p2_c4 & atperson_p3_c9 & atperson_p4_c4)",
+  "F(atperson_p0_c3 & atperson_p1_c2 & atperson_p2_c8 & atperson_p3_c7 & atperson_p4_c0)",
+  "F(atperson_p0_c12 & atperson_p1_c4 & atperson_p2_c3 & atperson_p3_c9 & atperson_p4_c5)",
+  "F(atperson_p0_c12 & atperson_p1_c2 & atperson_p2_c3 & atperson_p3_c1 & atperson_p4_c8)",
+  "F(atperson_p0_c10 & atperson_p1_c6 & atperson_p2_c4 & atperson_p3_c1 & atperson_p4_c9)",
+  "F(atperson_p0_c10 & atperson_p1_c3 & atperson_p2_c7 & atperson_p3_c0 & atperson_p4_c1)",
+  "F(atperson_p0_c8 & atperson_p1_c6 & atperson_p2_c9 & atperson_p3_c0 & atperson_p4_c3)",
+  "F(atperson_p0_c8 & atperson_p1_c3 & atperson_p2_c4 & atperson_p3_c9 & atperson_p4_c6)"
+ ],
+ "G*": "F(atperson_p0_c12 & atperson_p1_c2 & atperson_p2_c3 & atperson_p3_c1 & atperson_p4_c8)",
+ "Obs": [
+  "start-boarding_p0_a2_c11",
+  "complete-boarding_p0_a2_c11",
+  "complete-debarking_p0_a2_c12",
+  "complete-flying_a2_c3_f1_f0"
+ ],
+ "P(Obs | G)": [
+  [
+   0.9692143171918594,
+   0.9642886079425568,
+   0.8172399823725588,
+   0.9802971630027899,
+   0.8172399823725588,
+   0.8172399823725588,
+   0.8172399823725588,
+   0.8172399823725588
+  ],
+  [
+   0.9703361579081637,
+   0.9653921842261911,
+   0.18141770351714492,
+   0.9814600986926023,
+   0.18141770351714492,
+   0.18141770351714492,
+   0.18141770351714492,
+   0.18141770351714492
+  ],
+  [
+   0.2312040061784503,
+   0.2312040061784503,
+   0.2312040061784503,
+   0.9942577803763393,
+   0.2312040061784503,
+   0.2312040061784503,
+   0.2312040061784503,
+   0.2312040061784503
+  ],
+  [
+   0.6353952848639481,
+   0.5946378073977552,
+   0.17757842242301317,
+   0.9974749572430344,
+   0.17757842242301317,
+   0.17757842242301317,
+   0.17757842242301317,
+   0.17757842242301317
+  ]
+ ],
+ "domain": "zenotravel",
+ "observability": "10",
+ "problem": "zenotravel_p04_hyp-2_10_3",
+ "time": 365.7438175678253
+}

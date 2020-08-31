@@ -1,0 +1,73 @@
+{
+ "G": [
+  "F(wiped_kitchentable & wiped_desk1 & on_cup1_kitchentable & on_cup2_desk1 & on_book1_desk1 & atbase_desk2l & handfree_rightarm & handfree_leftarm)",
+  "F(wiped_desk1 & wiped_desk2 & on_cup1_kitchentable & on_cup2_desk2 & on_book1_desk2 & atbase_desk2l & handfree_rightarm & handfree_leftarm)",
+  "F(wiped_kitchentable & wiped_desk2 & on_cup1_kitchentable & on_cup2_kitchentable & on_book1_desk2 & atbase_desk1l & handfree_rightarm & handfree_leftarm)",
+  "F(wiped_kitchentable & wiped_desk2 & on_cup1_desk2 & on_cup2_desk1 & on_book1_desk1 & atbase_desk1l & handfree_rightarm & handfree_leftarm)"
+ ],
+ "G*": "F(wiped_kitchentable & wiped_desk2 & on_cup1_desk2 & on_cup2_desk1 & on_book1_desk1 & atbase_desk1l & handfree_rightarm & handfree_leftarm)",
+ "Obs": [
+  "drive_corridor_kdoorl2_odoor1l2",
+  "sense-table-state_desk2l_desk2",
+  "arm-to-side_leftarm",
+  "drive_kitchen_kdoorl1_ktablel",
+  "sense-table-state_desk1l_desk1",
+  "pickup-object_desk1l_cup1_desk1_rightarm",
+  "arm-to-side_rightarm",
+  "sense-table-state_desk1l_desk1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.8275924157884116,
+   0.5938483456176932,
+   0.781069734334491,
+   0.7974895042594042
+  ],
+  [
+   0.8434343434343434,
+   0.19931803793197986,
+   0.6464646464646465,
+   0.6767676767676768
+  ],
+  [
+   0.09996140111089549,
+   0.8523809523809524,
+   0.7142857142857143,
+   0.7428571428571428
+  ],
+  [
+   0.08819785668588154,
+   0.941747572815534,
+   0.09747263144740731,
+   0.11035649303901135
+  ],
+  [
+   0.05696702776814425,
+   0.13950893776576312,
+   0.8433734939759037,
+   0.8433734939759037
+  ],
+  [
+   0.06181624684951308,
+   0.06181624684951308,
+   0.927499733401653,
+   0.933299754729521
+  ],
+  [
+   0.09947639248190333,
+   0.22605659077675247,
+   0.11035649303901135,
+   0.12566389788246196
+  ],
+  [
+   0.05696702776814425,
+   0.13950893776576312,
+   0.8433734939759037,
+   0.8433734939759037
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "10",
+ "problem": "tidyup_p03_hyp-3_10_3",
+ "time": 291.1444809436798
+}

@@ -1,0 +1,66 @@
+{
+ "G": [
+  "F(atbase_desk1l & wiped_kitchentable & wiped_desk1 & wiped_desk2 & on_cup1_desk1 & on_laptop1_desk2 & handfree_rightarm & handfree_leftarm)",
+  "F(atbase_desk1l & wiped_desk1 & wiped_desk2 & on_cup1_desk2 & on_laptop1_kitchentable & handfree_rightarm & handfree_leftarm)",
+  "F(atbase_desk2l & wiped_kitchentable & wiped_desk2 & on_cup1_desk2 & on_laptop1_kitchentable & handfree_rightarm & handfree_leftarm)",
+  "F(atbase_desk2l & wiped_desk2 & wiped_desk1 & on_cup1_desk1 & on_laptop1_desk2 & handfree_rightarm & handfree_leftarm)"
+ ],
+ "G*": "F(atbase_desk2l & wiped_kitchentable & wiped_desk2 & on_cup1_desk2 & on_laptop1_kitchentable & handfree_rightarm & handfree_leftarm)",
+ "Obs": [
+  "drive_corridor_odoor1l2_odoor2l2",
+  "drive_corridor_odoor2l2_kdoorl2",
+  "drive_corridor_kdoorl2_odoor2l2",
+  "arm-to-side_rightarm",
+  "sense-table-state_desk1l_desk1",
+  "drive_kitchen_kdoorl1_ktablel",
+  "drive_corridor_kdoorl2_odoor2l2"
+ ],
+ "P(Obs | G)": [
+  [
+   0.6830357142857142,
+   0.7544642857142857,
+   0.7678571428571428,
+   0.7946428571428572
+  ],
+  [
+   0.8655328829119272,
+   0.031514400264192104,
+   0.8125609883014743,
+   0.9266542997701421
+  ],
+  [
+   0.08232223076478995,
+   0.08232223076478995,
+   0.22795372878057008,
+   0.231423936326175
+  ],
+  [
+   0.10904664129808148,
+   0.1355682035845916,
+   0.7710843373493976,
+   0.7590361445783133
+  ],
+  [
+   0.08564506344108072,
+   0.1281950227598394,
+   0.8882352941176471,
+   0.10948330754032425
+  ],
+  [
+   0.5877862595419847,
+   0.8702290076335878,
+   0.08962016889954298,
+   0.8778625954198472
+  ],
+  [
+   0.08232223076478995,
+   0.08232223076478995,
+   0.22795372878057008,
+   0.231423936326175
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "10",
+ "problem": "tidyup_p02_hyp-2_10_2",
+ "time": 226.51420497894287
+}

@@ -1,0 +1,64 @@
+{
+ "G": [
+  "F(emptyhand & ontable_e & on_a_e & on_j_a & on_d_j & on_m_d & on_b_m & clear_b & ontable_o & on_f_o & on_c_f & clear_c & ontable_n & on_l_n & on_k_l & on_g_k & on_h_g & on_i_h & clear_i)",
+  "F(emptyhand & ontable_e & on_a_e & on_j_a & on_d_j & on_m_d & on_o_m & clear_o & ontable_b & on_f_b & on_n_f & clear_n & ontable_h & on_l_h & on_k_l & on_c_k & on_g_c & on_i_g & clear_i)",
+  "F(emptyhand & ontable_f & on_a_f & on_j_a & on_m_j & on_d_m & on_e_d & clear_e & ontable_b & on_o_b & on_n_o & clear_n & ontable_g & on_l_g & on_k_l & on_i_k & on_h_i & on_c_h & clear_c)",
+  "F(emptyhand & ontable_f & on_a_f & on_j_a & on_m_j & on_b_m & on_o_b & clear_o & ontable_d & on_e_d & on_g_e & clear_g & ontable_k & on_l_k & on_h_l & on_i_h & on_n_i & on_c_n & clear_c)",
+  "F(emptyhand & ontable_m & on_e_m & on_b_e & on_f_b & on_j_f & on_d_j & clear_d & ontable_g & on_a_g & on_o_a & clear_o & ontable_i & on_l_i & on_c_l & on_n_c & on_k_n & on_h_k & clear_h)",
+  "F(emptyhand & ontable_m & on_f_m & on_g_f & on_e_g & on_j_e & on_a_j & clear_a & ontable_b & on_d_b & on_i_d & clear_i & ontable_o & on_h_o & on_c_h & on_n_c & on_k_n & on_l_k & clear_l)"
+ ],
+ "G*": "F(emptyhand & ontable_m & on_f_m & on_g_f & on_e_g & on_j_e & on_a_j & clear_a & ontable_b & on_d_b & on_i_d & clear_i & ontable_o & on_h_o & on_c_h & on_n_c & on_k_n & on_l_k & clear_l)",
+ "Obs": [
+  "pick-up_m_j",
+  "put-on-block_e_g",
+  "put-on-block_d_b",
+  "put-on-block_n_c",
+  "put-on-block_a_j"
+ ],
+ "P(Obs | G)": [
+  [
+   0.730764640030081,
+   0.9619040346991027,
+   0.730764640030081,
+   0.730764640030081,
+   0.9265292097768412,
+   0.919272835433813
+  ],
+  [
+   0.17530315223971593,
+   0.17530315223971593,
+   0.17530315223971593,
+   0.17530315223971593,
+   0.17530315223971593,
+   0.9488534082049096
+  ],
+  [
+   0.17385562489748016,
+   0.17385562489748016,
+   0.17385562489748016,
+   0.17385562489748016,
+   0.17385562489748016,
+   0.9566001575181287
+  ],
+  [
+   0.14320528869461308,
+   0.14320528869461308,
+   0.14320528869461308,
+   0.14320528869461308,
+   0.4652601817851263,
+   0.9721643445236356
+  ],
+  [
+   0.17186654366994208,
+   0.17186654366994208,
+   0.17186654366994208,
+   0.17186654366994208,
+   0.17186654366994208,
+   0.5964180031090851
+  ]
+ ],
+ "domain": "blocks-world",
+ "observability": "10",
+ "problem": "blocks-world_p04_hyp-3_10_3",
+ "time": 101.89646983146667
+}

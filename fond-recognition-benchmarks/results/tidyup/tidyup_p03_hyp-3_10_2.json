@@ -1,0 +1,73 @@
+{
+ "G": [
+  "F(wiped_kitchentable & wiped_desk1 & on_cup1_kitchentable & on_cup2_desk1 & on_book1_desk1 & atbase_desk2l & handfree_rightarm & handfree_leftarm)",
+  "F(wiped_desk1 & wiped_desk2 & on_cup1_kitchentable & on_cup2_desk2 & on_book1_desk2 & atbase_desk2l & handfree_rightarm & handfree_leftarm)",
+  "F(wiped_kitchentable & wiped_desk2 & on_cup1_kitchentable & on_cup2_kitchentable & on_book1_desk2 & atbase_desk1l & handfree_rightarm & handfree_leftarm)",
+  "F(wiped_kitchentable & wiped_desk2 & on_cup1_desk2 & on_cup2_desk1 & on_book1_desk1 & atbase_desk1l & handfree_rightarm & handfree_leftarm)"
+ ],
+ "G*": "F(wiped_kitchentable & wiped_desk2 & on_cup1_desk2 & on_cup2_desk1 & on_book1_desk1 & atbase_desk1l & handfree_rightarm & handfree_leftarm)",
+ "Obs": [
+  "sense-door-state_odoor1l2_odoor1",
+  "drive-through-door_office2_corridor_odoor2_odoor2l1_odoor2l2",
+  "drive_corridor_odoor2l2_kdoorl2",
+  "drive-through-door_corridor_kitchen_kitchendoor_kdoorl2_kdoorl1",
+  "drive-through-door_office2_corridor_odoor2_odoor2l1_odoor2l2",
+  "sense-table-state_desk1l_desk1",
+  "drive_corridor_kdoorl2_odoor1l2",
+  "sense-table-state_desk1l_desk1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7101449275362319,
+   0.8405797101449275,
+   0.713768115942029,
+   0.7355072463768115
+  ],
+  [
+   0.8266666666666667,
+   0.8266666666666667,
+   0.6533333333333333,
+   0.6933333333333334
+  ],
+  [
+   0.04577526349367321,
+   0.9485266895764304,
+   0.14292519673341594,
+   0.15829092202931752
+  ],
+  [
+   0.08905714232876831,
+   0.9141104294478527,
+   0.6932515337423313,
+   0.7300613496932515
+  ],
+  [
+   0.8266666666666667,
+   0.1918839406688782,
+   0.08578071550036699,
+   0.10117374202382362
+  ],
+  [
+   0.05696702776814425,
+   0.13950893776576312,
+   0.8433734939759037,
+   0.8433734939759037
+  ],
+  [
+   0.8275924157884116,
+   0.06785580075763785,
+   0.15083220349938614,
+   0.16392311875316096
+  ],
+  [
+   0.05696702776814425,
+   0.13950893776576312,
+   0.8433734939759037,
+   0.8433734939759037
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "10",
+ "problem": "tidyup_p03_hyp-3_10_2",
+ "time": 263.0144257545471
+}

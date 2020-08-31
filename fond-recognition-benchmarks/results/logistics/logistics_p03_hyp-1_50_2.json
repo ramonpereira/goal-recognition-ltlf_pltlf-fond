@@ -1,0 +1,129 @@
+{
+ "G": [
+  "F(at_package4_city3u1 & at_package2_city2u1 & at_package1_city1u2 & at_package3_city3u2)",
+  "F(at_package4_city3u2 & at_package2_city2u1 & at_package1_city3u1 & at_package3_city3u1)",
+  "F(at_package4_city3u1 & at_package2_city2u2 & at_package1_city2u2 & at_package3_city1u2)",
+  "F(at_package4_city3u2 & at_package2_city3u1 & at_package1_city1u1 & at_package3_city1u1)"
+ ],
+ "G*": "F(at_package4_city3u1 & at_package2_city2u1 & at_package1_city1u2 & at_package3_city3u2)",
+ "Obs": [
+  "load-truck_package1_truck3_city3u1",
+  "change-tire-truck_truck1",
+  "drive-truck_truck1_city1u1_city1u2_city1",
+  "unload-truck_package2_truck1_city1u2",
+  "load-truck_package3_truck2_city2u1",
+  "fly-airplane_plane1_city2u2_city1u2",
+  "fly-airplane_plane1_city1u2_city3u2",
+  "unload-airplane_package4_plane1_city3u2",
+  "unload-truck_package1_truck3_city3u2",
+  "fly-airplane_plane1_city3u2_city1u2",
+  "unload-airplane_package1_plane1_city1u2",
+  "load-truck_package2_truck2_city2u2",
+  "unload-truck_package3_truck2_city2u2",
+  "unload-truck_package2_truck2_city2u1",
+  "load-airplane_package3_plane1_city2u2",
+  "fly-airplane_plane1_city2u2_city3u2"
+ ],
+ "P(Obs | G)": [
+  [
+   0.8633048831195723,
+   0.38523169302666,
+   0.8819451263305397,
+   0.8695182975232282
+  ],
+  [
+   0.7327586206896551,
+   0.14700502737523818,
+   0.771551724137931,
+   0.11340795033138121
+  ],
+  [
+   0.7025641025641026,
+   0.7538461538461539,
+   0.7487179487179487,
+   0.7948717948717948
+  ],
+  [
+   0.7005347593582888,
+   0.7540106951871658,
+   0.7486631016042781,
+   0.7967914438502673
+  ],
+  [
+   0.7326732673267327,
+   0.7821782178217822,
+   0.7772277227722773,
+   0.10767693810653801
+  ],
+  [
+   0.6598639455782314,
+   0.7891156462585035,
+   0.8639455782312926,
+   0.6870748299319728
+  ],
+  [
+   0.9338994580757906,
+   0.058259569127370035,
+   0.058259569127370035,
+   0.957936018775503
+  ],
+  [
+   0.4749999999999999,
+   0.3094321422969844,
+   0.3804368639543355,
+   0.7
+  ],
+  [
+   0.9012541549205012,
+   0.01454565656398753,
+   0.37061742771915834,
+   0.9480285025897375
+  ],
+  [
+   0.9560889449816639,
+   0.05407587719747854,
+   0.05407587719747854,
+   0.9749079685609507
+  ],
+  [
+   0.958968055199309,
+   0.05347517053007887,
+   0.05347517053007887,
+   0.9779058758765511
+  ],
+  [
+   0.9761773410725063,
+   0.5906674551664389,
+   0.05287370042342846,
+   0.05287370042342846
+  ],
+  [
+   0.9057971014492753,
+   0.12779254751404326,
+   0.11584124333226829,
+   0.07607603895592281
+  ],
+  [
+   0.990222481508271,
+   0.9771857901859657,
+   0.05046015642245283,
+   0.05046015642245283
+  ],
+  [
+   0.9674796747967479,
+   0.1195500584566394,
+   0.10739688924316193,
+   0.06776345399072992
+  ],
+  [
+   0.9940972708064872,
+   0.9645836248389235,
+   0.9173617912908214,
+   0.006995434343401457
+  ]
+ ],
+ "domain": "logistics",
+ "observability": "50",
+ "problem": "logistics_p03_hyp-1_50_2",
+ "time": 196.83767366409302
+}

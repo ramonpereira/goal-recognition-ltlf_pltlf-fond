@@ -1,0 +1,65 @@
+{
+ "G": [
+  "F(atperson_p0_c3 & atperson_p1_c4 & atperson_p2_c4 & atperson_p3_c9 & atperson_p4_c4)",
+  "F(atperson_p0_c3 & atperson_p1_c2 & atperson_p2_c8 & atperson_p3_c7 & atperson_p4_c0)",
+  "F(atperson_p0_c12 & atperson_p1_c4 & atperson_p2_c3 & atperson_p3_c9 & atperson_p4_c5)",
+  "F(atperson_p0_c12 & atperson_p1_c2 & atperson_p2_c3 & atperson_p3_c1 & atperson_p4_c8)",
+  "F(atperson_p0_c10 & atperson_p1_c6 & atperson_p2_c4 & atperson_p3_c1 & atperson_p4_c9)",
+  "F(atperson_p0_c10 & atperson_p1_c3 & atperson_p2_c7 & atperson_p3_c0 & atperson_p4_c1)",
+  "F(atperson_p0_c8 & atperson_p1_c6 & atperson_p2_c9 & atperson_p3_c0 & atperson_p4_c3)",
+  "F(atperson_p0_c8 & atperson_p1_c3 & atperson_p2_c4 & atperson_p3_c9 & atperson_p4_c6)"
+ ],
+ "G*": "F(atperson_p0_c12 & atperson_p1_c2 & atperson_p2_c3 & atperson_p3_c1 & atperson_p4_c8)",
+ "Obs": [
+  "start-zooming_a1_c6_c2_f3_f2_f1",
+  "complete-zooming_a2_c12_f4_f3_f2",
+  "start-flying_a2_c11_c12_f1_f0",
+  "complete-refuling_a2_f0_f1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.8473867651344059,
+   0.953726505045249,
+   0.8473867651344059,
+   0.9619529041483159,
+   0.8473867651344059,
+   0.8473867651344059,
+   0.8473867651344059,
+   0.8473867651344059
+  ],
+  [
+   0.16807320369575798,
+   0.16807320369575798,
+   0.45035244684870634,
+   0.9653634734111711,
+   0.4628693667287012,
+   0.42705845829794303,
+   0.16807320369575798,
+   0.16807320369575798
+  ],
+  [
+   0.23278693444184126,
+   0.23278693444184126,
+   0.23278693444184126,
+   0.986703291042268,
+   0.23278693444184126,
+   0.23278693444184126,
+   0.23278693444184126,
+   0.23278693444184126
+  ],
+  [
+   0.6017478533587141,
+   0.5657594018252511,
+   0.1827641996994181,
+   0.7003526478649016,
+   0.1827641996994181,
+   0.1827641996994181,
+   0.1827641996994181,
+   0.1827641996994181
+  ]
+ ],
+ "domain": "zenotravel",
+ "observability": "10",
+ "problem": "zenotravel_p04_hyp-2_10_2",
+ "time": 380.8373200893402
+}

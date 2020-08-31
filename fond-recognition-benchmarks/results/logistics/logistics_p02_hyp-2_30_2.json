@@ -1,0 +1,80 @@
+{
+ "G": [
+  "F(at_package3_city3u2 & at_package1_city2u1 & at_package2_city3u2)",
+  "F(at_package2_city1u2 & at_package3_city4u1 & at_package1_city2u1)",
+  "F(at_package2_city1u2 & at_package1_city3u2 & at_package3_city4u1)",
+  "F(at_package3_city3u2 & at_package1_city3u2 & at_package2_city1u2)"
+ ],
+ "G*": "F(at_package2_city1u2 & at_package3_city4u1 & at_package1_city2u1)",
+ "Obs": [
+  "load-airplane_package1_plane2_city3u2",
+  "refuel-airplane_plane2",
+  "fly-airplane_plane2_city2u3_city1u2",
+  "fly-airplane_plane2_city1u2_city4u1",
+  "unload-airplane_package3_plane2_city4u1",
+  "load-tire-truck_truck2_city2u1",
+  "change-tire-truck_truck2",
+  "drive-truck_truck2_city2u1_city2u3_city2",
+  "unload-truck_package1_truck2_city2u1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.943591106237644,
+   0.9376533279468696,
+   0.5593777829077431,
+   0.5593777829077431
+  ],
+  [
+   0.351579534878787,
+   0.9448997973852563,
+   0.06181624684951308,
+   0.06181624684951308
+  ],
+  [
+   0.09497474309621066,
+   0.965310861738478,
+   0.09497474309621066,
+   0.09497474309621066
+  ],
+  [
+   0.09442487398391114,
+   0.9695148159255071,
+   0.09442487398391114,
+   0.09442487398391114
+  ],
+  [
+   0.09414968878730855,
+   0.97163055423252,
+   0.09414968878730855,
+   0.09414968878730855
+  ],
+  [
+   0.16607476979884614,
+   0.8,
+   0.09976120282057194,
+   0.1086489838803852
+  ],
+  [
+   0.8043478260869565,
+   0.8043478260869565,
+   0.6847826086956522,
+   0.7065217391304347
+  ],
+  [
+   0.8222222222222222,
+   0.8222222222222222,
+   0.09055700148725815,
+   0.09929611325987649
+  ],
+  [
+   0.9868777734693238,
+   0.9868777734693238,
+   0.04985484720059396,
+   0.04985484720059396
+  ]
+ ],
+ "domain": "logistics",
+ "observability": "30",
+ "problem": "logistics_p02_hyp-2_30_2",
+ "time": 391.33562898635864
+}
