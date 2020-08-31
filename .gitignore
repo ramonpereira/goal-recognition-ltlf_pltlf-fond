@@ -26,8 +26,16 @@ output
 output.sas
 plan_numbers_and_cost
 policy-translated.out
+policy-with-trans.out
+problem.pddl
 policy.fsap
 policy.out
 sas_plan
 policy.txt
 policy.pdf
+recognition/domain.pddl
+recognition/hyps.dat
+recognition/initial_state.pddl
+recognition/obs.dat
+recognition/observability.dat
+recognition/real_hyp.dat
