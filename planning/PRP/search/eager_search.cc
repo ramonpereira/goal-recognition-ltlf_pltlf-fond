@@ -357,7 +357,7 @@ static SearchEngine *_parse(OptionParser &parser) {
 
     EagerSearch *engine = 0;
     if (!parser.dry_run()) {
-        opts.set<bool>("mpd", false);
+        opts.set_option<bool>("mpd", false);
         engine = new EagerSearch(opts);
     }
 
@@ -407,9 +407,9 @@ static SearchEngine *_parse_astar(OptionParser &parser) {
         OpenList<StateID> *open = \
             new TieBreakingOpenList<StateID>(evals, false, false);
 
-        opts.set("open", open);
-        opts.set("f_eval", f_eval);
-        opts.set("reopen_closed", true);
+        opts.set_option("open", open);
+        opts.set_option("f_eval", f_eval);
+        opts.set_option("reopen_closed", true);
         engine = new EagerSearch(opts);
     }
 
@@ -491,13 +491,13 @@ static SearchEngine *_parse_greedy(OptionParser &parser) {
                 inner_lists, opts.get<int>("boost"));
         }
 
-        opts.set("open", open);
-        opts.set("reopen_closed", false);
-        opts.set("pathmax", false);
-        opts.set("mpd", false);
+        opts.set_option("open", open);
+        opts.set_option("reopen_closed", false);
+        opts.set_option("pathmax", false);
+        opts.set_option("mpd", false);
         ScalarEvaluator *sep = 0;
-        opts.set("f_eval", sep);
-        opts.set("preferred", preferred_list);
+        opts.set_option("f_eval", sep);
+        opts.set_option("preferred", preferred_list);
         engine = new EagerSearch(opts);
     }
     return engine;

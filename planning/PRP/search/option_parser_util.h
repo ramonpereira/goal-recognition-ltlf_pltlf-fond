@@ -9,10 +9,10 @@
 #include <ios>
 #include <iostream>
 #include <sstream>
-#include <tree.hh>
-#include <tree_util.hh>
+#include "lib/tree.hh"
+#include "lib/tree_util.hh"
 #include <utility>
-#include <boost/any.hpp>
+#include "ext/boost/any.hpp"
 
 
 class ShrinkStrategy;
@@ -357,7 +357,7 @@ public:
     std::map<std::string, boost::any> storage;
 
     template <class T>
-    void set(std::string key, T value) {
+    void set_option(std::string key, T value) {
         storage[key] = value;
     }
 

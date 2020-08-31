@@ -18,6 +18,22 @@ __pycache__/
 
 *downward.*
 
+planning/FOND-SAT/minisat
+planning/FOND-SAT/formula-extra-temp.txt
+planning/FOND-SAT/formula-temp.txt
+planning/FOND-SAT/formula-temp.txtheader
+planning/FOND-SAT/outputtrans-temp.sas
+planning/FOND-SAT/plan_.txt
+
+planning/PRP/build_all
+planning/PRP/cleanup
+planning/PRP/plan
+planning/PRP/validate-prp
+planning/PRP/prp
+planning/PRP/VAL/*.*
+planning/PRP/search/*.*
+planning/PRP/preprocess/*.*
+
 elapsed.time
 output.sas
 graph.pdf

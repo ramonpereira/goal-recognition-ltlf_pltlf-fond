@@ -260,7 +260,7 @@ void OptionParser::add_option(
          OptionParser(default_value, dry_run()) :
          OptionParser(subtree(parse_tree, arg), dry_run()));
     T result = TokenParser<T>::parse(subparser);
-    opts.set<T>(k, result);
+    opts.set_option<T>(k, result);
     //if we have not reached the keyword parameters yet
     //and did not use the default value,
     //increment the argument position pointer

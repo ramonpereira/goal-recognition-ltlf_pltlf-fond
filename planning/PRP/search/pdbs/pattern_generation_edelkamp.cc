@@ -180,8 +180,8 @@ void PatternGenerationEdelkamp::evaluate(vector<double> &fitness_values) {
         } else {
             // generate the pattern collection heuristic and get its fitness value.
             Options opts;
-            opts.set<int>("cost_type", cost_type);
-            opts.set<vector<vector<int> > >("patterns", pattern_collection);
+            opts.set_option<int>("cost_type", cost_type);
+            opts.set_option<vector<vector<int> > >("patterns", pattern_collection);
             ZeroOnePDBsHeuristic *zoppch =
                 new ZeroOnePDBsHeuristic(opts);
             fitness = zoppch->get_approx_mean_finite_h();

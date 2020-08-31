@@ -147,6 +147,6 @@ void Heuristic::add_options_to_parser(OptionParser &parser) {
 //this solution to get default values seems not optimal:
 Options Heuristic::default_options() {
     Options opts = Options();
-    opts.set<int>("cost_type", 0);
+    opts.set_option<int>("cost_type", 0);
     return opts;
 }

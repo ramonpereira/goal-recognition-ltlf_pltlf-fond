@@ -26,7 +26,6 @@
 
 #include <cstddef>
 #include <cassert>
-#include <cstddef>
 #include <memory>
 #include <stdexcept>
 #include <iterator>
@@ -2710,3 +2709,4 @@ typename tree<T, tree_node_allocator>::leaf_iterator& tree<T, tree_node_allocato
 // Local variables:
 // default-tab-width: 3
 // End:
+

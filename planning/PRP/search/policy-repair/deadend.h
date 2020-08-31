@@ -19,7 +19,8 @@ bool generalize_deadend(PartialState &state);
 
 bool sample_for_depth1_deadends(const SearchEngine::Plan &plan, PartialState *state);
 
-struct DeadendAwareSuccessorGenerator {
+class DeadendAwareSuccessorGenerator {
+public:	
     void generate_applicable_ops(const StateInterface &curr, vector<const Operator *> &ops);
 };
 

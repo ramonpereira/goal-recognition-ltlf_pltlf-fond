@@ -138,7 +138,7 @@ ARGS_PROFILE = --search 'astar(lmcut())' < profile-input.pre
 
 ifeq ($(OS), auto)
 UNAME := $(shell uname)
-UNAME_O := $(shell uname -o)
+UNAME_O := $(shell uname -s)
 ifeq ($(UNAME), Darwin)
 OS=osx
 endif
@@ -178,8 +178,8 @@ TARGET_DEBUG    = $(TARGET)$(TARGET_SUFFIX_DEBUG)
 OBJECTS_PROFILE = $(SOURCES:%.cc=.obj/%$(OBJECT_SUFFIX_PROFILE).o)
 TARGET_PROFILE  = $(TARGET)$(TARGET_SUFFIX_PROFILE)
 
-CC     = g++
-DEPEND = g++ -MM
+CC     = g++ -std=gnu++11
+DEPEND = g++ -std=gnu++11 -MM
 
 ## CCOPT, LINKOPT, POSTLINKOPT are options for compiler and linker
 ## that are used for all three targets (release, debug, and profile).

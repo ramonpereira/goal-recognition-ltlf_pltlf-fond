@@ -17,12 +17,15 @@ class GeneratorBase;
 
 using namespace std;
 
-struct PolicyItem {
+class PolicyItem {
+public:
     PartialState *state;
     Policy *pol;
     bool relevant;
     int _generality;
 
+    PolicyItem(const PolicyItem&);
+    PolicyItem(){}
     PolicyItem(PartialState *s) : state(s), pol(0), relevant(false), _generality(-1) {}
     virtual ~PolicyItem() {}
     virtual string get_name() = 0;
@@ -37,9 +40,12 @@ struct PolicyItem {
 
 };
 
-struct NondetDeadend : PolicyItem {
+class NondetDeadend : public PolicyItem {
+public:
     int op_index;
 
+    NondetDeadend(const NondetDeadend&);
+    NondetDeadend(){}
     NondetDeadend(PartialState *s, int index) : PolicyItem(s), op_index(index) {}
     NondetDeadend(PartialState *s) : PolicyItem(s), op_index(-1) {}
 
@@ -51,6 +57,7 @@ struct NondetDeadend : PolicyItem {
 };
 
 struct RegressableOperator : PolicyItem {
+public:
     const Operator *op;
 
     RegressableOperator(const Operator &o, PartialState *s) : PolicyItem(s), op(&o) {}
@@ -63,7 +70,8 @@ struct RegressableOperator : PolicyItem {
     void dump() const;
 };
 
-struct RegressionStep : PolicyItem {
+class RegressionStep : public PolicyItem {
+public:    
     const Operator *op;
     int distance;
     bool is_goal;

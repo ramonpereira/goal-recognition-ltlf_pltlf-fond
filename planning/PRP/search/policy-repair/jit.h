@@ -32,7 +32,8 @@ struct UnhandledState {
 
 bool perform_jit_repairs(Simulator *sim);
 
-struct SCNode {
+class SCNode {
+public:
     PartialState * full_state;
     PartialState * expected_state;
     PartialState * previous_state;

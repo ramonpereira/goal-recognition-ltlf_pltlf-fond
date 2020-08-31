@@ -14,8 +14,8 @@
 // $Date: 2008-10-11 02:19:02 -0400 (Sat, 11 Oct 2008) $
 // $Revision: 49267 $
 
-#include <boost/mpl/aux_/config/workaround.hpp>
-#include <boost/config.hpp>
+#include "workaround.hpp"
+#include "../../../config.hpp"
 
 #if    !defined(BOOST_MPL_CFG_NO_NONTYPE_TEMPLATE_PARTIAL_SPEC) \
     && !defined(BOOST_MPL_PREPROCESSING_MODE) \

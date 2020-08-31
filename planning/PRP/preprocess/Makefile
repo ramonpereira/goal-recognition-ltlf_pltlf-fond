@@ -30,7 +30,7 @@ ARGS_PROFILE =
 
 ifeq ($(OS), auto)
 UNAME := $(shell uname)
-UNAME_O := $(shell uname -o)
+UNAME_O := $(shell uname -s)
 ifeq ($(UNAME), Darwin)
 OS=osx
 endif
