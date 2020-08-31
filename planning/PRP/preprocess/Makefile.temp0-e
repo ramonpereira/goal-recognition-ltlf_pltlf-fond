@@ -1,2 +1,0 @@
-variable.o: variable.cc variable.h helper_functions.h state.h \
-  successor_generator.h causal_graph.h

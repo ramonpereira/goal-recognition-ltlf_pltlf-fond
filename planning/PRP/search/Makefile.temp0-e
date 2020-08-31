@@ -1,7 +1,0 @@
-partial_state.o: policy-repair/partial_state.cc \
-  policy-repair/partial_state.h policy-repair/../state.h \
-  policy-repair/../int_packer.h policy-repair/../state_id.h \
-  policy-repair/../axioms.h policy-repair/../globals.h \
-  policy-repair/../operator.h \
-  policy-repair/../policy-repair/partial_state.h \
-  policy-repair/../utilities.h
