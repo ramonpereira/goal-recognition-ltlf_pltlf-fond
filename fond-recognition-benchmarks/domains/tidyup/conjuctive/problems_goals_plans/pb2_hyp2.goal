@@ -1,0 +1,1 @@
+(and (atbase desk2l) (wiped kitchentable) (wiped desk2) (on cup1 desk2) (on laptop1 kitchentable) (handfree rightarm) (handfree leftarm))

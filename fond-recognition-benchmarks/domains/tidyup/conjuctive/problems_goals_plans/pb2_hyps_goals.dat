@@ -1,0 +1,4 @@
+(and (atbase desk1l) (wiped kitchentable) (wiped desk1) (wiped desk2) (on cup1 desk1) (on laptop1 desk2) (handfree rightarm) (handfree leftarm))
+(and (atbase desk1l) (wiped desk1) (wiped desk2) (on cup1 desk2) (on laptop1 kitchentable) (handfree rightarm) (handfree leftarm))
+(and (atbase desk2l) (wiped kitchentable) (wiped desk2) (on cup1 desk2) (on laptop1 kitchentable) (handfree rightarm) (handfree leftarm))
+(and (atbase desk2l) (wiped desk2) (wiped desk1) (on cup1 desk1) (on laptop1 desk2) (handfree rightarm) (handfree leftarm))

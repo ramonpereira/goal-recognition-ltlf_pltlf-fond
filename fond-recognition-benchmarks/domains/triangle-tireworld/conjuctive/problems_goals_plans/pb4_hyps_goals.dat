@@ -1,0 +1,4 @@
+(and (vehicleat l11))
+(and (vehicleat l31))
+(and (vehicleat l51))
+(and (vehicleat l71))

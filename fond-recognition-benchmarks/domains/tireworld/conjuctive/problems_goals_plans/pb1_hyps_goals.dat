@@ -1,0 +1,6 @@
+(and (vehicleat n5))
+(and (vehicleat n8))
+(and (vehicleat n12))
+(and (vehicleat n18))
+(and (vehicleat n31))
+(and (vehicleat n40))

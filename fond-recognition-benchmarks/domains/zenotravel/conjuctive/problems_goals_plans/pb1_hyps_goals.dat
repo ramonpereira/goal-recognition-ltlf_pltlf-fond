@@ -1,0 +1,8 @@
+(and (atperson p0 c5) (atperson p1 c14) (atperson p2 c10) (atperson p3 c0) (atperson p4 c9))
+(and (atperson p0 c5) (atperson p1 c14) (atperson p2 c12) (atperson p3 c1) (atperson p4 c8))
+(and (atperson p0 c3) (atperson p1 c10) (atperson p2 c12) (atperson p3 c2) (atperson p4 c9))
+(and (atperson p0 c3) (atperson p1 c12) (atperson p2 c12) (atperson p3 c1) (atperson p4 c6))
+(and (atperson p0 c8) (atperson p1 c13) (atperson p2 c11) (atperson p3 c0) (atperson p4 c3))
+(and (atperson p0 c8) (atperson p1 c10) (atperson p2 c13) (atperson p3 c5) (atperson p4 c7))
+(and (atperson p0 c9) (atperson p1 c12) (atperson p2 c10) (atperson p3 c8) (atperson p4 c5))
+(and (atperson p0 c9) (atperson p1 c11) (atperson p2 c14) (atperson p3 c4) (atperson p4 c8))
