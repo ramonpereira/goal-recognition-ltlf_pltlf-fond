@@ -1,4 +1,4 @@
-(and (vehicleat l19))
-(and (vehicleat l37))
-(and (vehicleat l55))
+(and (vehicleat l13))
+(and (vehicleat l42))
 (and (vehicleat l73))
+(and (vehicleat l82))
