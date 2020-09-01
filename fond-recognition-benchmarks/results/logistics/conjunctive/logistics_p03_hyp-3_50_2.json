@@ -1,0 +1,143 @@
+{
+ "G": [
+  "(and (at package4 city3u1) (at package2 city2u1) (at package1 city1u2) (at package3 city3u2))",
+  "(and (at package4 city3u2) (at package2 city2u1) (at package1 city3u1) (at package3 city3u1))",
+  "(and (at package4 city3u1) (at package2 city2u2) (at package1 city2u2) (at package3 city1u2))",
+  "(and (at package4 city3u2) (at package2 city3u1) (at package1 city1u1) (at package3 city1u1))"
+ ],
+ "G*": "(and (at package4 city3u2) (at package2 city3u1) (at package1 city1u1) (at package3 city1u1))",
+ "Obs": [
+  "load-truck_package2_truck1_city1u1",
+  "load-airplane_package4_plane1_city1u2",
+  "unload-airplane_package3_plane1_city1u2",
+  "fly-airplane_plane1_city1u2_city3u2",
+  "unload-airplane_package4_plane1_city3u2",
+  "drive-truck_truck1_city1u1_city1u2_city1",
+  "unload-truck_package2_truck1_city1u2",
+  "drive-truck_truck1_city1u2_city1u1_city1",
+  "drive-truck_truck3_city3u1_city3u2_city3",
+  "unload-truck_package1_truck3_city3u2",
+  "fly-airplane_plane1_city3u2_city1u2",
+  "unload-airplane_package1_plane1_city1u2",
+  "fly-airplane_plane1_city1u2_city3u2",
+  "unload-airplane_package2_plane1_city3u2",
+  "load-truck_package2_truck3_city3u2",
+  "drive-truck_truck1_city1u1_city1u2_city1",
+  "load-truck_package1_truck1_city1u2",
+  "drive-truck_truck1_city1u2_city1u1_city1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7040816326530612,
+   0.7551020408163265,
+   0.8061224489795918,
+   0.7346938775510203
+  ],
+  [
+   0.726027397260274,
+   0.726027397260274,
+   0.8630136986301371,
+   0.684931506849315
+  ],
+  [
+   0.05676964850203214,
+   0.05676964850203214,
+   0.9725464384638949,
+   0.9328912940228539
+  ],
+  [
+   0.11872373195184248,
+   0.11069030630099169,
+   0.8888888888888888,
+   0.6666666666666666
+  ],
+  [
+   0.728813559322034,
+   0.7118644067796611,
+   0.8983050847457628,
+   0.6610169491525424
+  ],
+  [
+   0.09640179747085215,
+   0.12334730053876843,
+   0.162209886458676,
+   0.7840909090909092
+  ],
+  [
+   0.6746987951807228,
+   0.7349397590361446,
+   0.7951807228915663,
+   0.7951807228915663
+  ],
+  [
+   0.09497474309621066,
+   0.09497474309621066,
+   0.09497474309621066,
+   0.965310861738478
+  ],
+  [
+   0.05990956392070995,
+   0.4726203554988098,
+   0.12234801435499795,
+   0.7543859649122806
+  ],
+  [
+   0.8796468592744444,
+   0.016820813552815936,
+   0.9297940012434259,
+   0.9348087154403241
+  ],
+  [
+   0.8972668878452096,
+   0.018439504345777628,
+   0.9461874174427288,
+   0.2723357074580625
+  ],
+  [
+   0.9444146476427019,
+   0.05557431334298384,
+   0.05557431334298384,
+   0.9722073238213509
+  ],
+  [
+   0.7301587301587302,
+   0.11069030630099169,
+   0.28484411823350725,
+   0.09055700148725815
+  ],
+  [
+   0.09249505902711562,
+   0.09249505902711562,
+   0.09249505902711562,
+   0.9845214751227107
+  ],
+  [
+   0.0922186995416516,
+   0.0922186995416516,
+   0.0922186995416516,
+   0.986703291042268
+  ],
+  [
+   0.09640179747085215,
+   0.12334730053876843,
+   0.162209886458676,
+   0.15312059725933586
+  ],
+  [
+   0.09111157637015996,
+   0.09111157637015996,
+   0.09111157637015996,
+   0.9955281228481002
+  ],
+  [
+   0.09497474309621066,
+   0.09497474309621066,
+   0.09497474309621066,
+   0.5807915359195028
+  ]
+ ],
+ "domain": "logistics",
+ "observability": "50",
+ "problem": "logistics_p03_hyp-3_50_2",
+ "time": 185.2060341835022
+}

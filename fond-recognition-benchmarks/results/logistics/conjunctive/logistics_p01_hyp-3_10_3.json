@@ -1,0 +1,31 @@
+{
+ "G": [
+  "(and (at package3 city3u1) (at package2 city2u1) (at package1 city1u2))",
+  "(and (at package3 city3u2) (at package2 city2u1) (at package1 city3u1))",
+  "(and (at package3 city3u1) (at package2 city2u2) (at package1 city2u2))",
+  "(and (at package3 city3u2) (at package2 city3u1) (at package1 city1u1))"
+ ],
+ "G*": "(and (at package3 city3u1) (at package2 city2u2) (at package1 city2u2))",
+ "Obs": [
+  "fly-airplane_plane1_city2u2_city1u2",
+  "unload-truck_package3_truck3_city3u1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.8952164613639383,
+   0.8952164613639383,
+   0.9501030768399706,
+   0.2594640004321526
+  ],
+  [
+   0.9642655635679956,
+   0.05076252190710052,
+   1.0,
+   0.05076252190710052
+  ]
+ ],
+ "domain": "logistics",
+ "observability": "10",
+ "problem": "logistics_p01_hyp-3_10_3",
+ "time": 199.55791807174683
+}

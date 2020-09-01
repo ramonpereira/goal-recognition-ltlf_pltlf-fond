@@ -1,0 +1,46 @@
+{
+ "G": [
+  "(and (emptyhand) (ontable c) (on b c) (on a b) (clear a) (ontable f) (on e f) (on d e) (clear d) (ontable j) (on i j) (clear i) (ontable h) (on g h) (clear g))",
+  "(and (emptyhand) (ontable c) (on b c) (on a b) (clear a) (ontable f) (on e f) (on d e) (clear d) (ontable j) (on h j) (clear h) (ontable g) (on i g) (clear i))",
+  "(and (emptyhand) (ontable c) (on b c) (on d b) (clear d) (ontable e) (on f e) (on a f) (clear a) (ontable j) (on h j) (clear h) (ontable i) (on g i) (clear g))",
+  "(and (emptyhand) (ontable c) (on b c) (on d b) (clear d) (ontable a) (on e a) (on f e) (clear f) (ontable h) (on j h) (clear j) (ontable i) (on g i) (clear g))",
+  "(and (emptyhand) (ontable b) (on c b) (on d c) (clear d) (ontable a) (on f a) (on j f) (clear j) (ontable h) (on e h) (clear e) (ontable i) (on g i) (clear g))",
+  "(and (emptyhand) (ontable b) (on c b) (on d c) (clear d) (ontable j) (on f j) (on a f) (clear a) (ontable g) (on e g) (clear e) (ontable h) (on i h) (clear i))"
+ ],
+ "G*": "(and (emptyhand) (ontable b) (on c b) (on d c) (clear d) (ontable j) (on f j) (on a f) (clear a) (ontable g) (on e g) (clear e) (ontable h) (on i h) (clear i))",
+ "Obs": [
+  "put-on-block_i_h",
+  "put-on-block_i_h",
+  "pick-up_a_f"
+ ],
+ "P(Obs | G)": [
+  [
+   0.8040920538101926,
+   0.8040920538101926,
+   0.8040920538101926,
+   0.8040920538101926,
+   0.8040920538101926,
+   0.9795397309490375
+  ],
+  [
+   0.16967517168721166,
+   0.16967517168721166,
+   0.16967517168721166,
+   0.16967517168721166,
+   0.16967517168721166,
+   0.7044538640310979
+  ],
+  [
+   0.13223096547486293,
+   0.13223096547486293,
+   0.8687291407452207,
+   0.13223096547486293,
+   0.13223096547486293,
+   0.9925330120070425
+  ]
+ ],
+ "domain": "blocksworld",
+ "observability": "10",
+ "problem": "blocksworld_p01_hyp-3_10_3",
+ "time": 13.600567817687988
+}

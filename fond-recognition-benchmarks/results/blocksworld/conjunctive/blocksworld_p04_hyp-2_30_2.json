@@ -1,0 +1,136 @@
+{
+ "G": [
+  "(and (emptyhand) (ontable e) (on a e) (on j a) (on d j) (on m d) (on b m) (clear b) (ontable o) (on f o) (on c f) (clear c) (ontable n) (on l n) (on k l) (on g k) (on h g) (on i h) (clear i))",
+  "(and (emptyhand) (ontable e) (on a e) (on j a) (on d j) (on m d) (on o m) (clear o) (ontable b) (on f b) (on n f) (clear n) (ontable h) (on l h) (on k l) (on c k) (on g c) (on i g) (clear i))",
+  "(and (emptyhand) (ontable f) (on a f) (on j a) (on m j) (on d m) (on e d) (clear e) (ontable b) (on o b) (on n o) (clear n) (ontable g) (on l g) (on k l) (on i k) (on h i) (on c h) (clear c))",
+  "(and (emptyhand) (ontable f) (on a f) (on j a) (on m j) (on b m) (on o b) (clear o) (ontable d) (on e d) (on g e) (clear g) (ontable k) (on l k) (on h l) (on i h) (on n i) (on c n) (clear c))",
+  "(and (emptyhand) (ontable m) (on e m) (on b e) (on f b) (on j f) (on d j) (clear d) (ontable g) (on a g) (on o a) (clear o) (ontable i) (on l i) (on c l) (on n c) (on k n) (on h k) (clear h))",
+  "(and (emptyhand) (ontable m) (on f m) (on g f) (on e g) (on j e) (on a j) (clear a) (ontable b) (on d b) (on i d) (clear i) (ontable o) (on h o) (on c h) (on n c) (on k n) (on l k) (clear l))"
+ ],
+ "G*": "(and (emptyhand) (ontable f) (on a f) (on j a) (on m j) (on d m) (on e d) (clear e) (ontable b) (on o b) (on n o) (clear n) (ontable g) (on l g) (on k l) (on i k) (on h i) (on c h) (clear c))",
+ "Obs": [
+  "pick-tower_c_b_i",
+  "pick-up_f_n",
+  "put-on-block_k_l",
+  "pick-up-from-table_a",
+  "pick-up-from-table_d",
+  "put-on-block_d_m",
+  "pick-up-from-table_e",
+  "put-on-block_l_g",
+  "pick-up-from-table_l",
+  "put-on-block_l_g",
+  "pick-up_c_b",
+  "put-on-block_h_i",
+  "pick-tower_d_m_j"
+ ],
+ "P(Obs | G)": [
+  [
+   0.9572246228548063,
+   0.8782546958175254,
+   0.8798999026308021,
+   0.9045780048299522,
+   0.5116593189290489,
+   0.8683834549378652
+  ],
+  [
+   0.23700699993436378,
+   0.8738738738738739,
+   0.7927927927927929,
+   0.1703144570465821,
+   0.20825067502563235,
+   0.8258258258258258
+  ],
+  [
+   0.4354449697370287,
+   0.4276414926044079,
+   0.9412023542314513,
+   0.11721989988822039,
+   0.11721989988822039,
+   0.11721989988822039
+  ],
+  [
+   0.7862068965517242,
+   0.7793103448275862,
+   0.793103448275862,
+   0.1547542869587831,
+   0.7020784114779064,
+   0.25995842138931713
+  ],
+  [
+   0.9458137267308386,
+   0.9499819015976971,
+   0.8874592785948187,
+   0.029780716412041,
+   0.57545389865549,
+   0.25122895794489447
+  ],
+  [
+   0.17224980280719424,
+   0.17224980280719424,
+   0.5807915359195028,
+   0.17224980280719426,
+   0.17224980280719426,
+   0.17224980280719426
+  ],
+  [
+   0.07763711724767298,
+   0.07763711724767298,
+   0.9398987772509648,
+   0.42708656785943633,
+   0.36763487922187754,
+   0.4605988443593876
+  ],
+  [
+   0.1697907961471419,
+   0.1697907961471419,
+   0.9788936526424136,
+   0.1697907961471419,
+   0.1697907961471419,
+   0.1697907961471419
+  ],
+  [
+   0.19611345615921452,
+   0.2409248163975658,
+   0.8192090395480226,
+   0.1631794619191644,
+   0.2026063470018077,
+   0.2242938590589589
+  ],
+  [
+   0.1697907961471419,
+   0.1697907961471419,
+   0.6978012043657833,
+   0.1697907961471419,
+   0.1697907961471419,
+   0.1697907961471419
+  ],
+  [
+   0.38829881265003036,
+   0.1513943544621058,
+   0.8981818181818182,
+   0.32286341311163413,
+   0.12514776012408632,
+   0.12725113586021602
+  ],
+  [
+   0.17094527210518626,
+   0.17094527210518626,
+   0.6375891216552533,
+   0.17094527210518626,
+   0.17094527210518626,
+   0.17094527210518626
+  ],
+  [
+   0.167239596532706,
+   0.167239596532706,
+   0.9933071490757153,
+   0.167239596532706,
+   0.167239596532706,
+   0.167239596532706
+  ]
+ ],
+ "domain": "blocksworld",
+ "observability": "30",
+ "problem": "blocksworld_p04_hyp-2_30_2",
+ "time": 52.67022347450256
+}

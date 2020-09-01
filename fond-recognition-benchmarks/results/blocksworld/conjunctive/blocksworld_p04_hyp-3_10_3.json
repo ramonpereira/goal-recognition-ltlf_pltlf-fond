@@ -1,0 +1,64 @@
+{
+ "G": [
+  "(and (emptyhand) (ontable e) (on a e) (on j a) (on d j) (on m d) (on b m) (clear b) (ontable o) (on f o) (on c f) (clear c) (ontable n) (on l n) (on k l) (on g k) (on h g) (on i h) (clear i))",
+  "(and (emptyhand) (ontable e) (on a e) (on j a) (on d j) (on m d) (on o m) (clear o) (ontable b) (on f b) (on n f) (clear n) (ontable h) (on l h) (on k l) (on c k) (on g c) (on i g) (clear i))",
+  "(and (emptyhand) (ontable f) (on a f) (on j a) (on m j) (on d m) (on e d) (clear e) (ontable b) (on o b) (on n o) (clear n) (ontable g) (on l g) (on k l) (on i k) (on h i) (on c h) (clear c))",
+  "(and (emptyhand) (ontable f) (on a f) (on j a) (on m j) (on b m) (on o b) (clear o) (ontable d) (on e d) (on g e) (clear g) (ontable k) (on l k) (on h l) (on i h) (on n i) (on c n) (clear c))",
+  "(and (emptyhand) (ontable m) (on e m) (on b e) (on f b) (on j f) (on d j) (clear d) (ontable g) (on a g) (on o a) (clear o) (ontable i) (on l i) (on c l) (on n c) (on k n) (on h k) (clear h))",
+  "(and (emptyhand) (ontable m) (on f m) (on g f) (on e g) (on j e) (on a j) (clear a) (ontable b) (on d b) (on i d) (clear i) (ontable o) (on h o) (on c h) (on n c) (on k n) (on l k) (clear l))"
+ ],
+ "G*": "(and (emptyhand) (ontable m) (on f m) (on g f) (on e g) (on j e) (on a j) (clear a) (ontable b) (on d b) (on i d) (clear i) (ontable o) (on h o) (on c h) (on n c) (on k n) (on l k) (clear l))",
+ "Obs": [
+  "pick-tower_n_o_g",
+  "pick-up-from-table_c",
+  "pick-up_k_a",
+  "pick-tower_j_e_g",
+  "pick-tower_n_c_h"
+ ],
+ "P(Obs | G)": [
+  [
+   0.6278752120209028,
+   0.9548675722279167,
+   0.9498528580310186,
+   0.6278752120209028,
+   0.948599179481794,
+   0.8909299662174653
+  ],
+  [
+   0.38149678028430983,
+   0.13576059009406277,
+   0.892116182572614,
+   0.3104200044049572,
+   0.11040488729951725,
+   0.8091286307053942
+  ],
+  [
+   0.1716364177844314,
+   0.1716364177844314,
+   0.1716364177844314,
+   0.1716364177844314,
+   0.1716364177844314,
+   0.6062041259764892
+  ],
+  [
+   0.16863310044194904,
+   0.16863310044194904,
+   0.16863310044194904,
+   0.16863310044194904,
+   0.16863310044194904,
+   0.985393042592635
+  ],
+  [
+   0.167239596532706,
+   0.167239596532706,
+   0.167239596532706,
+   0.167239596532706,
+   0.167239596532706,
+   0.9933071490757153
+  ]
+ ],
+ "domain": "blocksworld",
+ "observability": "10",
+ "problem": "blocksworld_p04_hyp-3_10_3",
+ "time": 50.53554105758667
+}

@@ -1,0 +1,82 @@
+{
+ "G": [
+  "(and (emptyhand) (ontable c) (on b c) (on a b) (clear a) (ontable f) (on e f) (on d e) (clear d) (ontable j) (on i j) (clear i) (ontable h) (on g h) (clear g))",
+  "(and (emptyhand) (ontable c) (on b c) (on a b) (clear a) (ontable f) (on e f) (on d e) (clear d) (ontable j) (on h j) (clear h) (ontable g) (on i g) (clear i))",
+  "(and (emptyhand) (ontable c) (on b c) (on d b) (clear d) (ontable e) (on f e) (on a f) (clear a) (ontable j) (on h j) (clear h) (ontable i) (on g i) (clear g))",
+  "(and (emptyhand) (ontable c) (on b c) (on d b) (clear d) (ontable a) (on e a) (on f e) (clear f) (ontable h) (on j h) (clear j) (ontable i) (on g i) (clear g))",
+  "(and (emptyhand) (ontable b) (on c b) (on d c) (clear d) (ontable a) (on f a) (on j f) (clear j) (ontable h) (on e h) (clear e) (ontable i) (on g i) (clear g))",
+  "(and (emptyhand) (ontable b) (on c b) (on d c) (clear d) (ontable j) (on f j) (on a f) (clear a) (ontable g) (on e g) (clear e) (ontable h) (on i h) (clear i))"
+ ],
+ "G*": "(and (emptyhand) (ontable c) (on b c) (on d b) (clear d) (ontable a) (on e a) (on f e) (clear f) (ontable h) (on j h) (clear j) (ontable i) (on g i) (clear g))",
+ "Obs": [
+  "pick-tower_g_c_h",
+  "pick-tower_e_i_b",
+  "put-down_i",
+  "put-on-block_b_c",
+  "pick-up-from-table_e",
+  "put-on-block_d_b",
+  "pick-up-from-table_g"
+ ],
+ "P(Obs | G)": [
+  [
+   0.9449407710450799,
+   0.6013895557584505,
+   0.9489694951149519,
+   0.9476265870916613,
+   0.9556840352314057,
+   0.6013895557584505
+  ],
+  [
+   0.8564593301435407,
+   0.2159228640416747,
+   0.16524958537653608,
+   0.8325358851674641,
+   0.18794427797703,
+   0.20981787465417
+  ],
+  [
+   0.10529682778464179,
+   0.10529682778464179,
+   0.9599390655004791,
+   0.9669497290378953,
+   0.9649466823129191,
+   0.10529682778464179
+  ],
+  [
+   0.6035279009837332,
+   0.5818074289406691,
+   0.9582525157467756,
+   0.9625712210143507,
+   0.06255384258062319,
+   0.06255384258062319
+  ],
+  [
+   0.9521055361796822,
+   0.9627487503619748,
+   0.013077486980273074,
+   0.9414623219973892,
+   0.6015122051078502,
+   0.5815099333508414
+  ],
+  [
+   0.13420525048804233,
+   0.13420525048804233,
+   0.7655859269558725,
+   0.987441698832348,
+   0.13420525048804235,
+   0.13420525048804235
+  ],
+  [
+   0.9390260653631843,
+   0.051517593809473475,
+   0.9790543063263397,
+   0.9903327567660029,
+   0.8360734244714947,
+   0.051517593809473475
+  ]
+ ],
+ "domain": "blocksworld",
+ "observability": "30",
+ "problem": "blocksworld_p01_hyp-2_30_2",
+ "time": 14.18700647354126
+}

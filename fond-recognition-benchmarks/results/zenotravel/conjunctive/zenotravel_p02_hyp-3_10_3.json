@@ -1,0 +1,43 @@
+{
+ "G": [
+  "(and (atperson p0 c3) (atperson p1 c4))",
+  "(and (atperson p0 c2) (atperson p1 c4))",
+  "(and (atperson p1 c3) (atperson p0 c5))",
+  "(and (atperson p1 c2) (atperson p0 c5))",
+  "(and (atperson p0 c4) (atperson p1 c2))",
+  "(and (atperson p1 c0) (atperson p0 c3))",
+  "(and (atperson p1 c3) (atperson p0 c6))",
+  "(and (atperson p0 c4) (atperson p1 c6))"
+ ],
+ "G*": "(and (atperson p1 c3) (atperson p0 c6))",
+ "Obs": [
+  "complete-refuling_a0_f0_f1",
+  "complete-boarding_p0_a0_c1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.8589083831249644,
+   0.8589083831249644,
+   0.8589083831249644,
+   0.8589083831249644,
+   0.8589083831249644,
+   0.8589083831249644,
+   0.9876413181252497,
+   0.8589083831249644
+  ],
+  [
+   0.23080725298370325,
+   0.23080725298370325,
+   0.23080725298370325,
+   0.23080725298370325,
+   0.23080725298370325,
+   0.23080725298370325,
+   0.9961645121797503,
+   0.23080725298370325
+  ]
+ ],
+ "domain": "zenotravel",
+ "observability": "10",
+ "problem": "zenotravel_p02_hyp-3_10_3",
+ "time": 58.243202447891235
+}

@@ -1,0 +1,73 @@
+{
+ "G": [
+  "(and (wiped kitchentable) (wiped desk1) (on cup1 kitchentable) (on cup2 desk1) (on book1 desk1) (atbase desk2l) (handfree rightarm) (handfree leftarm))",
+  "(and (wiped desk1) (wiped desk2) (on cup1 kitchentable) (on cup2 desk2) (on book1 desk2) (atbase desk2l) (handfree rightarm) (handfree leftarm))",
+  "(and (wiped kitchentable) (wiped desk2) (on cup1 kitchentable) (on cup2 kitchentable) (on book1 desk2) (atbase desk1l) (handfree rightarm) (handfree leftarm))",
+  "(and (wiped kitchentable) (wiped desk2) (on cup1 desk2) (on cup2 desk1) (on book1 desk1) (atbase desk1l) (handfree rightarm) (handfree leftarm))"
+ ],
+ "G*": "(and (wiped kitchentable) (wiped desk2) (on cup1 desk2) (on cup2 desk1) (on book1 desk1) (atbase desk1l) (handfree rightarm) (handfree leftarm))",
+ "Obs": [
+  "sense-door-state_kdoorl1_kitchendoor",
+  "sense-door-state_odoor2l2_odoor2",
+  "sense-door-state_odoor1l2_odoor1",
+  "arm-to-side_rightarm",
+  "drive-through-door-untucked-left-arm_office1_corridor_odoor1_odoor1l1_odoor1l2_leftarm",
+  "pickup-object_desk2l_cup2_desk2_rightarm",
+  "putdown-object_desk1l_cup2_desk1_rightarm",
+  "sense-table-state_desk2l_desk2"
+ ],
+ "P(Obs | G)": [
+  [
+   0.738970588235294,
+   0.786764705882353,
+   0.7352941176470589,
+   0.738970588235294
+  ],
+  [
+   0.7489361702127659,
+   0.7914893617021277,
+   0.7276595744680852,
+   0.7319148936170213
+  ],
+  [
+   0.11966142832722682,
+   0.14600490583573178,
+   0.7446808510638298,
+   0.7489361702127659
+  ],
+  [
+   0.7315789473684211,
+   0.8105263157894737,
+   0.7263157894736842,
+   0.7315789473684211
+  ],
+  [
+   0.8159844223956983,
+   0.8747127982268584,
+   0.03465073049860576,
+   0.8903736984485012
+  ],
+  [
+   0.06358453030138796,
+   0.06358453030138796,
+   0.34744309050638167,
+   0.9315900810327306
+  ],
+  [
+   0.09469989203613312,
+   0.09469989203613312,
+   0.09469989203613312,
+   0.9674082716942368
+  ],
+  [
+   0.3493772964603439,
+   0.12042633414971708,
+   0.09283893997231675,
+   0.09519491293715412
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "10",
+ "problem": "tidyup_p03_hyp-3_10_3",
+ "time": 227.8151466846466
+}

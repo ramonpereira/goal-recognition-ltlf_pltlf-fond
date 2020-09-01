@@ -1,0 +1,59 @@
+{
+ "G": [
+  "(and (atbase desk1l) (wiped kitchentable) (on cup1 kitchentable) (on cup2 kitchentable) (handfree rightarm) (handfree leftarm))",
+  "(and (atbase desk1l) (wiped desk1) (on book1 desk1) (on cup2 kitchentable) (handfree rightarm) (handfree leftarm))",
+  "(and (atbase desk1l) (wiped desk1) (on cup1 kitchentable) (on book1 desk1) (handfree rightarm) (handfree leftarm))",
+  "(and (atbase desk1l) (wiped desk1) (on cup1 kitchentable) (on cup2 kitchentable) (on book1 desk1) (handfree rightarm) (handfree leftarm))"
+ ],
+ "G*": "(and (atbase desk1l) (wiped desk1) (on cup1 kitchentable) (on cup2 kitchentable) (on book1 desk1) (handfree rightarm) (handfree leftarm))",
+ "Obs": [
+  "drive_corridor_kdoorl2_odoor1l2",
+  "sense-table-state_desk1l_desk1",
+  "drive-through-door_office1_corridor_odoor1_odoor1l1_odoor1l2",
+  "arm-to-side_leftarm",
+  "drive_corridor_odoor1l2_kdoorl2",
+  "drive_corridor_kdoorl2_odoor1l2"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7044025157232704,
+   0.7987421383647799,
+   0.7987421383647799,
+   0.6981132075471698
+  ],
+  [
+   0.7642276422764227,
+   0.7886178861788619,
+   0.7886178861788619,
+   0.6585365853658536
+  ],
+  [
+   0.7176470588235294,
+   0.823529411764706,
+   0.823529411764706,
+   0.6352941176470589
+  ],
+  [
+   0.0993740806995344,
+   0.1800023637542551,
+   0.1800023637542551,
+   0.09594309899573245
+  ],
+  [
+   0.06579641351534814,
+   0.8585858585858586,
+   0.8585858585858586,
+   0.696969696969697
+  ],
+  [
+   0.10605857373429614,
+   0.16499138023394222,
+   0.16499138023394222,
+   0.10324565531928266
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "10",
+ "problem": "tidyup_p01_hyp-3_10_1",
+ "time": 117.2661383152008
+}

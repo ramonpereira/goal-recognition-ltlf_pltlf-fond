@@ -1,0 +1,73 @@
+{
+ "G": [
+  "(and (wiped kitchentable) (wiped desk1) (on cup1 kitchentable) (on cup2 desk1) (on book1 desk1) (atbase desk2l) (handfree rightarm) (handfree leftarm))",
+  "(and (wiped desk1) (wiped desk2) (on cup1 kitchentable) (on cup2 desk2) (on book1 desk2) (atbase desk2l) (handfree rightarm) (handfree leftarm))",
+  "(and (wiped kitchentable) (wiped desk2) (on cup1 kitchentable) (on cup2 kitchentable) (on book1 desk2) (atbase desk1l) (handfree rightarm) (handfree leftarm))",
+  "(and (wiped kitchentable) (wiped desk2) (on cup1 desk2) (on cup2 desk1) (on book1 desk1) (atbase desk1l) (handfree rightarm) (handfree leftarm))"
+ ],
+ "G*": "(and (wiped kitchentable) (wiped desk2) (on cup1 desk2) (on cup2 desk1) (on book1 desk1) (atbase desk1l) (handfree rightarm) (handfree leftarm))",
+ "Obs": [
+  "wipe_desk2l_desk2_rightarm",
+  "drive_kitchen_kdoorl1_ktablel",
+  "arm-to-side_leftarm",
+  "attach-sponge_rightarm",
+  "drive-through-door-untucked-left-arm_office1_corridor_odoor1_odoor1l1_odoor1l2_leftarm",
+  "drive_office1_odoor1l1_desk1l",
+  "drive_office2_odoor2l1_desk2l",
+  "putdown-object_desk2l_cup1_desk2_leftarm"
+ ],
+ "P(Obs | G)": [
+  [
+   0.46501038529430694,
+   0.8990675132694528,
+   0.8161586848836461,
+   0.8197634165525942
+  ],
+  [
+   0.09776614203002652,
+   0.9490740740740741,
+   0.09589653834735686,
+   0.09776614203002652
+  ],
+  [
+   0.7272727272727273,
+   0.18974779318577134,
+   0.7207792207792207,
+   0.7272727272727273
+  ],
+  [
+   0.7163120567375887,
+   0.822695035460993,
+   0.7092198581560284,
+   0.75177304964539
+  ],
+  [
+   0.18084616438451498,
+   0.2579380837468867,
+   0.03465073049860576,
+   0.8903736984485012
+  ],
+  [
+   0.07346540629500758,
+   0.11420999128397602,
+   0.29323239305831184,
+   0.14385860012710344
+  ],
+  [
+   0.9112426035502958,
+   0.12064026964209262,
+   0.09354195140923528,
+   0.09586377057162118
+  ],
+  [
+   0.09194217168723014,
+   0.09194217168723014,
+   0.09194217168723014,
+   0.9888947987637642
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "10",
+ "problem": "tidyup_p03_hyp-3_10_1",
+ "time": 226.5074565410614
+}

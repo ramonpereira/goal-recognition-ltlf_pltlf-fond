@@ -1,0 +1,108 @@
+{
+ "G": [
+  "(and (at package3 city3u2) (at package1 city2u1) (at package2 city3u2))",
+  "(and (at package2 city1u2) (at package3 city4u1) (at package1 city2u1))",
+  "(and (at package2 city1u2) (at package1 city3u2) (at package3 city4u1))",
+  "(and (at package3 city3u2) (at package1 city3u2) (at package2 city1u2))"
+ ],
+ "G*": "(and (at package3 city3u2) (at package1 city2u1) (at package2 city3u2))",
+ "Obs": [
+  "unload-truck_package3_truck1_city1u2",
+  "load-truck_package1_truck3_city3u1",
+  "unload-truck_package1_truck3_city3u2",
+  "load-airplane_package1_plane1_city3u2",
+  "load-airplane_package3_plane1_city1u2",
+  "fly-airplane_plane1_city1u2_city3u2",
+  "unload-airplane_package1_plane1_city2u3",
+  "change-tire-truck_truck2",
+  "unload-truck_package2_truck2_city2u3",
+  "load-airplane_package2_plane1_city2u3",
+  "unload-airplane_package2_plane1_city3u2",
+  "load-truck_package1_truck2_city2u3",
+  "unload-truck_package1_truck2_city2u1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7298850574712643,
+   0.6839080459770114,
+   0.793103448275862,
+   0.793103448275862
+  ],
+  [
+   0.6971830985915494,
+   0.6549295774647887,
+   0.823943661971831,
+   0.823943661971831
+  ],
+  [
+   0.6842105263157894,
+   0.631578947368421,
+   0.8421052631578947,
+   0.8421052631578947
+  ],
+  [
+   0.9481432726540234,
+   0.9572944598327251,
+   0.05676964850203214,
+   0.05676964850203214
+  ],
+  [
+   0.6875,
+   0.07062401404297416,
+   0.22577246864002398,
+   0.22577246864002398
+  ],
+  [
+   0.9236695989071848,
+   0.9182174274005552,
+   0.011604936192871363,
+   0.9672869709602221
+  ],
+  [
+   0.9654984567713073,
+   0.9654984567713073,
+   0.05407587719747854,
+   0.05407587719747854
+  ],
+  [
+   0.8297872340425533,
+   0.8297872340425533,
+   0.09188339369480304,
+   0.09188339369480304
+  ],
+  [
+   0.8461538461538461,
+   0.8461538461538461,
+   0.6538461538461539,
+   0.6538461538461539
+  ],
+  [
+   0.6428571428571428,
+   0.6428571428571428,
+   0.8571428571428571,
+   0.8571428571428571
+  ],
+  [
+   0.9933071490757153,
+   0.09138861025567821,
+   0.09138861025567821,
+   0.09138861025567821
+  ],
+  [
+   0.9933516455211339,
+   0.8815003454649905,
+   0.048641910579321254,
+   0.048641910579321254
+  ],
+  [
+   1.0,
+   1.0,
+   0.04742587317756679,
+   0.04742587317756679
+  ]
+ ],
+ "domain": "logistics",
+ "observability": "50",
+ "problem": "logistics_p02_hyp-1_50_3",
+ "time": 394.2460832595825
+}
