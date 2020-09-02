@@ -8,8 +8,8 @@
         (wiped ?s - table)
         (handfree ?a - arm)
         (grasped ?o - movableobject ?a - arm)
-        (grasped_sponge ?a - arm)
-        (attachedtobase_sponge)
+        (graspedsponge ?a - arm)
+        (attachedtobasesponge)
         (attachedtobase ?o - movableobject)
         (dooropen ?d - door)
         (doorstateknown ?d - door)
@@ -142,7 +142,7 @@
      :precondition
         (and
             (atbase ?l)
-            (grasped_sponge ?a)
+            (graspedsponge ?a)
             (tablestateknown ?t)
             (armatside ?a)
             (belongstotable ?l ?t)
@@ -160,13 +160,13 @@
      :precondition
         (and
             (handfree ?a)
-            (attachedtobase_sponge)
+            (attachedtobasesponge)
             (armatside ?a)
         )
      :effect
         (and
-            (grasped_sponge ?a)
-            (not (attachedtobase_sponge))
+            (graspedsponge ?a)
+            (not (attachedtobasesponge))
             (not (armatside ?a))
             (not (handfree ?a))
         )
@@ -176,13 +176,13 @@
     :parameters (?a - arm)
     :precondition
         (and
-            (grasped_sponge ?a)
+            (graspedsponge ?a)
             (armatside ?a)
         )
     :effect
         (and
-            (not (grasped_sponge ?a))
-            (attachedtobase_sponge)
+            (not (graspedsponge ?a))
+            (attachedtobasesponge)
             (not (armatside ?a))
             (handfree ?a)
         )

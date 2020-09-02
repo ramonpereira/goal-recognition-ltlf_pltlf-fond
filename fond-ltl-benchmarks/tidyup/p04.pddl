@@ -31,7 +31,7 @@
     (:init
       (on cup1 kitchentable)
       (on laptop1 desk1)
-      (attachedtobase_sponge)
+      (attachedtobasesponge)
       (atbase initlocation)
       (handfree leftarm)
       (handfree rightarm)
