@@ -60,25 +60,14 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=F
         prp_planner_command = ('./' if current_path == '' else current_path + '/') + 'prp ' + domain + ' ' + problem + ' --dump-policy 2 >/dev/null 2>&1'
         os.system(prp_planner_command)
 
-    # # """ Translate the policy from SAS+ to instantiated standard facts. """
-    translator.translate('output', 'policy.out', 'policy-translated.out')
-
-    if LTL:
-        os.system('cp ' 'policy-translated.out ' + 'policy-with-trans.out')
-
-        translator_ltl.process_policy('policy-translated.out')
-        """ TO-DO: Improve this part. """
-        os.system('mv new-policy.out policy-translated.out')
-
-        conjuctive_goal = _get_goal()
-        _create_problem_with_goal(original_problem, conjuctive_goal)
-        original_problem = 'problem.pddl'
+    """ Translate the policy from SAS+ to instantiated standard facts. """
+    mapping, _ = translator.translate('output', 'policy.out', 'policy-translated.out')
 
     """ Validade the policy (from the initial state to the goal state) and generate the data structure. """
     G = None
     if GRAPH:
         print('\n$> Loading policy and generating the graph ...')
-        G = validator.validate_and_generate_graph(original_domain, original_problem, 'policy-translated.out', 'prp')
+        G = validator.validate_and_generate_graph(domain, problem, mapping, 'policy-translated.out', 'prp')
         validator.generate_dot_graph(G)
 
         print('\n$> Generating graph...')

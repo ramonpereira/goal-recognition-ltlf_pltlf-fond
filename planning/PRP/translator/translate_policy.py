@@ -123,4 +123,4 @@ def translate(output_sas, policy, output_policy):
     translated_policy_file.write(translated_policy)
     translated_policy_file.close()
 
-    return set_fluents
+    return mapping, set_fluents

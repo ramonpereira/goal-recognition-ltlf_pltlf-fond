@@ -5,9 +5,12 @@
 
 import os, importlib
 import argparse
+import fondparser
+from normalizer import flatten
+from fondparser.fond_parser import Parser
+from fondparser.fond_task import FONDTask
 from fondparser import grounder
 from fondparser.formula import *
-from normalizer import flatten
 
 import networkx as nx
 from networkx.drawing.nx_pydot import write_dot
@@ -52,7 +55,7 @@ unhandled = []
 nodes = {}
 states_to_actions = dict()
 
-def validate_and_generate_graph(dfile, pfile, sol, val):
+def validate_and_generate_graph(dfile, pfile, fluents_map, sol, val):
     """ Validate the policy and generate graph structure. """
 
     module_validator = importlib.import_module("validators.%s" % val)
@@ -62,25 +65,26 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
     fluents = {}
     global unfluents
     unfluents = {}
+    global actions
+    actions = {}
+
+    p = Parser()
+    p.generate_task('output.sas')
+    my_task = p.translate_to_atomic()
+    other_actions = my_task.get_actions()
 
     index = 1
-    # for f in set_fluents:
     for f in problem.fluents:
-        # if 'not' in f:
-        #     continue
-        # f = f.replace(',', '')
         fluents[str(f).lower()] = index
         fluents["not(%s)" % str(f).lower()] = -1 * index
         unfluents[index] = str(f).lower()
         unfluents[-1 * index] = "not(%s)" % str(f).lower()
         index += 1
 
-    # print fluents
-
-    global actions
-    actions = {}
-
     for op in problem.operators:
+        if 'trans' in op.name:
+            continue
+
         if '_' == op.name[-1]:
             op_name = op.name[:-1].lower()
         else:
@@ -90,17 +94,56 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
                                       _convert_cond_effect(fluents, eff), op_name, unfluents)
                             for eff in flatten(op)]
 
-        # print("\n%s\n%s" % (op.name, '\n'.join(map(str, actions[op.name]))))
+    for a in other_actions.keys():
+        if 'trans' in a:
+            a_name = a.replace('(', '_')
+            a_name = a_name.replace(')', '')
+            a_name = a_name.replace(',', '_')
 
-    # return
-    # print actions
+            pre_list = []
+            for p in my_task.get_preconditions(a):
+                p = p.replace('(', '')
+                p = p.replace(')', '')
+                p = p.replace('=', ':')
+                pre = fluents_map[p].replace(',', '')
+                if '<none of those>' in pre:
+                    continue
+                pre_list.append(fluents[pre])
+
+            add_list = []
+            for add in my_task.get_add_list(a):
+                add = add.replace('(', '')
+                add = add.replace(')', '')
+                add = add.replace('=', ':')
+                add_eff = fluents_map[add].replace(',', '')
+                add_list.append(fluents[add_eff])
+
+            del_list = []
+            for d in my_task.get_del_list(a):
+                d = d.replace('(', '')
+                d = d.replace(')', '')
+                d = d.replace('=', ':')
+                del_eff = fluents_map[d].replace(',', '')
+                del_list.append(fluents[del_eff])
+
+            eff_val = []
+            for add in add_list:
+                eff_val.append(((set(), [add])))
+
+            for d in del_list:
+                eff_val.append(((set(), [d])))
+
+            val = VALAction(pre_list, eff_val, a_name, unfluents)
+
+            actions[a_name] = val
+
     global init_state
     init_state = State(_convert_conjunction(fluents, problem.init))
-    # print _state_string(unfluents, init_state)
+    # print(_state_string(unfluents, init_state))
 
     global goal_state
     goal_state = State([-1])
-    # print _state_string(unfluents, goal_state)
+    # print(_state_string(unfluents, goal_state))
     goal_fluents = set(_convert_conjunction(fluents, problem.goal))
 
     open_list = [init_state]
@@ -114,11 +157,9 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
     G.add_node(2, label="G")
 
     module_validator.load(sol, fluents)
-
-    # print "\nStarting the FOND simulation..."
-
     unhandled = []
 
+    # print("\nStarting the FOND simulation...")
     while open_list:
         u = open_list.pop(0)
         assert nodes[u] in G
@@ -135,8 +176,26 @@ def validate_and_generate_graph(dfile, pfile, sol, val):
                 i = 0
                 if 'goal' in a:
                     continue
-                for outcome in actions[a]:
-                    v = progress(u, outcome, unfluents)
+
+                if isinstance(actions[a], list):
+                    for outcome in actions[a]:
+                        v = progress(u, outcome, unfluents)
+                        # print("\nNew state:")
+                        # print(_state_string(unfluents, v))
+
+                        i += 1
+                        if v.is_goal(goal_fluents):
+                            v = goal_state
+                        elif v not in nodes:
+                            nodes[v] = node_index
+                            node_index += 1
+                            G.add_node(nodes[v], label=node_index-1)
+                            open_list.append(v)
+
+                        states_to_actions[str(nodes[u]) + ' -> ' + str(nodes[v])] = a
+                        G.add_edge(nodes[u], nodes[v], label="%s (%d)" % (a, i))
+                else:
+                    v = progress(u, actions[a], unfluents)
                     # print("\nNew state:")
                     # print(_state_string(unfluents, v))
 
@@ -208,8 +267,8 @@ def progress(s, o, m):
                 else:
                     adds.add(reff)
 
-    if 0 != len(adds & dels):
-        print("Warning: Conflicting adds and deletes on action %s" % str(o))
+    # if 0 != len(adds & dels):
+    #     print("Warning: Conflicting adds and deletes on action %s" % str(o))
 
     return State(((s.fluents - dels) | adds))
 

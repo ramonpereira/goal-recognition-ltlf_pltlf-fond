@@ -13,7 +13,9 @@ import math
 import time
 import numpy as np
 import prp_ltl_wrapper as prp_planner
-import validator
+import validator as validator
+import translator.translate_policy as translator
+import translator.translate_policy_ltl as translator_ltl
 
 
 def recognize(recognition_problem_path, ltl=True, verbose=True):
@@ -56,15 +58,20 @@ def recognize(recognition_problem_path, ltl=True, verbose=True):
     print('\n> STEP 1: Planning for getting the policies for the possible goals: ')
     for goal in possible_goals:
         print('\n\t### Goal: ' + goal)
+        domain = ''
+        problem = ''
         if ltl:
             prp_planner.plan('domain.pddl', 'initial_state.pddl', False, ltl, goal)
-            conjuctive_goal = _get_goal()
-            _create_problem_with_goal(conjuctive_goal)
+            domain = 'domain_initial_state_prime.pddl'
+            problem = 'initial_state_prime.pddl'
         else:
             _create_problem_with_goal(goal)
             prp_planner.plan('domain.pddl', 'problem.pddl', False)
+            domain = 'domain.pddl'
+            problem = 'problem.pddl'
 
-        G = validator.validate_and_generate_graph('domain.pddl', 'problem.pddl', 'policy-translated.out', 'prp')
+        mapping, _ = translator.translate('output', 'policy.out', 'policy-translated.out')
+        G = validator.validate_and_generate_graph(domain, problem, mapping, 'policy-translated.out', 'prp')
         all_plans, actions_avg_distance_to_goal = prp_planner.extract_plans_from_graph(G, False)
         goal_plans[goal] = actions_avg_distance_to_goal
         goal_all_plans[goal] = all_plans
@@ -242,7 +249,7 @@ if __name__ == '__main__':
     """
     parser = argparse.ArgumentParser(description="Goal Recognition in FOND Domain Models with LTLf/PLTL Goals")
 
-    parser.add_argument('-p', dest='problem_path', default='example/triangle-tireworld_p01_hyp-1-example.tar.bz2')
+    parser.add_argument('-p', dest='problem_path', default='example/triangle-tireworld_ltl0_p01_hyp-1-example.tar.bz2')
     parser.add_argument('-ltl', dest='ltl', type=_str2bool, const=True, nargs='?', default=True)
     parser.add_argument('-verbose', dest='verbose', type=_str2bool, const=True, nargs='?', default=True)
 
