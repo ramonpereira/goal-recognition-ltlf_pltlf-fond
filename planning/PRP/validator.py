@@ -164,8 +164,9 @@ def validate_and_generate_graph(dfile, pfile, fluents_map, sol, val):
         u = open_list.pop(0)
         assert nodes[u] in G
 
-        # print "\n--------\nHandling state:"
-        # print _state_string(unfluents, u)
+        # print("\n--------\nHandling state:")
+        # print(_state_string(unfluents, u))
+        # print()
 
         next_actions = module_validator.next_action(u)
         for a in next_actions:

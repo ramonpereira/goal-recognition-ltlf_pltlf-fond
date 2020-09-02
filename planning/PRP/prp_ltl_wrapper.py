@@ -73,7 +73,7 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', graph=F
         print('\n$> Generating graph...')
         dot_command = "dot -Tpdf graph.dot -o graph.pdf"
         os.system(dot_command)
-        print('\n$> Done !')
+        print('\n$> Done!')
 
     if PLANS:
         extract_plans_from_graph(G)

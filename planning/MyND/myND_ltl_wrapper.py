@@ -51,11 +51,11 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', search=
         """ Omit the planner output. """
         planner_command = 'java -jar MyND.jar -search {} -heuristic {} output.sas -exportPlan policy.txt -exportDot policy.dot >/dev/null 2>&1'.format(SEARCH, HEURISTICS)
         os.system(planner_command)
-    
+
     print('\n$> Generating graph...')
     dot_command = "dot -Tpdf policy.dot -o policy.pdf"
     os.system(dot_command)
-    print('\n$> Done !')
+    print('\n$> Done!')
 
 def generate_domain_problem_files_ltl(domain_prime, problem_prime, domain, problem):
     pb = problem.split('/')
@@ -92,7 +92,7 @@ def main(args):
     formula = args.formula
     search = args.search
     heuristics = args.heuristics
-    
+
     plan(domain_path, problem_path, verbose, ltl, formula, search, heuristics)
 
 if __name__ == '__main__':
