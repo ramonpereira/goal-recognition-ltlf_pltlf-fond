@@ -1,0 +1,4 @@
+F(((atperson_p1_c6) U (atperson_p0_c3)) & X(F(atperson_p1_c4)))
+F(((atperson_p0_c11) U (atperson_p3_c9)) & X(F(atperson_p0_c3)))
+F(((atperson_p2_c12) U (atperson_p1_c5)) & X(F(atperson_p2_c2)))
+F(((atperson_p3_c2) U (atperson_p2_c2)) & X(F(atperson_p3_c3)))

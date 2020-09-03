@@ -1,0 +1,14 @@
+load-truck_package4_truck1_city1u1
+drive-truck_truck1_city1u1_city1u2_city1
+load-tire-truck_truck1_city1u1
+change-tire-truck_truck1
+drive-truck_truck1_city1u1_city1u2_city1
+unload-truck_package4_truck1_city1u2
+fly-airplane_plane1_city2u2_city1u2
+load-airplane_package2_plane1_city1u2
+fly-airplane_plane1_city1u2_city2u2
+unload-airplane_package2_plane1_city2u2
+drive-truck_truck3_city2u1_city2u2_city2
+load-truck_package2_truck3_city2u2
+drive-truck_truck3_city2u2_city2u1_city2
+unload-truck_package2_truck3_city2u1

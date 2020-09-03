@@ -1,0 +1,13 @@
+move-car_n00_n01
+loadtire_n01
+changetire_n01
+move-car_n01_n11
+loadtire_n11
+changetire_n11
+move-car_n11_n10
+loadtire_n10
+changetire_n10
+move-car_n10_n20
+loadtire_n20
+changetire_n20
+move-car_n20_n30

@@ -2,7 +2,7 @@
   (:domain tireworld)
   (:objects n00 n01 n02 n10 n11 n12 n20 n21 n22 n30 n31 n32 - location)
   (:init 
-         (vehicleat n30)
+         (vehicleat n01)
          
          (road n00 n01) (road n01 n00)
          (road n00 n10) (road n10 n00)
