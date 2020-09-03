@@ -1,7 +1,0 @@
-F((at_package3_city3u1) & X(F(at_package2_city2u1)))
-
-F((at_package2_city2u1) & X(F(at_package3_city3u1)))
-
-F((at_package1_city3u1) & X(F(at_package2_city2u2)))
-
-F((at_package2_city2u2) & X(F(at_package1_city3u1)))

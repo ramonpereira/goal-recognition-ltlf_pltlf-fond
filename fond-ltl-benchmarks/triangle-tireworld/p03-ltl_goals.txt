@@ -1,9 +1,7 @@
-F((vehicleat_l44) & X(F(vehicleat_l35)))
+F((vehicleat_l26) & X(F(vehicleat_l44)))
 
-F((vehicleat_l35) & X(F(vehicleat_l71)))
+F((vehicleat_l44) & X(F(vehicleat_l61)))
 
 F((vehicleat_l71) & X(F(vehicleat_l53)))
 
-F((vehicleat_l35) & X(F(vehicleat_l53)))
-
-F((vehicleat_l53) & X(F(vehicleat_l71)))
+F((vehicleat_l53) & X(F(vehicleat_l52)))
