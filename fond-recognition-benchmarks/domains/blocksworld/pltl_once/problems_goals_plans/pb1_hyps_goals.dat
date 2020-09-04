@@ -1,0 +1,4 @@
+(ontable_d & on_a_d & O(ontable_f & on_e_f))
+(ontable_f & on_e_f & O(ontable_b & on_c_b))
+(ontable_b & on_c_b & O(ontable_d & on_a_d))
+(ontable_a & on_d_a & O(ontable_e & on_c_e))
