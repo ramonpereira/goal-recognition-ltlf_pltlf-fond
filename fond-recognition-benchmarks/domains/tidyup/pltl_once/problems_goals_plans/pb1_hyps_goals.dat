@@ -1,0 +1,4 @@
+(on_book1_desk1) & O(on_cup2_kitchentable)
+(on_cup2_kitchentable) & O(on_cup1_kitchentable)
+(on_book1_desk1) & O(on_cup1_kitchentable)
+(on_cup2_kitchentable) & O(wiped_desk1)

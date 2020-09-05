@@ -12,8 +12,8 @@ F((on_cup1_kitchentable) & X(F(on_cup2_kitchentable)))
 
 F((wiped_desk1) & X(F(on_book1_desk1)))
 
-F((wiped_desk1) & X(F(on_cup1_kitchentable)))
+F((wiped_desk1) & X(F(on_cup2_kitchentable)))
 
 F((wiped_kitchentable) & X(F(on_cup1_kitchentable)))
 
-F((wiped_kitchentable) & X(F(on_cup2_kitchentable)))
+F((on_cup2_kitchentable) & X(F(wiped_kitchentable)))

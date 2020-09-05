@@ -1,0 +1,4 @@
+F(((on_a_c) U (ontable_f)) & X(F(on_g_f & on_a_g)))
+F(((on_a_c) U (ontable_f)) & X(F(on_a_d & on_c_b)))
+F(((on_e_d) U (ontable_a)) & X(F(on_e_a & on_c_b)))
+F(((on_e_d) U (ontable_a)) & X(F(on_d_a & on_g_f)))

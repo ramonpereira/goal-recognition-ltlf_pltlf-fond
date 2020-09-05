@@ -1,0 +1,4 @@
+(at_package2_city2u1) & O(at_package4_city1u2)
+(at_package2_city2u1) & O(at_package3_city1u2)
+(at_package3_city2u2) & O(at_package1_city2u1)
+(at_package4_city2u2) & O(at_package3_city2u1)

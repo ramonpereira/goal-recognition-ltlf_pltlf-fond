@@ -22,12 +22,13 @@
       (road l31 l32) (road l32 l33) 
       (road l21 l31) (road l23 l33) 
       (road l31 l22) (road l33 l24)
-      (road l32 l23)
+      (road l32 l23) (road l24 l33)
       (sparein l31) 
       (sparein l33)
 
       (road l31 l41) (road l32 l42)
       (road l41 l32) (road l42 l33)
+      (road l33 l42)
       (sparein l41)
       (sparein l42)
 
@@ -35,5 +36,5 @@
       (sparein l51)
 
       (notflattire))
-  (:goal (and (vehicleat l15)))
+  (:goal (and (goal_state)))
 )

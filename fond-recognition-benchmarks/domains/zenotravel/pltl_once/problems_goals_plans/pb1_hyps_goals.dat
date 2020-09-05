@@ -1,0 +1,4 @@
+(atperson_p0_c6) & O(atperson_p1_c3)
+(atperson_p1_c2) & O(atperson_p0_c3)
+(atperson_p1_c4) & O(atperson_p0_c5)
+(atperson_p0_c5) & O(atperson_p1_c1)

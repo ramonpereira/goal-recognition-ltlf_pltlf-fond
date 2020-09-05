@@ -2,17 +2,23 @@
 
 (vehicleat_n20 & O(vehicleat_n01))
 
-- OK:
+- Goal Set 1:
+
 F((vehicleat_n01) & X(F((vehicleat_n10))) & X(F((vehicleat_n30))))
 
-F((vehicleat_n30) & X(F((vehicleat_n21))) & X(F((vehicleat_n01))))
+F((vehicleat_n30) & X(F((vehicleat_n21))) & X(F((vehicleat_n31))))
 
-- NOT OK:
+F((vehicleat_n20) & X(F((vehicleat_n21))) & X(F((vehicleat_n30))))
 
-F((vehicleat_n21) & X(F((vehicleat_n30))) & X(F((vehicleat_n01))))
+F((vehicleat_n21) & X(F((vehicleat_n30))) & X(F((vehicleat_n10))))
 
-F((vehicleat_n01) & X(F((vehicleat_n20))) & X(F((vehicleat_n31))))
+- Goal Set 2:
 
-F((vehicleat_n11) & X(F((vehicleat_n20))) & X(F((vehicleat_n31))))
+F((vehicleat_n11) & X(F((vehicleat_n31))))
 
-F((vehicleat_n11) & X(F((vehicleat_n20))) & X(F((vehicleat_n30))))
+F((vehicleat_n31) & X(F((vehicleat_n21))))
+
+F((vehicleat_n20) & X(F((vehicleat_n21))))
+
+F((vehicleat_n01) & X(F((vehicleat_n20))))
+

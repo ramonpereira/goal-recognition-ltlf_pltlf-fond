@@ -64,13 +64,13 @@ def plan(domain_path, problem_path, verbose=True, ltl=False, formula='', strong=
         """ Omit the planner output. """
         planner_command = 'python main.py {} {} -strong {} -policy 1 >/dev/null 2>&1'.format(domain, problem, strong)
         os.system(planner_command)
-        
+
     if LTL:
         print('\n$> Generating graph out of the plan... ')
         generate_graph("plan_.txt".format(str(ltl_formula)), False)
-        print('\n$> Done ! ')    
-        
-        
+        print('\n$> Done! ')
+
+
 def generate_graph(file_path, no_trans=False):
     """Generate the graph out of the policy."""
     #assert os.path.isfile("plan_{}.txt".format(formula))
@@ -214,7 +214,7 @@ if __name__ == '__main__':
 
     parser.add_argument('-d', dest='domain_path', default='../../recognition/example/domain.pddl')
     parser.add_argument('-p', dest='problem_path', default='../../recognition/example/p01.pddl')
-    parser.add_argument('-s', dest='strong', choices=['0', '1'], default='0')    
+    parser.add_argument('-s', dest='strong', choices=['0', '1'], default='0')
     parser.add_argument('-verbose', dest='verbose', type=_str2bool, const=True, nargs='?', default=True)
     parser.add_argument('-ltl', dest='ltl', type=_str2bool, const=True, nargs='?', default=False)
     parser.add_argument('-formula', dest='formula', default='')

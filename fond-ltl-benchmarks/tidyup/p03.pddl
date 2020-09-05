@@ -26,7 +26,7 @@
       (on cup1 desk1)
       (on cup2 desk1)
       (on book1 kitchentable)
-      (attachedtobase_sponge)
+      (attachedtobasesponge)
       (atbase initlocation)
       (handfree leftarm)
       (handfree rightarm)

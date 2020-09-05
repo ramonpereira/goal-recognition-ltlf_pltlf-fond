@@ -1,0 +1,4 @@
+(at_plane1_city1u2 U (at_package2_city2u1))
+(at_plane2_city1u2 U (at_package2_city2u1))
+(at_plane1_city1u2 U (at_package3_city2u1))
+(at_plane2_city1u2 U (at_package1_city2u2))

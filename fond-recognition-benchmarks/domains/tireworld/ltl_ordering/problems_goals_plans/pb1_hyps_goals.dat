@@ -1,0 +1,4 @@
+F((vehicleat_n11) & X(F((vehicleat_n31))))
+F((vehicleat_n31) & X(F((vehicleat_n30))))
+F((vehicleat_n21) & X(F((vehicleat_n20))))
+F((vehicleat_n11) & X(F((vehicleat_n10))))

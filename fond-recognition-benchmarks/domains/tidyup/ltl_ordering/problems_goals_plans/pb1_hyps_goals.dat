@@ -1,0 +1,4 @@
+F((on_cup2_kitchentable) & X(F(on_book1_desk1)))
+F((on_cup2_kitchentable) & X(F(on_cup1_kitchentable)))
+F((on_cup1_kitchentable) & X(F(on_book1_desk1)))
+F((on_cup1_kitchentable) & X(F(on_cup2_kitchentable)))

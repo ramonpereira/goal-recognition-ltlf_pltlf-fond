@@ -159,4 +159,3 @@ class Predicate (object):
 
     def __repr__ (self):
         return "Predicate " + str(self)
-

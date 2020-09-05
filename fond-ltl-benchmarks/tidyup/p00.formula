@@ -1,1 +1,1 @@
-F(atbase_desk1l & wiped_kitchentable & on_cup1_kitchentable & on_cup2_kitchentable & handfree_rightarm & handfree_leftarm)
+(!on_cup1_kitchentable) U wiped_kitchentable
