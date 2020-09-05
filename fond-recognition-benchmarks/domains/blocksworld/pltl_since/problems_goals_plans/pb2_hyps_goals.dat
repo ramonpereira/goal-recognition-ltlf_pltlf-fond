@@ -1,0 +1,4 @@
+on_a_e & ((!ontable_e) S on_e_b)
+on_a_h & ((!ontable_h) S on_h_b)
+on_a_g & ((!ontable_g) S on_g_f)
+on_a_i & ((!ontable_i) S on_i_a)

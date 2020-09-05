@@ -1,0 +1,4 @@
+vehicleat_l23 & ((!vehicleat_l22) S vehicleat_l12)
+vehicleat_l23 & ((!vehicleat_l13) S vehicleat_l12)
+vehicleat_l24 & ((!vehicleat_l14) S vehicleat_l12)
+vehicleat_l24 & ((!vehicleat_l23) S vehicleat_l12)

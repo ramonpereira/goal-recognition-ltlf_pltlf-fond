@@ -1,9 +1,0 @@
-- Goal set (1):
-
-F((ontable_a & on_d_a & clear_d) & X(F((ontable_f & on_h_f & clear_h))))
-
-F((ontable_h & on_b_h & clear_b) & X(F((ontable_a & on_g_a & clear_g))))
-
-F((ontable_d & on_a_d & clear_a) & X(F((ontable_f & on_h_f & clear_h))))
-
-F((ontable_h & on_b_h & clear_b) & X(F((ontable_a & on_d_a & clear_d))))
