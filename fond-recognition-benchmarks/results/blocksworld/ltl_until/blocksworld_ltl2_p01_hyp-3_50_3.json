@@ -1,0 +1,45 @@
+{
+ "G": [
+  "F(((on_a_c & on_b_a) U (ontable_e & ontable_f)) & X(F(on_b_c)))",
+  "F(((on_a_c & on_b_a) U (ontable_e & ontable_f)) & X(F(on_a_e)))",
+  "F(((on_e_d & on_f_e) U (ontable_a & ontable_b)) & X(F(on_e_a)))",
+  "F(((on_e_d & on_f_e) U (ontable_a & ontable_b)) & X(F(on_d_b)))"
+ ],
+ "G*": "F(((on_e_d & on_f_e) U (ontable_a & ontable_b)) & X(F(on_d_b)))",
+ "Obs": [
+  "pick-up_a_c",
+  "put-down_e",
+  "pick-up-from-table_d",
+  "put-on-block_d_b"
+ ],
+ "P(Obs | G)": [
+  [
+   0.5285871907129926,
+   0.5285871907129926,
+   0.9745891638106732,
+   0.9682364547633416
+  ],
+  [
+   0.36324565462428926,
+   0.5435281869160368,
+   0.008646612327822725,
+   0.9713324382992261
+  ],
+  [
+   0.09138861025567821,
+   0.09138861025567821,
+   0.09138861025567821,
+   0.9933071490757153
+  ],
+  [
+   0.09083437349890813,
+   0.09083437349890813,
+   0.09083437349890813,
+   0.9977590507992855
+  ]
+ ],
+ "domain": "blocksworld",
+ "observability": "50",
+ "problem": "blocksworld_ltl2_p01_hyp-3_50_3",
+ "time": 380.0083556175232
+}

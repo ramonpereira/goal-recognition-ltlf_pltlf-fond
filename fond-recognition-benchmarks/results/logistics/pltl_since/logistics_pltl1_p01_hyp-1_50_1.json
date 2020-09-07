@@ -1,0 +1,31 @@
+{
+ "G": [
+  "at_truck3_city2u3 & (!at_truck3_city2u1 S at_package3_city2u2)",
+  "at_truck2_city2u1 & (!at_truck2_city2u2 S at_package3_city2u3)",
+  "at_truck2_city2u3 & (!at_truck2_city2u1 S at_package3_city2u2)",
+  "at_truck3_city2u1 & (!at_truck3_city2u2 S at_package3_city2u3)"
+ ],
+ "G*": "at_truck3_city2u3 & (!at_truck3_city2u1 S at_package3_city2u2)",
+ "Obs": [
+  "load-truck_package3_truck2_city2u1",
+  "drive-truck_truck2_city2u1_city2u2_city2"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7307692307692307,
+   0.7307692307692307,
+   0.7307692307692307,
+   0.8076923076923077
+  ],
+  [
+   0.9837041358471184,
+   0.05046015642245283,
+   0.9837041358471184,
+   0.05046015642245283
+  ]
+ ],
+ "domain": "logistics",
+ "observability": "50",
+ "problem": "logistics_pltl1_p01_hyp-1_50_1",
+ "time": 517.4888007640839
+}

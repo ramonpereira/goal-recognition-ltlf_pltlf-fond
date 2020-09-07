@@ -1,0 +1,24 @@
+{
+ "G": [
+  "(at_package2_city2u1) & O(at_package4_city1u2)",
+  "(at_package2_city2u1) & O(at_package3_city1u2)",
+  "(at_package3_city2u2) & O(at_package1_city2u1)",
+  "(at_package4_city2u2) & O(at_package3_city2u1)"
+ ],
+ "G*": "(at_package3_city2u2) & O(at_package1_city2u1)",
+ "Obs": [
+  "unload-airplane_package3_plane1_city2u2"
+ ],
+ "P(Obs | G)": [
+  [
+   0.5194283959828003,
+   0.5194283959828003,
+   0.9967619340028666,
+   0.9643812740315328
+  ]
+ ],
+ "domain": "logistics",
+ "observability": "10",
+ "problem": "logistics_pltl0_p02_hyp-3_10_1",
+ "time": 426.2161524295807
+}

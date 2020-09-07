@@ -1,0 +1,24 @@
+{
+ "G": [
+  "F(((on_a_c) U (ontable_f)) & X(F(on_g_f & on_a_g)))",
+  "F(((on_a_c) U (ontable_f)) & X(F(on_a_f & on_c_b)))",
+  "F(((on_e_d) U (ontable_a)) & X(F(on_e_a & on_c_b)))",
+  "F(((on_e_d) U (ontable_a)) & X(F(on_d_a & on_g_f)))"
+ ],
+ "G*": "F(((on_a_c) U (ontable_f)) & X(F(on_a_f & on_c_b)))",
+ "Obs": [
+  "put-on-block_a_f"
+ ],
+ "P(Obs | G)": [
+  [
+   0.6718261749590965,
+   0.9845214751227107,
+   0.6718261749590965,
+   0.6718261749590965
+  ]
+ ],
+ "domain": "blocksworld",
+ "observability": "10",
+ "problem": "blocksworld_ltl2_p02_hyp-2_10_2",
+ "time": 243.69423151016235
+}

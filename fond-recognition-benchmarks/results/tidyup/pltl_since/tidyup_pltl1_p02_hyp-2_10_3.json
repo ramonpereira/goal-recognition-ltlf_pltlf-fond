@@ -1,0 +1,38 @@
+{
+ "G": [
+  "atbase_ktablel & on_book1_desk1 & (!on_cup2_desk1 S wiped_kitchentable)",
+  "atbase_desk1l & on_book1_desk1 & (!on_cup2_desk1 S wiped_desk1)",
+  "atbase_initlocation & on_book1_desk1 & (!on_cup1_desk1 S wiped_kitchentable)",
+  "atbase_desk1l & on_cup2_kitchentable & (!on_cup2_desk1 S wiped_desk1)"
+ ],
+ "G*": "atbase_desk1l & on_book1_desk1 & (!on_cup2_desk1 S wiped_desk1)",
+ "Obs": [
+  "open-door_kdoorl1_kitchendoor_leftarm",
+  "sense-door-state_odoor1l2_odoor1",
+  "arm-to-side_leftarm"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7587719298245614,
+   0.7587719298245614,
+   0.7236842105263158,
+   0.7587719298245614
+  ],
+  [
+   0.7526315789473683,
+   0.7526315789473683,
+   0.7421052631578947,
+   0.7526315789473683
+  ],
+  [
+   0.7328767123287672,
+   0.773972602739726,
+   0.7191780821917808,
+   0.773972602739726
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "10",
+ "problem": "tidyup_pltl1_p02_hyp-2_10_3",
+ "time": 49.0117461681366
+}

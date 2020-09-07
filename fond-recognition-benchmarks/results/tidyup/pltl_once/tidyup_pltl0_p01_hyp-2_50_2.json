@@ -1,0 +1,115 @@
+{
+ "G": [
+  "(on_book1_desk1) & O(on_cup2_kitchentable)",
+  "(on_cup2_kitchentable) & O(on_cup1_kitchentable)",
+  "(on_book1_desk1) & O(on_cup1_kitchentable)",
+  "(on_cup2_kitchentable) & O(wiped_desk1)"
+ ],
+ "G*": "(on_cup2_kitchentable) & O(on_cup1_kitchentable)",
+ "Obs": [
+  "drive_kitchen_initlocation_kdoorl1",
+  "open-door_kdoorl1_kitchendoor_leftarm",
+  "sense-door-state_kdoorl1_kitchendoor",
+  "drive_corridor_kdoorl2_odoor1l2",
+  "sense-door-state_odoor1l2_odoor1",
+  "drive-through-door-untucked-left-arm_corridor_office1_odoor1_odoor1l2_odoor1l1_leftarm",
+  "drive_office1_odoor1l1_desk1l",
+  "sense-table-state_desk1l_desk1",
+  "pickup-object_desk1l_cup1_desk1_rightarm",
+  "arm-to-side_leftarm",
+  "pickup-object_desk1l_cup2_desk1_leftarm",
+  "drive-through-door_office1_corridor_odoor1_odoor1l1_odoor1l2",
+  "sense-table-state_ktablel_kitchentable",
+  "putdown-object_ktablel_cup1_kitchentable_rightarm"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7236842105263158,
+   0.7675438596491228,
+   0.7236842105263158,
+   0.7850877192982456
+  ],
+  [
+   0.7216981132075472,
+   0.7688679245283019,
+   0.7216981132075472,
+   0.7877358490566038
+  ],
+  [
+   0.11486632051506919,
+   0.14161666430565426,
+   0.11486632051506919,
+   0.15487633484063615
+  ],
+  [
+   0.7180851063829787,
+   0.7712765957446809,
+   0.7180851063829787,
+   0.7925531914893618
+  ],
+  [
+   0.7166666666666667,
+   0.7722222222222223,
+   0.7166666666666667,
+   0.7944444444444444
+  ],
+  [
+   0.7115384615384615,
+   0.7756410256410257,
+   0.7115384615384615,
+   0.8012820512820513
+  ],
+  [
+   0.7094594594594595,
+   0.777027027027027,
+   0.7094594594594595,
+   0.8040540540540541
+  ],
+  [
+   0.7071428571428572,
+   0.7785714285714286,
+   0.7071428571428572,
+   0.8071428571428572
+  ],
+  [
+   0.06768471635316667,
+   0.9205101206988789,
+   0.8930998174915958,
+   0.06768471635316667
+  ],
+  [
+   0.10263656848223407,
+   0.7950819672131147,
+   0.6967213114754098,
+   0.17648085959959167
+  ],
+  [
+   0.05885422026701878,
+   0.937280915931068,
+   0.05885422026701878,
+   0.949227408134674
+  ],
+  [
+   0.0838664931532218,
+   0.8295454545454546,
+   0.0838664931532218,
+   0.875
+  ],
+  [
+   0.5892857142857143,
+   0.875,
+   0.5892857142857143,
+   0.9464285714285714
+  ],
+  [
+   0.055275006021304404,
+   0.9845117956063837,
+   0.9349495415468119,
+   0.055275006021304404
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "50",
+ "problem": "tidyup_pltl0_p01_hyp-2_50_2",
+ "time": 133.63552355766296
+}

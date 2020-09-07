@@ -1,0 +1,31 @@
+{
+ "G": [
+  "F((at_package2_city2u2) & X(F(at_package3_city2u1)))",
+  "F((at_package3_city3u2) & X(F(at_package2_city2u1)))",
+  "F((at_package2_city2u2) & X(F(at_package3_city3u1)))",
+  "F((at_package3_city1u2) & X(F(at_package1_city3u1)))"
+ ],
+ "G*": "F((at_package2_city2u2) & X(F(at_package3_city3u1)))",
+ "Obs": [
+  "fly-airplane_plane1_city2u2_city1u2",
+  "load-airplane_package2_plane1_city1u2"
+ ],
+ "P(Obs | G)": [
+  [
+   0.8870889151244259,
+   0.8780560283343801,
+   0.9051546887045179,
+   0.32970036783667617
+  ],
+  [
+   0.900668434788343,
+   0.8817481366527892,
+   0.9195887329238966,
+   0.020696737690925428
+  ]
+ ],
+ "domain": "logistics",
+ "observability": "10",
+ "problem": "logistics_ltl1_p01_hyp-3_10_1",
+ "time": 644.2618255615234
+}

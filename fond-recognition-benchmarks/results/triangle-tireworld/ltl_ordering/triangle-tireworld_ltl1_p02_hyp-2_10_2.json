@@ -1,31 +1,31 @@
 {
  "G": [
   "F((vehicleat_l26) & X(F(vehicleat_l44)))",
-  "F((vehicleat_l44) & X(F(vehicleat_l61)))",
+  "F((vehicleat_l61) & X(F(vehicleat_l62)))",
   "F((vehicleat_l53) & X(F(vehicleat_l52)))",
   "F((vehicleat_l35) & X(F(vehicleat_l26)))"
  ],
  "G*": "F((vehicleat_l61) & X(F(vehicleat_l62)))",
  "Obs": [
-  "move-car_l33_l43",
-  "move-car_l61_l71"
+  "move-car_l35_l44",
+  "move-car_l33_l43"
  ],
  "P(Obs | G)": [
   [
-   0.524560082089025,
-   0.9754399179109751,
-   0.9754399179109751,
-   0.524560082089025
+   0.994587177343316,
+   0.8863307242096351,
+   0.9224162085875287,
+   0.19666588985952016
   ],
   [
-   0.12995149343859222,
-   0.12995149343859222,
-   0.12995149343859222,
-   0.12995149343859222
+   0.05407587719747854,
+   0.9550434436717036,
+   0.9759534698709112,
+   0.05407587719747854
   ]
  ],
  "domain": "triangle-tireworld",
  "observability": "10",
  "problem": "triangle-tireworld_ltl1_p02_hyp-2_10_2",
- "time": 20.87082004547119
+ "time": 21.779922246932983
 }

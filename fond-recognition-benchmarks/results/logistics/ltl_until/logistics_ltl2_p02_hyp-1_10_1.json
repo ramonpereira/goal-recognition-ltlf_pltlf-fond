@@ -1,0 +1,31 @@
+{
+ "G": [
+  "(at_plane1_city2u2 U (at_package2_city2u1))",
+  "(at_plane2_city2u2 U (at_package2_city2u1))",
+  "(at_plane1_city2u2 U (at_package3_city2u1))",
+  "(at_plane2_city2u2 U (at_package3_city2u2))"
+ ],
+ "G*": "(at_plane1_city2u2 U (at_package2_city2u1))",
+ "Obs": [
+  "refuel-airplane_plane2",
+  "unload-truck_package2_truck2_city2u1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.9329106349815407,
+   0.5670893650184593,
+   0.9329106349815407,
+   0.5670893650184593
+  ],
+  [
+   0.9966535745378576,
+   0.9368204217641424,
+   0.04803428021867742,
+   0.04803428021867742
+  ]
+ ],
+ "domain": "logistics",
+ "observability": "10",
+ "problem": "logistics_ltl2_p02_hyp-1_10_1",
+ "time": 283.6593577861786
+}

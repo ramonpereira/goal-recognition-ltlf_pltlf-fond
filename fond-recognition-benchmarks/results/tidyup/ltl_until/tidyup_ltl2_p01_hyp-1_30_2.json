@@ -1,0 +1,87 @@
+{
+ "G": [
+  "F(((on_cup1_desk1) U (wiped_kitchentable)) & X(F(on_cup1_kitchentable)))",
+  "F(((on_cup2_desk1) U (wiped_desk1)) & X(F(on_cup2_kitchentable)))",
+  "F(((on_cup2_kitchentable) U (wiped_desk1)) & X(F(on_cup2_kitchentable)))",
+  "F(((on_cup1_kitchentable) U (wiped_desk1)) & X(F(on_cup1_kitchentable)))"
+ ],
+ "G*": "F(((on_cup1_desk1) U (wiped_kitchentable)) & X(F(on_cup1_kitchentable)))",
+ "Obs": [
+  "drive-through-door-untucked-left-arm_kitchen_corridor_kitchendoor_kdoorl1_kdoorl2_leftarm",
+  "detach-sponge_rightarm",
+  "arm-to-side_leftarm",
+  "drive_corridor_odoor1l2_kdoorl2",
+  "drive-through-door_corridor_kitchen_kitchendoor_kdoorl2_kdoorl1",
+  "drive_kitchen_ktablel_kdoorl1",
+  "drive-through-door_corridor_office1_odoor1_odoor1l2_odoor1l1",
+  "arm-to-side_leftarm",
+  "drive-through-door_office1_corridor_odoor1_odoor1l1_odoor1l2",
+  "drive_kitchen_kdoorl1_ktablel"
+ ],
+ "P(Obs | G)": [
+  [
+   0.706896551724138,
+   0.764367816091954,
+   0.764367816091954,
+   0.764367816091954
+  ],
+  [
+   0.646551724137931,
+   0.7844827586206897,
+   0.7844827586206897,
+   0.7844827586206897
+  ],
+  [
+   0.638888888888889,
+   0.7870370370370371,
+   0.7870370370370371,
+   0.7870370370370371
+  ],
+  [
+   0.43548387096774194,
+   0.8548387096774194,
+   0.8548387096774194,
+   0.8548387096774194
+  ],
+  [
+   0.38888888888888895,
+   0.8703703703703702,
+   0.8703703703703702,
+   0.8703703703703702
+  ],
+  [
+   0.22590137715974876,
+   0.2655385354031302,
+   0.07920412814204626,
+   0.07920412814204626
+  ],
+  [
+   0.9549587689972905,
+   0.09634649882977636,
+   0.09634649882977636,
+   0.09634649882977636
+  ],
+  [
+   0.08095399567411221,
+   0.15540232907712762,
+   0.15540232907712762,
+   0.15540232907712762
+  ],
+  [
+   0.7857142857142857,
+   0.738095238095238,
+   0.738095238095238,
+   0.738095238095238
+  ],
+  [
+   0.023523816062556952,
+   0.8913043478260869,
+   0.8913043478260869,
+   0.8913043478260869
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "30",
+ "problem": "tidyup_ltl2_p01_hyp-1_30_2",
+ "time": 45.18700575828552
+}

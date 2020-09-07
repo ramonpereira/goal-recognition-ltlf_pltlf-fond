@@ -1,0 +1,45 @@
+{
+ "G": [
+  "atbase_ktablel & on_book1_desk1 & (!on_cup2_desk1 S wiped_kitchentable)",
+  "atbase_desk1l & on_book1_desk1 & (!on_cup2_desk1 S wiped_desk1)",
+  "atbase_initlocation & on_book1_desk1 & (!on_cup1_desk1 S wiped_kitchentable)",
+  "atbase_desk1l & on_cup2_kitchentable & (!on_cup2_desk1 S wiped_desk1)"
+ ],
+ "G*": "atbase_initlocation & on_book1_desk1 & (!on_cup1_desk1 S wiped_kitchentable)",
+ "Obs": [
+  "drive-through-door-untucked-left-arm_kitchen_corridor_kitchendoor_kdoorl1_kdoorl2_leftarm",
+  "drive_kitchen_kdoorl1_ktablel",
+  "arm-to-side_leftarm",
+  "drive_office1_odoor1l1_desk1l"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7524271844660194,
+   0.7524271844660194,
+   0.7427184466019416,
+   0.7524271844660194
+  ],
+  [
+   0.75,
+   0.8467741935483871,
+   0.051998058248238596,
+   0.8790322580645161
+  ],
+  [
+   0.12017935611975965,
+   0.1456518316756017,
+   0.7191780821917808,
+   0.1456518316756017
+  ],
+  [
+   0.861111111111111,
+   0.08095399567411221,
+   0.861111111111111,
+   0.08095399567411221
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "10",
+ "problem": "tidyup_pltl1_p02_hyp-3_10_3",
+ "time": 48.24264645576477
+}

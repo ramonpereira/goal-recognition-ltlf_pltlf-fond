@@ -1,0 +1,45 @@
+{
+ "G": [
+  "F(((on_cup2_kitchentable) U (wiped_desk1)) & X(F(on_cup2_desk1)))",
+  "F(((on_cup1_desk1) U (wiped_kitchentable)) & X(F(on_cup1_kitchentable)))",
+  "F(((on_book1_desk1) U (wiped_desk1)) & X(F(on_book1_desk1)))",
+  "F(((on_cup2_kitchentable) U (wiped_desk1)) & X(F(on_cup2_kitchentable)))"
+ ],
+ "G*": "F(((on_cup1_desk1) U (wiped_kitchentable)) & X(F(on_cup1_kitchentable)))",
+ "Obs": [
+  "open-door_odoor1l2_odoor1_leftarm",
+  "arm-to-side_leftarm",
+  "wipe_ktablel_kitchentable_rightarm",
+  "arm-to-side_leftarm"
+ ],
+ "P(Obs | G)": [
+  [
+   0.625,
+   0.625,
+   0.875,
+   0.875
+  ],
+  [
+   0.9105269923236758,
+   0.8942591727461626,
+   0.06884961131983705,
+   0.06884961131983705
+  ],
+  [
+   0.09853267952438385,
+   0.9388494602671338,
+   0.09853267952438385,
+   0.09853267952438385
+  ],
+  [
+   0.33628062099258743,
+   0.29629671305572347,
+   0.06884961131983705,
+   0.06884961131983705
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "10",
+ "problem": "tidyup_ltl2_p02_hyp-2_10_1",
+ "time": 44.171271085739136
+}

@@ -1,0 +1,80 @@
+{
+ "G": [
+  "atbase_initlocation & on_cup1_kitchentable & (!on_book1_kitchentable S wiped_desk1)",
+  "atbase_desk1l & on_cup2_kitchentable & (!on_book1_kitchentable S wiped_desk1)",
+  "atbase_initlocation & on_book1_desk1 & (!on_cup2_kitchentable S wiped_desk1)",
+  "atbase_ktablel & on_book1_desk1 & (!on_cup2_kitchentable S wiped_kitchentable)"
+ ],
+ "G*": "atbase_desk1l & on_cup2_kitchentable & (!on_book1_kitchentable S wiped_desk1)",
+ "Obs": [
+  "sense-door-state_kdoorl1_kitchendoor",
+  "drive-through-door-untucked-left-arm_kitchen_corridor_kitchendoor_kdoorl1_kdoorl2_leftarm",
+  "drive_corridor_kdoorl2_odoor1l2",
+  "arm-to-side_rightarm",
+  "pickup-object_desk1l_cup2_desk1_leftarm",
+  "drive_kitchen_kdoorl1_ktablel",
+  "sense-table-state_ktablel_kitchentable",
+  "putdown-object_ktablel_cup2_kitchentable_leftarm",
+  "drive-through-door-untucked-left-arm_kitchen_corridor_kitchendoor_kdoorl1_kdoorl2_leftarm"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7887931034482758,
+   0.7543103448275863,
+   0.7025862068965517,
+   0.7543103448275863
+  ],
+  [
+   0.7932692307692307,
+   0.7548076923076924,
+   0.6971153846153846,
+   0.7548076923076924
+  ],
+  [
+   0.795,
+   0.7549999999999999,
+   0.6950000000000001,
+   0.7549999999999999
+  ],
+  [
+   0.8283582089552238,
+   0.7686567164179106,
+   0.6791044776119403,
+   0.7238805970149254
+  ],
+  [
+   0.09798712663063258,
+   0.9428256185740149,
+   0.09798712663063258,
+   0.09798712663063258
+  ],
+  [
+   0.35386231311304,
+   0.8214285714285714,
+   0.07844278989345317,
+   0.07844278989345317
+  ],
+  [
+   0.9537037037037037,
+   0.8796296296296297,
+   0.7314814814814815,
+   0.03694336124024093
+  ],
+  [
+   0.093598816351091,
+   0.975889854896137,
+   0.093598816351091,
+   0.093598816351091
+  ],
+  [
+   0.16040003376507234,
+   0.13289740916782394,
+   0.10280852862022465,
+   0.13289740916782394
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "30",
+ "problem": "tidyup_pltl1_p01_hyp-2_30_3",
+ "time": 46.23088192939758
+}

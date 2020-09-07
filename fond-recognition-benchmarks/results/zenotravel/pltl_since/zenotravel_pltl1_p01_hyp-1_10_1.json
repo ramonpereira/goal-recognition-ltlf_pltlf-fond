@@ -1,0 +1,31 @@
+{
+ "G": [
+  "atperson_p0_c3 & (!ataircraft_a0_c6 S atperson_p1_c1)",
+  "atperson_p0_c4 & (!ataircraft_a0_c4 S atperson_p1_c1)",
+  "atperson_p0_c5 & (!ataircraft_a0_c3 S atperson_p1_c4)",
+  "atperson_p0_c5 & (!ataircraft_a0_c1 S atperson_p1_c2)"
+ ],
+ "G*": "atperson_p0_c3 & (!ataircraft_a0_c6 S atperson_p1_c1)",
+ "Obs": [
+  "start-boarding_p0_a0_c1",
+  "start-debarking_p1_a0_c1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.8026315789473684,
+   0.8026315789473684,
+   0.6973684210526315,
+   0.6973684210526315
+  ],
+  [
+   0.9654984567713073,
+   0.9654984567713073,
+   0.05407587719747854,
+   0.05407587719747854
+  ]
+ ],
+ "domain": "zenotravel",
+ "observability": "10",
+ "problem": "zenotravel_pltl1_p01_hyp-1_10_1",
+ "time": 63.84299278259277
+}

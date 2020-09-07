@@ -1,0 +1,80 @@
+{
+ "G": [
+  "atbase_initlocation & on_cup1_kitchentable & (!on_book1_kitchentable S wiped_desk1)",
+  "atbase_desk1l & on_cup2_kitchentable & (!on_book1_kitchentable S wiped_desk1)",
+  "atbase_initlocation & on_book1_desk1 & (!on_cup2_kitchentable S wiped_desk1)",
+  "atbase_ktablel & on_book1_desk1 & (!on_cup2_kitchentable S wiped_kitchentable)"
+ ],
+ "G*": "atbase_initlocation & on_cup1_kitchentable & (!on_book1_kitchentable S wiped_desk1)",
+ "Obs": [
+  "drive_kitchen_initlocation_kdoorl1",
+  "sense-door-state_kdoorl1_kitchendoor",
+  "drive-through-door-untucked-left-arm_kitchen_corridor_kitchendoor_kdoorl1_kdoorl2_leftarm",
+  "open-door_odoor1l2_odoor1_leftarm",
+  "arm-to-side_leftarm",
+  "arm-to-side_rightarm",
+  "drive_office1_desk1l_odoor1l1",
+  "drive-through-door_office1_corridor_odoor1_odoor1l1_odoor1l2",
+  "sense-table-state_ktablel_kitchentable"
+ ],
+ "P(Obs | G)": [
+  [
+   0.8451792267833508,
+   0.8208936152983861,
+   0.7844651980709393,
+   0.5494619598473237
+  ],
+  [
+   0.7887931034482758,
+   0.7543103448275863,
+   0.7025862068965517,
+   0.13258825254987464
+  ],
+  [
+   0.7932692307692307,
+   0.7548076923076924,
+   0.6971153846153846,
+   0.7548076923076924
+  ],
+  [
+   0.7989130434782609,
+   0.7554347826086957,
+   0.6902173913043478,
+   0.7554347826086957
+  ],
+  [
+   0.823943661971831,
+   0.7676056338028169,
+   0.6830985915492958,
+   0.7253521126760563
+  ],
+  [
+   0.8283582089552238,
+   0.7686567164179106,
+   0.6791044776119403,
+   0.7238805970149254
+  ],
+  [
+   0.8255813953488372,
+   0.7325581395348837,
+   0.5465116279069767,
+   0.8953488372093024
+  ],
+  [
+   0.9407510467778167,
+   0.9042901524872425,
+   0.8313683639060939,
+   0.023263754056070913
+  ],
+  [
+   0.9537037037037037,
+   0.8796296296296297,
+   0.7314814814814815,
+   0.03694336124024093
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "30",
+ "problem": "tidyup_pltl1_p01_hyp-1_30_1",
+ "time": 46.98188495635986
+}

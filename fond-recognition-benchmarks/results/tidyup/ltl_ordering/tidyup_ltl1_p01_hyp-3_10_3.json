@@ -1,0 +1,45 @@
+{
+ "G": [
+  "F((on_cup2_kitchentable) & X(F(on_book1_desk1)))",
+  "F((on_cup2_kitchentable) & X(F(on_cup1_kitchentable)))",
+  "F((on_cup1_kitchentable) & X(F(on_book1_desk1)))",
+  "F((on_cup1_kitchentable) & X(F(on_cup2_kitchentable)))"
+ ],
+ "G*": "F((on_cup1_kitchentable) & X(F(on_book1_desk1)))",
+ "Obs": [
+  "drive_office1_odoor1l1_desk1l",
+  "pickup-object_desk1l_cup1_desk1_rightarm",
+  "sense-table-state_ktablel_kitchentable",
+  "drive-untucked-left-arm_kitchen_ktablel_kdoorl1_rightarm"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7171052631578947,
+   0.7828947368421053,
+   0.7171052631578947,
+   0.7828947368421053
+  ],
+  [
+   0.06768471635316667,
+   0.9205101206988789,
+   0.8930998174915958,
+   0.06768471635316667
+  ],
+  [
+   0.07415314861153141,
+   0.8833333333333333,
+   0.6166666666666667,
+   0.2737620861877433
+  ],
+  [
+   0.12995149343859222,
+   0.12995149343859222,
+   0.12995149343859222,
+   0.12995149343859222
+  ]
+ ],
+ "domain": "tidyup",
+ "observability": "10",
+ "problem": "tidyup_ltl1_p01_hyp-3_10_3",
+ "time": 151.94841170310974
+}

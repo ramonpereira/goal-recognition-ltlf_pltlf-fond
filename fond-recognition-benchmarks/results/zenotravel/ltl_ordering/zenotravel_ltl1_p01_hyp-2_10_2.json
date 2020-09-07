@@ -1,0 +1,38 @@
+{
+ "G": [
+  "F((atperson_p0_c6) & X(F((atperson_p1_c3))))",
+  "F((atperson_p1_c3) & X(F((atperson_p0_c6))))",
+  "F((atperson_p0_c3) & X(F((atperson_p1_c2))))",
+  "F((atperson_p0_c5) & X(F((atperson_p1_c4))))"
+ ],
+ "G*": "F((atperson_p0_c3) & X(F((atperson_p1_c2))))",
+ "Obs": [
+  "start-boarding_p1_a1_c6",
+  "start-debarking_p1_a1_c2",
+  "complete-refuling_a0_f0_f1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.8534489723244918,
+   0.49418369797555095,
+   0.8261836648499786,
+   0.8261836648499786
+  ],
+  [
+   0.10070830783069316,
+   0.10070830783069316,
+   0.9232746348213435,
+   0.10070830783069316
+  ],
+  [
+   0.15220841910760863,
+   0.13400688438209082,
+   0.11877920481582863,
+   0.11877920481582863
+  ]
+ ],
+ "domain": "zenotravel",
+ "observability": "10",
+ "problem": "zenotravel_ltl1_p01_hyp-2_10_2",
+ "time": 36.760385513305664
+}

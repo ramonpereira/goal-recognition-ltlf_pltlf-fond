@@ -1,0 +1,38 @@
+{
+ "G": [
+  "F(((on_a_c) U (ontable_f)) & X(F(on_g_f & on_a_g)))",
+  "F(((on_a_c) U (ontable_f)) & X(F(on_a_f & on_c_b)))",
+  "F(((on_e_d) U (ontable_a)) & X(F(on_e_a & on_c_b)))",
+  "F(((on_e_d) U (ontable_a)) & X(F(on_d_a & on_g_f)))"
+ ],
+ "G*": "F(((on_e_d) U (ontable_a)) & X(F(on_e_a & on_c_b)))",
+ "Obs": [
+  "pick-up-from-table_c",
+  "pick-tower_f_e_d",
+  "pick-up-from-table_e"
+ ],
+ "P(Obs | G)": [
+  [
+   0.5194283959828003,
+   0.9902858020086,
+   0.9708574060257995,
+   0.5194283959828003
+  ],
+  [
+   0.0522714654212173,
+   0.0522714654212173,
+   0.9840166900640342,
+   0.5773627422310948
+  ],
+  [
+   0.09138861025567821,
+   0.09138861025567821,
+   0.9933071490757153,
+   0.09138861025567821
+  ]
+ ],
+ "domain": "blocksworld",
+ "observability": "30",
+ "problem": "blocksworld_ltl2_p02_hyp-3_30_3",
+ "time": 292.67174530029297
+}

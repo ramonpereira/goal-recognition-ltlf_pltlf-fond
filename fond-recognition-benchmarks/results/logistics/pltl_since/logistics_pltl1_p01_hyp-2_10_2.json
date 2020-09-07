@@ -1,0 +1,24 @@
+{
+ "G": [
+  "at_truck3_city2u3 & (!at_truck3_city2u1 S at_package3_city2u2)",
+  "at_truck2_city2u1 & (!at_truck2_city2u2 S at_package3_city2u3)",
+  "at_truck2_city2u3 & (!at_truck2_city2u1 S at_package3_city2u2)",
+  "at_truck3_city2u1 & (!at_truck3_city2u2 S at_package3_city2u3)"
+ ],
+ "G*": "at_truck2_city2u1 & (!at_truck2_city2u2 S at_package3_city2u3)",
+ "Obs": [
+  "load-truck_package3_truck2_city2u1"
+ ],
+ "P(Obs | G)": [
+  [
+   0.7307692307692307,
+   0.7307692307692307,
+   0.7307692307692307,
+   0.8076923076923077
+  ]
+ ],
+ "domain": "logistics",
+ "observability": "10",
+ "problem": "logistics_pltl1_p01_hyp-2_10_2",
+ "time": 508.2999927997589
+}

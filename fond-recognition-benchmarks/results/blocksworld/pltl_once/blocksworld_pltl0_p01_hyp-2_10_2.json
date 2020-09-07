@@ -1,0 +1,31 @@
+{
+ "G": [
+  "(ontable_d & on_a_d & O(ontable_f & on_e_f))",
+  "(ontable_f & on_e_f & O(ontable_b & on_c_b))",
+  "(ontable_b & on_c_b & O(ontable_d & on_a_d))",
+  "(ontable_a & on_d_a & O(ontable_e & on_c_e))"
+ ],
+ "G*": "(ontable_f & on_e_f & O(ontable_b & on_c_b))",
+ "Obs": [
+  "pick-up_f_e",
+  "pick-up_e_d"
+ ],
+ "P(Obs | G)": [
+  [
+   0.9570323229961275,
+   0.9539632032101367,
+   0.5445022368968679,
+   0.5445022368968679
+  ],
+  [
+   0.9648367181408755,
+   0.9840166900640342,
+   0.0522714654212173,
+   0.0522714654212173
+  ]
+ ],
+ "domain": "blocksworld",
+ "observability": "10",
+ "problem": "blocksworld_pltl0_p01_hyp-2_10_2",
+ "time": 17.479902505874634
+}

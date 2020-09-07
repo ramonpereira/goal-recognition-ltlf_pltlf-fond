@@ -1,0 +1,59 @@
+{
+ "G": [
+  "F((at_package2_city2u2) & X(F(at_package3_city2u1)))",
+  "F((at_package3_city3u2) & X(F(at_package2_city2u1)))",
+  "F((at_package2_city2u2) & X(F(at_package3_city3u1)))",
+  "F((at_package3_city1u2) & X(F(at_package1_city3u1)))"
+ ],
+ "G*": "F((at_package2_city2u2) & X(F(at_package3_city3u1)))",
+ "Obs": [
+  "load-truck_package3_truck1_city1u1",
+  "drive-truck_truck1_city1u1_city1u2_city1",
+  "fly-airplane_plane1_city1u2_city3u2",
+  "unload-airplane_package3_plane1_city3u2",
+  "drive-truck_truck3_city3u1_city3u2_city3",
+  "load-truck_package3_truck3_city3u2"
+ ],
+ "P(Obs | G)": [
+  [
+   0.706896551724138,
+   0.6896551724137931,
+   0.7413793103448276,
+   0.8620689655172414
+  ],
+  [
+   0.7037037037037037,
+   0.6851851851851852,
+   0.7407407407407407,
+   0.8703703703703702
+  ],
+  [
+   0.09469989203613312,
+   0.09469989203613312,
+   0.9674082716942368,
+   0.09469989203613312
+  ],
+  [
+   0.055873431071924363,
+   0.5069899634566541,
+   0.9599786123494172,
+   0.055873431071924363
+  ],
+  [
+   0.051668464063428995,
+   0.051668464063428995,
+   0.9774793844986452,
+   0.6836390072392018
+  ],
+  [
+   0.09194217168723014,
+   0.09194217168723014,
+   0.9888947987637642,
+   0.09194217168723014
+  ]
+ ],
+ "domain": "logistics",
+ "observability": "30",
+ "problem": "logistics_ltl1_p01_hyp-3_30_3",
+ "time": 580.8072555065155
+}
