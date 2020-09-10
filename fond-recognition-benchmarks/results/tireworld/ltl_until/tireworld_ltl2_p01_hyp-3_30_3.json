@@ -1,0 +1,34 @@
+{
+ "G": [
+  "!(vehicleat_n10) U(vehicleat_n31)",
+  "!(vehicleat_n11) U(vehicleat_n31)",
+  "!(vehicleat_n20) U(vehicleat_n30)"
+ ],
+ "G*": "!(vehicleat_n20) U(vehicleat_n30)",
+ "Obs": [
+  "move-car_n01_n11",
+  "loadtire_n31",
+  "changetire_n31"
+ ],
+ "P(Obs | G)": [
+  [
+   0.9408650411966131,
+   0.14565958811039822,
+   0.9134753706929888
+  ],
+  [
+   0.04871296556641743,
+   0.04871296556641743,
+   0.9859362337089935
+  ],
+  [
+   0.048634849567424365,
+   0.048634849567424365,
+   0.7879618961274122
+  ]
+ ],
+ "domain": "tireworld",
+ "observability": "30",
+ "problem": "tireworld_ltl2_p01_hyp-3_30_3",
+ "time": 5.2954418659210205
+}

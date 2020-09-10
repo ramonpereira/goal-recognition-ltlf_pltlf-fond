@@ -1,0 +1,24 @@
+{
+ "G": [
+  "!(vehicleat_l21) U (vehicleat_l41)",
+  "!(vehicleat_l12) U (vehicleat_l41)",
+  "!(vehicleat_l51) U (vehicleat_l33)",
+  "!(vehicleat_l23) U (vehicleat_l33)"
+ ],
+ "G*": "!(vehicleat_l21) U (vehicleat_l41)",
+ "Obs": [
+  "move-car_l11_l12"
+ ],
+ "P(Obs | G)": [
+  [
+   0.9688116159149197,
+   0.6770627946950268,
+   0.6770627946950268,
+   0.6770627946950268
+  ]
+ ],
+ "domain": "triangle-tireworld",
+ "observability": "10",
+ "problem": "triangle-tireworld_ltl2_p01_hyp-1_10_1",
+ "time": 8.046175003051758
+}
