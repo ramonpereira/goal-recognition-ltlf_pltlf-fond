@@ -76,4 +76,5 @@ def next_action(s):
             if ok:
                 if a not in next_actions:
                     next_actions.append(a)
+                    return next_actions
     return next_actions

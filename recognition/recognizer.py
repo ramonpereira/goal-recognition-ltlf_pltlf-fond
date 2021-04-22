@@ -72,7 +72,12 @@ def recognize(recognition_problem_path, ltl=True, verbose=True):
 
         mapping, _ = translator.translate('output', 'policy.out', 'policy-translated.out')
         G = validator.validate_and_generate_graph(domain, problem, mapping, 'policy-translated.out', 'prp')
+        validator.generate_dot_graph(G)
         all_plans, actions_avg_distance_to_goal = prp_planner.extract_plans_from_graph(G, False)
+        print(goal)
+        print(len(all_plans))
+        print(actions_avg_distance_to_goal)
+        print()
         goal_plans[goal] = actions_avg_distance_to_goal
         goal_all_plans[goal] = all_plans
 
